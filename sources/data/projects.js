@@ -1,162 +1,94 @@
 export default [
     {
-        title: 'Three.js Journey',
-        titleSmall: [ 'Three.js', 'Journey' ],
-        url: 'https://threejs-journey.com',
+        title: 'ArcBider',
+        titleSmall: [ 'Arc', 'Bider' ],
+        url: 'https://github.com/urmillive',
         attributes:
         {
-            role: [ 'developer', 'formater' ],
-            with: [ 'Hervé Studio', 'Bonhomme Paris' ]
+            role: 'Founder / Full-stack',
+            with: 'AI'
         },
-        distinctions: [ 'fwa' ], // 'awwwards', 'fwa', 'cssda'
+        distinctions: [],
         images:
         [
-            'threejs-journey-1.ktx',
-            'threejs-journey-2.ktx',
-            'threejs-journey-3.ktx',
-            'threejs-journey-4.ktx',
-            'threejs-journey-5.ktx',
-        ]
-    },
-    // {
-    //     title: 'Chartogne Taillet',
-    //     titleSmall: [ 'Chartogne', 'Taillet' ],
-    //     url: 'https://chartogne-taillet.com',
-    //     attributes:
-    //     {
-    //         at: 'Immersive Garden',
-    //         role: 'WebGL developer',
-    //         with: 'Rémi Tran'
-    //     },
-    //     distinctions: [ 'awwwards', 'cssda', 'fwa' ], // 'awwwards', 'fwa', 'cssda'
-    //     images:
-    //     [
-    //         'chartogne-taillet-1.ktx',
-    //         'chartogne-taillet-2.ktx',
-    //         'chartogne-taillet-3.ktx',
-    //     ]
-    // },
-    {
-        title: 'Bonhomme | 10 ans',
-        titleSmall: [ 'Bonhomme', '10 ans' ],
-        url: 'https://anniversary.bonhommeparis.com',
-        attributes:
-        {
-            role: 'WebGL developer',
-            with: 'Bonhomme Paris'
-        },
-        distinctions: [ 'awwwards', 'fwa' ],
-        images:
-        [
-            'bonhomme-10-ans-1.ktx',
-            'bonhomme-10-ans-2.ktx',
-            'bonhomme-10-ans-3.ktx',
+            'arcbider-1.ktx',
+            'arcbider-2.ktx',
         ]
     },
     {
-        title: 'Madbox',
-        titleSmall: [ 'Madbox' ],
-        url: 'https://madbox.io',
+        title: 'E-learning Platform',
+        titleSmall: [ 'E-learning', 'Platform' ],
+        url: 'https://github.com/urmillive/Elearning',
         attributes:
         {
-            role: 'WebGL developer',
-            at: 'Hervé Studio',
-            with: 'Lei Xing'
+            role: 'Full-stack developer',
+            with: 'MERN · Tailwind'
         },
-        distinctions: [ 'awwwards' ],
+        distinctions: [],
         images:
         [
-            'madbox-1.ktx',
-            'madbox-2.ktx',
-            'madbox-3.ktx',
+            'elearning-1.ktx',
+            'elearning-2.ktx',
         ]
     },
     {
-        title: 'Luni',
-        titleSmall: [ 'Luni' ],
-        url: 'https://www.luni.app',
+        title: 'VetanPatro',
+        titleSmall: [ 'Vetan', 'Patro' ],
+        url: 'https://github.com/urmillive',
         attributes:
         {
-            role: 'WebGL developer',
-            at: 'Hervé Studio',
-            with: 'Loïc Belaidremesal'
+            role: 'Mobile developer',
+            with: 'React Native'
         },
-        distinctions: [ 'awwwards', 'fwa' ],
+        distinctions: [],
         images:
         [
-            'luni-1.ktx',
-            'luni-2.ktx',
-            'luni-3.ktx',
-            'luni-4.ktx',
+            'vetanpatro-1.ktx',
         ]
     },
     {
-        title: 'Scout',
-        titleSmall: [ 'Scout' ],
-        url: 'https://scout-omega.vercel.app',
+        title: 'Jarvis',
+        titleSmall: [ 'Jarvis', 'Assistant' ],
+        url: 'https://github.com/urmillive/Jarvis',
         attributes:
         {
-            role: 'WebGL developer',
-            at: 'Hervé Studio'
+            role: 'Developer',
+            with: 'Python'
         },
-        distinctions: [  ],
+        distinctions: [],
         images:
         [
-            'scout-1.ktx',
-            'scout-2.ktx',
-            'scout-3.ktx',
+            'jarvis-1.ktx',
         ]
     },
     {
-        title: 'Prior Holdings',
-        titleSmall: [ 'Prio', 'Holdings' ],
-        url: 'https://prior.co.jp/discover/en',
+        title: 'Online Code Editor',
+        titleSmall: [ 'Code', 'Editor' ],
+        url: 'https://github.com/urmillive/Code-Editor-Web',
         attributes:
         {
-            role: [ 'Front developer', 'WebGL developer' ],
-            at: 'Immersive Garden'
+            role: 'Full-stack developer',
+            with: 'Node · JS'
         },
-        distinctions: [ 'awwwards', 'cssda', 'fwa' ],
+        distinctions: [],
         images:
         [
-            'prior-1.ktx',
-            'prior-2.ktx',
-            'prior-3.ktx',
+            'code-editor-1.ktx',
         ]
     },
     {
-        title: 'Orano',
-        titleSmall:  'Orano',
-        url: 'https://www.orano.group/experience/innovation/en',
+        title: 'Chat App',
+        titleSmall: [ 'Chat', 'App' ],
+        url: 'https://github.com/urmillive/chat-app-mern',
         attributes:
         {
-            role: [ 'Front developer', 'WebGL developer' ],
-            at: 'Immersive Garden'
+            role: 'Full-stack developer',
+            with: 'Socket.io · MERN'
         },
-        distinctions: [ 'awwwards', 'cssda', 'fwa' ],
+        distinctions: [],
         images:
         [
-            'orano-1.ktx',
-            'orano-2.ktx',
-            'orano-3.ktx',
+            'chat-app-1.ktx',
         ]
     },
-    {
-        title: 'Citrix / Redbull',
-        titleSmall: ['Citrix', 'Redbull'],
-        url: 'https://thenewmobileworkforce.imm-g-prod.com',
-        attributes:
-        {
-            role: [ 'WebGL developer' ],
-            at: 'Immersive Garden',
-            with: [ 'Damien Doussaud', 'Quentin Leclercq' ]
-        },
-        distinctions: [ 'awwwards', 'cssda', 'fwa' ],
-        images:
-        [
-            'citrix-redbull-1.ktx',
-            'citrix-redbull-2.ktx',
-            'citrix-redbull-3.ktx',
-        ]
-    }
 ]

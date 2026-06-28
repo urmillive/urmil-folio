@@ -1,6 +1,8 @@
 node_modules/
 dist/
 resources/
+docs/screenshots/
+.playwright-mcp/
 .DS_Store
 *.log
 .env*

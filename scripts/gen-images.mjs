@@ -75,14 +75,13 @@ const ACCENTS = {
 
 // ---- Projects ----
 const projects = [
-    [ 'arcbider-1', 'ArcBider', 'Founder · Full-stack · AI', ACCENTS.teal ],
-    [ 'arcbider-2', 'ArcBider', 'AI Proposal Automation', ACCENTS.teal ],
-    [ 'elearning-1', 'E-learning Platform', 'Full-stack · MERN · Tailwind', ACCENTS.blue ],
-    [ 'elearning-2', 'E-learning Platform', 'Courses · Video · Payments', ACCENTS.blue ],
-    [ 'vetanpatro-1', 'VetanPatro', 'Mobile · React Native', ACCENTS.amber ],
-    [ 'jarvis-1', 'Jarvis', 'Voice Assistant · Python', ACCENTS.violet ],
+    [ 'shree-fashion-1', 'Shree Fashion', 'Frontend · React · Vite · MUI', ACCENTS.amber ],
+    [ 'shree-fashion-2', 'Shree Fashion', 'Customer & Admin Storefront', ACCENTS.amber ],
+    [ 'ideabag-1', 'IdeaBag', 'Full-stack · NestJS · AI · Android', ACCENTS.teal ],
+    [ 'govind-1', 'Govind', 'Desktop AI Assistant · JS', ACCENTS.violet ],
+    [ 'job-pilot-1', 'Job Pilot', 'Full-stack · Python · Automation', ACCENTS.green ],
+    [ 'netflix-remote-1', 'Netflix Remote', 'iOS · Swift', ACCENTS.rose ],
     [ 'code-editor-1', 'Online Code Editor', 'Full-stack · Node · JS', ACCENTS.cyan ],
-    [ 'chat-app-1', 'Chat App', 'Realtime · Socket.io · MERN', ACCENTS.rose ],
 ]
 
 // ---- Lab ----

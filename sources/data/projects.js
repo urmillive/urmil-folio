@@ -1,94 +1,93 @@
 export default [
     {
-        title: 'ArcBider',
-        titleSmall: [ 'Arc', 'Bider' ],
-        url: 'https://github.com/urmillive',
+        title: 'Shree Fashion',
+        titleSmall: [ 'Shree', 'Fashion' ],
+        url: 'https://github.com/urmillive/shree-frontend',
         attributes:
         {
-            role: 'Founder / Full-stack',
-            with: 'AI'
+            role: 'Frontend Engineer',
+            with: 'React · Vite · MUI'
         },
         distinctions: [],
         images:
         [
-            'arcbider-1.ktx',
-            'arcbider-2.ktx',
+            'shree-fashion-1.ktx',
+            'shree-fashion-2.ktx',
         ]
     },
     {
-        title: 'E-learning Platform',
-        titleSmall: [ 'E-learning', 'Platform' ],
-        url: 'https://github.com/urmillive/Elearning',
+        title: 'IdeaBag',
+        titleSmall: [ 'Idea', 'Bag' ],
+        url: 'https://github.com/urmillive/ideabag',
         attributes:
         {
-            role: 'Full-stack developer',
-            with: 'MERN · Tailwind'
+            role: 'Full-stack',
+            with: 'NestJS · AI · Android'
         },
         distinctions: [],
         images:
         [
-            'elearning-1.ktx',
-            'elearning-2.ktx',
+            'ideabag-1.ktx',
         ]
     },
     {
-        title: 'VetanPatro',
-        titleSmall: [ 'Vetan', 'Patro' ],
-        url: 'https://github.com/urmillive',
-        attributes:
-        {
-            role: 'Mobile developer',
-            with: 'React Native'
-        },
-        distinctions: [],
-        images:
-        [
-            'vetanpatro-1.ktx',
-        ]
-    },
-    {
-        title: 'Jarvis',
-        titleSmall: [ 'Jarvis', 'Assistant' ],
-        url: 'https://github.com/urmillive/Jarvis',
+        title: 'Govind',
+        titleSmall: [ 'Govind', 'AI' ],
+        url: 'https://github.com/urmillive/Govind',
         attributes:
         {
             role: 'Developer',
-            with: 'Python'
+            with: 'Desktop AI · JS'
         },
         distinctions: [],
         images:
         [
-            'jarvis-1.ktx',
+            'govind-1.ktx',
+        ]
+    },
+    {
+        title: 'Job Pilot',
+        titleSmall: [ 'Job', 'Pilot' ],
+        url: 'https://github.com/urmillive/job-pilot',
+        attributes:
+        {
+            role: 'Full-stack',
+            with: 'Python · Automation'
+        },
+        distinctions: [],
+        images:
+        [
+            'job-pilot-1.ktx',
+        ]
+    },
+    {
+        title: 'Netflix Remote',
+        titleSmall: [ 'Netflix', 'Remote' ],
+        url: 'https://github.com/urmillive/Netflix-Remote',
+        attributes:
+        {
+            role: 'iOS Developer',
+            with: 'Swift · iOS'
+        },
+        distinctions: [],
+        images:
+        [
+            'netflix-remote-1.ktx',
         ]
     },
     {
         title: 'Online Code Editor',
         titleSmall: [ 'Code', 'Editor' ],
-        url: 'https://github.com/urmillive/Code-Editor-Web',
+        url: 'https://github.com/urmillive/E-dit',
         attributes:
         {
-            role: 'Full-stack developer',
+            role: 'Full-stack',
             with: 'Node · JS'
         },
         distinctions: [],
         images:
         [
             'code-editor-1.ktx',
-        ]
-    },
-    {
-        title: 'Chat App',
-        titleSmall: [ 'Chat', 'App' ],
-        url: 'https://github.com/urmillive/chat-app-mern',
-        attributes:
-        {
-            role: 'Full-stack developer',
-            with: 'Socket.io · MERN'
-        },
-        distinctions: [],
-        images:
-        [
-            'chat-app-1.ktx',
         ]
     },
 ]

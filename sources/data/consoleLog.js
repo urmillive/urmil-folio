@@ -45,7 +45,7 @@ const text = `
 ╔═ Devlogs ═════════════╗
 ║ I’ve been making devlogs since the very start of this portfolio
 ║ and you can find them all on my Youtube channel.
-║ https://www.youtube.com/@BrunoSimon
+║ https://www.youtube.com/@urmillive
 ╚═══════════════════════╝
 
 ╔═ Source code ═════════╗

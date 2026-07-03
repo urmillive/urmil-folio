@@ -100,14 +100,82 @@ export const createJourney = (root, audio) => {
     scene.querySelector('.jstick').appendChild(reel)
   })
 
-  /* the movable king — Urmil himself */
+  /* sparkles — pointer trail on the title card */
+  const spawnSpark = (px, py) => {
+    const s = document.createElement('span')
+    s.className = 'spark'
+    s.textContent = '✦'
+    s.style.left = `${px}px`
+    s.style.top = `${py}px`
+    s.style.setProperty('--sx', `${Math.random() * 70 - 35}px`)
+    s.style.setProperty('--sy', `${Math.random() * -60 - 12}px`)
+    document.body.appendChild(s)
+    setTimeout(() => s.remove(), 800)
+  }
+
+  const titleStick = root.querySelector('.jscene--title .jstick')
+  if (titleStick && !reducedMotion) {
+    let lastSpark = 0
+    titleStick.addEventListener(
+      'pointermove',
+      (e) => {
+        const now = performance.now()
+        if (now - lastSpark < 50) return
+        lastSpark = now
+        spawnSpark(e.clientX, e.clientY)
+      },
+      { passive: true }
+    )
+  }
+
+  /* the movable king — drag him into his name to knock it flying */
   const king = root.querySelector('.king')
+  const letters = [...root.querySelectorAll('.tl')]
+  const hintEl = root.querySelector('.title__hint')
   if (king) {
     let dragging = false
     let sx = 0
     let sy = 0
     let x = 0
     let y = 0
+    let knocked = 0
+    let resetTimer = null
+
+    const reassemble = () => {
+      letters.forEach((l) => l.classList.remove('tl--hit'))
+      knocked = 0
+      sfx.chime()
+      if (hintEl) {
+        hintEl.textContent =
+          'knocked down five times — reassembled in one. that’s the whole résumé.'
+        hintEl.classList.add('title__hint--accent')
+      }
+    }
+
+    const tryKnock = () => {
+      const kr = king.getBoundingClientRect()
+      letters.forEach((letter) => {
+        if (letter.classList.contains('tl--hit')) return
+        const r = letter.getBoundingClientRect()
+        const hit = !(
+          kr.right < r.left + 12 ||
+          kr.left > r.right - 12 ||
+          kr.bottom < r.top + 12 ||
+          kr.top > r.bottom - 12
+        )
+        if (!hit) return
+        letter.classList.add('tl--hit')
+        letter.style.setProperty('--dx', `${Math.random() * 180 - 90}px`)
+        letter.style.setProperty('--dy', `${Math.random() * -130 - 30}px`)
+        letter.style.setProperty('--rot', `${Math.random() * 56 - 28}deg`)
+        sfx.check()
+        knocked += 1
+        for (let i = 0; i < 6; i += 1) spawnSpark(r.x + r.width / 2, r.y + r.height / 2)
+        clearTimeout(resetTimer)
+        resetTimer = setTimeout(reassemble, knocked >= letters.length ? 800 : 1700)
+      })
+    }
+
     king.addEventListener('pointerdown', (e) => {
       dragging = true
       king.classList.add('king--drag')
@@ -122,6 +190,7 @@ export const createJourney = (root, audio) => {
       y = e.clientY - sy
       const tilt = Math.max(-14, Math.min(14, x * 0.04))
       king.style.transform = `translate(${x}px, ${y}px) rotate(${tilt}deg)`
+      tryKnock()
     })
     const drop = () => {
       if (!dragging) return

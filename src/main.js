@@ -7,8 +7,10 @@ import './css/board.css'
 import './css/stage.css'
 import './css/chat.css'
 import './css/sections.css'
+import './css/archive.css'
 import { createJourney } from './journey/journey.js'
 import { createAudio } from './journey/audio.js'
+import { createArchive } from './archive/archive.js'
 import { createStage } from './exp/stage.js'
 import { createTwinDock } from './twin/chat.js'
 
@@ -115,6 +117,11 @@ openTwin = createTwinDock({
 
 document.querySelectorAll('.jn-twin').forEach((btn) =>
   btn.addEventListener('click', () => openTwin())
+)
+
+const openArchive = createArchive(document.getElementById('archive'))
+document.querySelectorAll('.jn-archive').forEach((btn) =>
+  btn.addEventListener('click', () => openArchive())
 )
 
 /* ---- console easter egg ---- */

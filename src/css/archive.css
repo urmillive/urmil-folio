@@ -1,0 +1,203 @@
+/* ============ The Archive — project explorer overlay ============ */
+.arch[hidden] {
+  display: none;
+}
+
+.arch {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  overflow-y: auto;
+  background: var(--paper);
+}
+
+.arch__inner {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: clamp(1.4rem, 4vh, 3rem) var(--pad) 3rem;
+}
+
+.arch__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1.5px solid var(--line);
+  padding-bottom: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.arch__title {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 540;
+  font-variation-settings: 'opsz' 90;
+  line-height: 1;
+}
+
+.arch__sub {
+  color: var(--muted);
+  margin-top: 0.5rem;
+  text-transform: none;
+}
+
+.arch__close {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  background: none;
+  border: 1.5px solid var(--line-soft);
+  color: var(--ink-soft);
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+.arch__close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.arch__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.arch__chip {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: none;
+  border: 1.5px solid var(--line-soft);
+  color: var(--ink-soft);
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.arch__chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.arch__chip--on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.arch__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.arch__row {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) auto 1.2rem;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.95rem 0.4rem;
+  border-bottom: 1px solid var(--line-soft);
+  text-decoration: none;
+  transition: padding-left 0.25s ease;
+}
+
+.arch__list li:first-child .arch__row {
+  border-top: 1px solid var(--line-soft);
+}
+
+.arch__name {
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+  font-weight: 540;
+}
+
+.arch__live {
+  color: var(--accent);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.arch__desc {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.arch__tech {
+  color: var(--muted);
+  text-transform: none;
+}
+
+.arch__arrow {
+  color: var(--muted);
+  justify-self: end;
+  transition: translate 0.25s ease, color 0.25s ease;
+}
+
+@media (hover: hover) {
+  .arch__row:hover {
+    padding-left: 1rem;
+  }
+
+  .arch__row:hover .arch__name {
+    color: var(--accent);
+  }
+
+  .arch__row:hover .arch__arrow {
+    color: var(--accent);
+    translate: 3px -3px;
+  }
+}
+
+.arch__count {
+  margin-top: 1.2rem;
+  color: var(--muted);
+  text-transform: none;
+}
+
+@media (max-width: 720px) {
+  .arch__row {
+    grid-template-columns: minmax(0, 1fr) 1.2rem;
+    grid-template-areas:
+      'name arrow'
+      'desc arrow'
+      'tech arrow';
+    row-gap: 0.25rem;
+  }
+
+  .arch__name {
+    grid-area: name;
+  }
+
+  .arch__desc {
+    grid-area: desc;
+  }
+
+  .arch__tech {
+    grid-area: tech;
+  }
+
+  .arch__arrow {
+    grid-area: arrow;
+    align-self: start;
+  }
+}
+
+/* positions section CTA + live badge */
+.pos__cta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1.6rem;
+}
+
+.pos__live {
+  color: var(--accent);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}

@@ -37,9 +37,9 @@
           <div class="jstick">
             <div class="title">
               <img class="king" src="/pieces/klt.svg" alt="A white chess king — this is Urmil, drag him around" draggable="false" />
-              <h1 class="title__name">URMIL</h1>
-              <p class="title__sub mono">Rupareliya — full-stack engineer · systems &gt; syntax · Ahmedabad, IN</p>
-              <p class="title__hint mono">↑ that king is urmil. he’s movable — try him. (so is his stack.)</p>
+              <h1 class="title__name" aria-label="URMIL"><span class="tl">U</span><span class="tl">R</span><span class="tl">M</span><span class="tl">I</span><span class="tl">L</span></h1>
+              <p class="title__sub mono">full-stack engineer · systems &gt; syntax · Ahmedabad, IN</p>
+              <p class="title__hint mono">↑ that king is urmil — drag him into his name and see what happens.</p>
               <div class="persona mono" role="group" aria-label="Who is watching?">
                 <span class="persona__q">watching as:</span>
                 <button type="button" class="persona__chip" data-persona="recruiter">recruiter</button>
@@ -367,11 +367,11 @@
 
         <ul class="pos" role="list">
           <li class="reveal">
-            <a class="pos__row" href="https://github.com/urmillive/shree-frontend" target="_blank" rel="noopener">
+            <a class="pos__row" href="https://github.com/urmillive/VetanPatro" target="_blank" rel="noopener">
               <span class="pos__sq mono">b1</span>
-              <span class="pos__name">Shree Fashion</span>
-              <span class="pos__desc">Fashion e-commerce — customer &amp; admin storefronts</span>
-              <span class="pos__tech mono">React · Vite · MUI</span>
+              <span class="pos__name">VetanPatro <span class="pos__live mono">● live</span></span>
+              <span class="pos__desc">Salary &amp; payslip manager — one of 11 apps live on the Play Store</span>
+              <span class="pos__tech mono">React Native · Android</span>
               <span class="pos__arrow" aria-hidden="true">↗</span>
             </a>
           </li>
@@ -379,51 +379,34 @@
             <a class="pos__row" href="https://github.com/urmillive/ideabag" target="_blank" rel="noopener">
               <span class="pos__sq mono">c3</span>
               <span class="pos__name">IdeaBag</span>
-              <span class="pos__desc">Daily AI business-idea catalog — Android app + API</span>
+              <span class="pos__desc">Daily AI business-idea catalog — Android app + NestJS + Claude API</span>
               <span class="pos__tech mono">NestJS · Claude · Android</span>
               <span class="pos__arrow" aria-hidden="true">↗</span>
             </a>
           </li>
           <li class="reveal">
-            <a class="pos__row" href="https://github.com/urmillive/Govind" target="_blank" rel="noopener">
+            <a class="pos__row" href="https://github.com/urmillive/shree-frontend" target="_blank" rel="noopener">
               <span class="pos__sq mono">e4</span>
+              <span class="pos__name">Shree Fashion</span>
+              <span class="pos__desc">Fashion e-commerce — customer &amp; admin storefronts, real client work</span>
+              <span class="pos__tech mono">React · Vite · MUI</span>
+              <span class="pos__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="pos__row" href="https://github.com/urmillive/Govind" target="_blank" rel="noopener">
+              <span class="pos__sq mono">f6</span>
               <span class="pos__name">Govind</span>
               <span class="pos__desc">Desktop AI assistant that lives on your machine</span>
               <span class="pos__tech mono">Desktop · AI · JS</span>
               <span class="pos__arrow" aria-hidden="true">↗</span>
             </a>
           </li>
-          <li class="reveal">
-            <a class="pos__row" href="https://github.com/urmillive/job-pilot" target="_blank" rel="noopener">
-              <span class="pos__sq mono">f6</span>
-              <span class="pos__name">Job Pilot</span>
-              <span class="pos__desc">Job-application automation on autopilot</span>
-              <span class="pos__tech mono">Python · Automation</span>
-              <span class="pos__arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li class="reveal">
-            <a class="pos__row" href="https://github.com/urmillive/Netflix-Remote" target="_blank" rel="noopener">
-              <span class="pos__sq mono">g8</span>
-              <span class="pos__name">Netflix Remote</span>
-              <span class="pos__desc">An iOS remote control for Netflix</span>
-              <span class="pos__tech mono">Swift · iOS</span>
-              <span class="pos__arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li class="reveal">
-            <a class="pos__row" href="https://github.com/urmillive/E-dit" target="_blank" rel="noopener">
-              <span class="pos__sq mono">h6</span>
-              <span class="pos__name">E-dit</span>
-              <span class="pos__desc">A code editor that runs in the browser</span>
-              <span class="pos__tech mono">Node · JavaScript</span>
-              <span class="pos__arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
         </ul>
-        <p class="pos__more mono reveal">
-          + 243 more on <a href="https://github.com/urmillive" target="_blank" rel="noopener">github.com/urmillive</a>
-        </p>
+        <div class="pos__cta reveal">
+          <button type="button" class="btn-accent jn-archive">explore the full archive →</button>
+          <span class="pos__more mono">live apps · ai &amp; saas · web · open source — by category</span>
+        </div>
       </section>
 
       <!-- ============ 04 ARSENAL ============ -->
@@ -478,6 +461,21 @@
         </ul>
       </section>
     </main>
+
+    <section class="arch" id="archive" hidden aria-label="The Archive — all projects by category">
+      <div class="arch__inner">
+        <header class="arch__head">
+          <div>
+            <h2 class="arch__title">The Archive</h2>
+            <p class="arch__sub mono">every position that matters — filtered, not dumped</p>
+          </div>
+          <button type="button" class="arch__close mono">close ✕</button>
+        </header>
+        <div class="arch__chips" role="group" aria-label="Filter by category"></div>
+        <ul class="arch__list" role="list"></ul>
+        <p class="arch__count mono" aria-live="polite"></p>
+      </div>
+    </section>
 
     <aside class="twin" id="twin" hidden aria-label="Chat with Urmil's AI twin">
       <header class="twin__head">

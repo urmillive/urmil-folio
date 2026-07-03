@@ -1,6 +1,8 @@
 /* "Ask my AI twin" — Claude-powered chat dock (server proxy at /api/twin).
    All message rendering uses textContent — user/API strings never touch innerHTML. */
 
+import { PERSONAS, getPersona } from '../journey/personas.js'
+
 const API_URL = '/api/twin'
 const MAX_HISTORY = 16
 
@@ -68,7 +70,10 @@ export const createTwinDock = ({ dockEl }) => {
       const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY) }),
+        body: JSON.stringify({
+          messages: history.slice(-MAX_HISTORY),
+          persona: getPersona(),
+        }),
       })
       if (!res.ok) throw new Error(`twin ${res.status}`)
       const data = await res.json()
@@ -89,9 +94,11 @@ export const createTwinDock = ({ dockEl }) => {
     dockEl.hidden = false
     requestAnimationFrame(() => dockEl.classList.add('twin--open'))
     if (!messagesEl.children.length) {
+      const persona = PERSONAS[getPersona()]
       addBubble(
         'twin',
-        "Hi — I'm Urmil's AI twin, built on his real career data. Ask me anything… or paste a job description and I'll tell you honestly how he fits it."
+        persona?.twinGreeting ||
+          "Hi — I'm Urmil's AI twin, built on his real career data. Ask me anything… or paste a job description and I'll tell you honestly how he fits it."
       )
     }
     input.focus()

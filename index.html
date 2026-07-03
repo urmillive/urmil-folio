@@ -23,12 +23,35 @@
         <a href="#positions">Positions</a>
         <a href="#endgame">Endgame</a>
       </nav>
-      <span class="topbar__loc mono">23.03°N&thinsp;/&thinsp;72.58°E</span>
+      <span class="topbar__right">
+        <button type="button" class="topbar__snd mono" id="snd-toggle" aria-pressed="false">sound&nbsp;○</button>
+        <button type="button" class="topbar__hire mono jn-twin">hiring?</button>
+      </span>
     </header>
 
     <main>
       <!-- ============ THE JOURNEY — scroll through his decade ============ -->
       <div id="journey">
+        <!-- TITLE CARD -->
+        <section class="jscene jscene--short jscene--title" data-scene="title">
+          <div class="jstick">
+            <div class="title">
+              <img class="king" src="/pieces/klt.svg" alt="A white chess king — this is Urmil, drag him around" draggable="false" />
+              <h1 class="title__name">URMIL</h1>
+              <p class="title__sub mono">Rupareliya — full-stack engineer · systems &gt; syntax · Ahmedabad, IN</p>
+              <p class="title__hint mono">↑ that king is urmil. he’s movable — try him. (so is his stack.)</p>
+              <div class="persona mono" role="group" aria-label="Who is watching?">
+                <span class="persona__q">watching as:</span>
+                <button type="button" class="persona__chip" data-persona="recruiter">recruiter</button>
+                <button type="button" class="persona__chip" data-persona="founder">founder / ceo</button>
+                <button type="button" class="persona__chip" data-persona="engineer">engineer</button>
+              </div>
+              <p class="persona__ack mono" aria-live="polite"></p>
+            </div>
+            <p class="jhint mono" aria-hidden="true">the film starts below ↓</p>
+          </div>
+        </section>
+
         <!-- 2015 · BOOT -->
         <section class="jscene jscene--dark" data-scene="boot">
           <div class="jstick">
@@ -36,7 +59,7 @@
             <div class="jhead">
               <span class="jtag mono">2015 · rajkot · it begins</span>
               <h2>One school computer.<br />One blinking cursor.</h2>
-              <p class="jsub mono">The story of <strong>Urmil Rupareliya</strong>, full-stack engineer — told the way it happened. Scroll.</p>
+              <p class="jsub mono">Where the story starts — told the way it happened. Keep scrolling.</p>
             </div>
             <div class="jprop crt" aria-hidden="true">
               <p class="crt__line"></p>
@@ -44,7 +67,7 @@
               <p class="crt__line"></p>
               <span class="crt__cursor"></span>
             </div>
-            <p class="jhint mono" aria-hidden="true">scroll ↓</p>
+            <p class="jhint mono" aria-hidden="true">best with sound — tap “sound” up top · scroll ↓</p>
           </div>
         </section>
 
@@ -148,6 +171,16 @@
                 <button type="button" class="btn-ghost jn-free">play me for real</button>
                 <a href="#opening" class="btn-ghost">resume ↓</a>
               </div>
+
+              <aside class="recruit" aria-label="Recruiter shortcut">
+                <p class="recruit__head mono">hiring? the 60-second version</p>
+                <ol class="recruit__steps mono">
+                  <li><button type="button" class="recruit__link jn-twin">Paste your JD into my AI twin</button> — it returns an honest fit report: matched strengths, one real gap, a verdict.</li>
+                  <li><a class="recruit__link" href="https://topmate.io/urmillive" target="_blank" rel="noopener">Book 15 minutes on Topmate</a> — talk to the human version.</li>
+                  <li><a class="recruit__link" href="mailto:urmillive@gmail.com">urmillive@gmail.com</a> — he replies fast. Shipping fast is the brand.</li>
+                </ol>
+                <p class="recruit__proof mono">proof, all public: <a href="https://github.com/urmillive" target="_blank" rel="noopener">249 open-source repos</a> · 11 Play Store apps · AI SaaS in production</p>
+              </aside>
             </div>
           </div>
         </section>

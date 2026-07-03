@@ -126,6 +126,123 @@
   }
 }
 
+/* ---- title card ---- */
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.title__name {
+  font-size: clamp(5rem, 24vw, 17rem);
+  line-height: 0.9;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'opsz' 144;
+  opacity: 0;
+  translate: 0 30px;
+  transition: opacity 0.9s ease 0.15s, translate 0.9s cubic-bezier(0.16, 0.8, 0.24, 1) 0.15s;
+}
+
+.jscene--active .title__name {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.title__sub {
+  color: var(--ink-soft);
+  margin-top: 1rem;
+}
+
+.title__hint {
+  color: var(--muted);
+  margin-top: 0.5rem;
+  text-transform: none;
+}
+
+.king {
+  width: clamp(4.5rem, 15vw, 8.5rem);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  margin-bottom: -0.5rem;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(4px 6px 0 color-mix(in srgb, var(--ink) 18%, transparent));
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.35);
+  will-change: transform;
+}
+
+.king--drag {
+  cursor: grabbing;
+  transition: none;
+  scale: 1.07;
+}
+
+.persona {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+}
+
+.persona__q {
+  color: var(--muted);
+}
+
+.persona__chip {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  background: none;
+  border: 1.5px solid var(--line-soft);
+  color: var(--ink-soft);
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.persona__chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.persona__chip--on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+.persona__ack {
+  min-height: 1.5em;
+  margin-top: 0.8rem;
+  color: var(--accent);
+  text-transform: none;
+  max-width: 46ch;
+}
+
+/* ---- film details ---- */
+.jreel {
+  position: absolute;
+  top: calc(var(--pad) + 3.4rem);
+  left: var(--pad);
+  color: inherit;
+  opacity: 0.4;
+}
+
+.jscene--dark .jstick::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 16vmin rgba(0, 0, 0, 0.7);
+}
+
 /* ---- scene: boot (CRT) ---- */
 .crt {
   background: #050805;
@@ -441,6 +558,57 @@
 .aichat__cta--in {
   opacity: 1;
   translate: 0 0;
+}
+
+/* ---- recruiter shortcut ---- */
+.recruit {
+  margin-top: 1.6rem;
+  border: 1.5px solid var(--accent);
+  padding: 1.3rem 1.4rem;
+  max-width: 40rem;
+  background: color-mix(in srgb, var(--accent) 4%, var(--paper));
+}
+
+.recruit__head {
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+
+.recruit__steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.7rem;
+  text-transform: none;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.recruit__link {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.recruit__link:hover {
+  color: var(--accent);
+}
+
+.recruit__proof {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  text-transform: none;
+}
+
+.recruit__proof a {
+  color: var(--ink-soft);
 }
 
 /* ---- finale scene ---- */

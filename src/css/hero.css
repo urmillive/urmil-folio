@@ -27,12 +27,41 @@
   color: var(--accent);
 }
 
-.topbar__loc {
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.topbar__snd,
+.topbar__hire {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
   color: var(--muted);
+  padding: 0;
+}
+
+.topbar__snd:hover {
+  color: var(--ink);
+}
+
+.topbar__hire {
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  padding: 0.35rem 0.7rem;
+}
+
+.topbar__hire:hover {
+  background: var(--accent);
+  color: var(--paper);
 }
 
 @media (max-width: 640px) {
-  .topbar__loc {
+  .topbar__nav {
     display: none;
   }
 }

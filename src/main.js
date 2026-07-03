@@ -8,6 +8,7 @@ import './css/stage.css'
 import './css/chat.css'
 import './css/sections.css'
 import { createJourney } from './journey/journey.js'
+import { createAudio } from './journey/audio.js'
 import { createStage } from './exp/stage.js'
 import { createTwinDock } from './twin/chat.js'
 
@@ -84,7 +85,15 @@ const stage = createStage(expRoot, {
 
 expRoot.querySelector('.exp__back').addEventListener('click', closeOverlay)
 
-createJourney(document.getElementById('journey'))
+const audio = createAudio()
+const sndBtn = document.getElementById('snd-toggle')
+sndBtn.addEventListener('click', () => {
+  const on = audio.toggle()
+  sndBtn.textContent = on ? 'sound ●' : 'sound ○'
+  sndBtn.setAttribute('aria-pressed', String(on))
+})
+
+createJourney(document.getElementById('journey'), audio)
 
 document.querySelectorAll('.jn-chess').forEach((btn) =>
   btn.addEventListener('click', () => {

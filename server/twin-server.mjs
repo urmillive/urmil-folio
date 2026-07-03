@@ -59,8 +59,11 @@ const server = http.createServer(async (req, res) => {
   })
   req.on('end', async () => {
     try {
-      const { messages } = JSON.parse(body)
+      const { messages, persona } = JSON.parse(body)
       if (!Array.isArray(messages) || !messages.length) throw new Error('bad input')
+      const personaNote = ['recruiter', 'founder', 'engineer'].includes(persona)
+        ? `\n\nThe current visitor identified themselves as a ${persona} — address them as one and tailor the pitch accordingly.`
+        : ''
       const clean = messages
         .slice(-MAX_MSGS)
         .filter((m) => (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
@@ -77,7 +80,7 @@ const server = http.createServer(async (req, res) => {
         body: JSON.stringify({
           model: MODEL,
           max_tokens: 600,
-          system: SYSTEM,
+          system: SYSTEM + personaNote,
           messages: clean,
         }),
       })

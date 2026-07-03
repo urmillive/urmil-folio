@@ -232,6 +232,56 @@ export const createJourney = (root, audio) => {
   )
   scenes.forEach((s) => io.observe(s))
 
+  /* the king travels with you through the story */
+  if (!reducedMotion) {
+    const comp = document.createElement('img')
+    comp.src = '/pieces/klt.svg'
+    comp.alt = ''
+    comp.className = 'companion'
+    comp.setAttribute('aria-hidden', 'true')
+    document.body.appendChild(comp)
+
+    const WAYPOINTS = [
+      { x: 85, y: 76 },
+      { x: 10, y: 70 },
+      { x: 86, y: 72 },
+      { x: 9, y: 75 },
+      { x: 85, y: 68 },
+      { x: 14, y: 80 },
+    ]
+    const sceneEls = [...scenes]
+
+    const updateCompanion = () => {
+      const vh = window.innerHeight
+      const startY = sceneEls[1].offsetTop - vh * 0.55
+      const endY = sceneEls[sceneEls.length - 1].offsetTop
+      const journeyBottom = root.offsetTop + root.offsetHeight
+      const visible = window.scrollY >= startY && window.scrollY < journeyBottom - vh * 0.6
+      comp.classList.toggle('companion--on', visible)
+      if (!visible) return
+      const t = Math.min(1, Math.max(0, (window.scrollY - startY) / (endY - startY)))
+      const seg = t * (WAYPOINTS.length - 1)
+      const i = Math.min(WAYPOINTS.length - 2, Math.floor(seg))
+      const f = seg - i
+      const wx = WAYPOINTS[i].x + (WAYPOINTS[i + 1].x - WAYPOINTS[i].x) * f
+      const wy = WAYPOINTS[i].y + (WAYPOINTS[i + 1].y - WAYPOINTS[i].y) * f
+      comp.style.left = `${wx}vw`
+      comp.style.top = `${wy}svh`
+    }
+    window.addEventListener('scroll', () => requestAnimationFrame(updateCompanion), {
+      passive: true,
+    })
+    updateCompanion()
+
+    comp.addEventListener('click', () => {
+      comp.classList.add('companion--hop')
+      setTimeout(() => comp.classList.remove('companion--hop'), 550)
+      const r = comp.getBoundingClientRect()
+      for (let i = 0; i < 8; i += 1) spawnSpark(r.x + r.width / 2, r.y + r.height / 3)
+      sfx.check()
+    })
+  }
+
   /* scroll scrub: giant era numeral drifts as you pass through */
   if (!reducedMotion) {
     let ticking = false

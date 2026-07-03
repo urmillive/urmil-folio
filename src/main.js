@@ -1,5 +1,6 @@
 import '@fontsource-variable/fraunces'
 import '@fontsource/ibm-plex-mono/400.css'
+import '@fontsource/caveat/600.css'
 import './css/base.css'
 import './css/hero.css'
 import './css/journey.css'

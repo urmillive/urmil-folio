@@ -262,6 +262,161 @@
   max-width: 46ch;
 }
 
+/* ---- decor: mandalas, clouds, night sky, story icons ---- */
+.mandala {
+  position: absolute;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.mandala g {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.mandala g circle[r='1.6'] {
+  fill: currentColor;
+  stroke: none;
+}
+
+.mandala--corner {
+  width: clamp(6rem, 14vw, 10rem);
+  top: calc(var(--pad) + 2.6rem);
+  right: calc(var(--pad) * -0.4);
+  opacity: 0.18;
+  animation: mandalaspin 90s linear infinite;
+}
+
+.mandala--corner-left {
+  right: auto;
+  left: calc(var(--pad) * -0.4);
+  top: auto;
+  bottom: 6svh;
+  animation-direction: reverse;
+}
+
+.mandala--big {
+  width: min(88vw, 34rem);
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  opacity: 0.07;
+  animation: mandalaspin 160s linear infinite;
+}
+
+@keyframes mandalaspin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.cloud {
+  position: absolute;
+  left: -12vw;
+  width: clamp(4.5rem, 10vw, 7rem);
+  color: var(--muted);
+  opacity: 0.5;
+  pointer-events: none;
+  animation: clouddrift linear infinite;
+}
+
+.cloud path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+@keyframes clouddrift {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 118vw 0;
+  }
+}
+
+.nightsky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.moon {
+  position: absolute;
+  top: 9%;
+  right: 8%;
+  width: clamp(2.2rem, 5vw, 3.2rem);
+  color: #efe9dc;
+  opacity: 0.5;
+}
+
+.moon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.star {
+  position: absolute;
+  color: #efe9dc;
+  font-size: 0.6rem;
+  opacity: 0.35;
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 0.85;
+    scale: 1.25;
+  }
+}
+
+.scene-icon {
+  width: clamp(3rem, 7vw, 4.2rem);
+  margin-inline: auto;
+  margin-bottom: 0.9rem;
+  color: var(--accent);
+  display: block;
+}
+
+.scene-icon path,
+.scene-icon rect,
+.scene-icon circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+}
+
+.jscene--active .scene-icon path,
+.jscene--active .scene-icon rect,
+.jscene--active .scene-icon circle {
+  animation: drawon 1.3s ease 0.35s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud,
+  .mandala--corner,
+  .mandala--big,
+  .star {
+    animation: none;
+  }
+
+  .scene-icon path,
+  .scene-icon rect,
+  .scene-icon circle {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
 /* ---- doodles — the human hand ---- */
 .doodle {
   font-family: 'Caveat', cursive;

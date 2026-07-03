@@ -9,7 +9,6 @@ export const CATEGORIES = [
 
 export const PROJECTS = [
   /* ---- live on play store ---- */
-  { name: 'VetanPatro', cat: 'live on play store', live: true, desc: 'Salary & payslip manager for Indian employees', tech: 'React Native · Android', url: 'https://github.com/urmillive/VetanPatro' },
   { name: 'SplitDost', cat: 'live on play store', live: true, desc: 'Split expenses with friends, the desi way', tech: 'React Native · Android', url: 'https://github.com/urmillive/SplitDost' },
   { name: 'TarotTara', cat: 'live on play store', live: true, desc: 'Tarot readings in your pocket', tech: 'React Native · Android', url: 'https://github.com/urmillive/TarotTara' },
   { name: 'MuhurtMitr', cat: 'live on play store', live: true, desc: 'Auspicious-time finder for every occasion', tech: 'React Native · Android', url: 'https://github.com/urmillive/MuhurtMitr' },
@@ -21,13 +20,10 @@ export const PROJECTS = [
   { name: 'ParkYaad', cat: 'live on play store', live: true, desc: 'Never forget where you parked again', tech: 'React Native · Android', url: 'https://github.com/urmillive/ParkYaad' },
 
   /* ---- ai & saas ---- */
-  { name: 'IdeaBag', cat: 'ai & saas', desc: 'Daily AI business-idea catalog — Android app + NestJS API', tech: 'NestJS · Claude · Android', url: 'https://github.com/urmillive/ideabag' },
-  { name: 'Govind', cat: 'ai & saas', desc: 'Desktop AI assistant that lives on your machine', tech: 'Desktop · AI · JS', url: 'https://github.com/urmillive/Govind' },
   { name: 'Jarvis 2.0', cat: 'ai & saas', desc: 'Python NLP voice assistant with GUI — where it all started', tech: 'Python · NLP', url: 'https://github.com/urmillive/Jarvis' },
   { name: 'Job Pilot', cat: 'ai & saas', desc: 'Job-application automation on autopilot', tech: 'Python · Automation', url: 'https://github.com/urmillive/job-pilot' },
 
   /* ---- web & full-stack ---- */
-  { name: 'Shree Fashion', cat: 'web & full-stack', desc: 'Fashion e-commerce — customer & admin storefronts', tech: 'React · Vite · MUI', url: 'https://github.com/urmillive/shree-frontend' },
   { name: 'E-dit', cat: 'web & full-stack', desc: 'A code editor that runs in the browser', tech: 'Node · JavaScript', url: 'https://github.com/urmillive/E-dit' },
   { name: 'Elearning Platform', cat: 'web & full-stack', desc: 'Course delivery, end to end', tech: 'JavaScript · Node', url: 'https://github.com/urmillive/Elearning' },
   { name: 'Netflix Remote', cat: 'web & full-stack', desc: 'An iOS remote control for Netflix', tech: 'Swift · iOS', url: 'https://github.com/urmillive/Netflix-Remote' },

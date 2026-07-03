@@ -10,6 +10,7 @@ import './css/chat.css'
 import './css/sections.css'
 import './css/archive.css'
 import { createJourney } from './journey/journey.js'
+import { decorate } from './journey/decor.js'
 import { createAudio } from './journey/audio.js'
 import { createArchive } from './archive/archive.js'
 import { createStage } from './exp/stage.js'
@@ -96,6 +97,7 @@ sndBtn.addEventListener('click', () => {
   sndBtn.setAttribute('aria-pressed', String(on))
 })
 
+decorate(document.getElementById('journey'))
 createJourney(document.getElementById('journey'), audio)
 
 document.querySelectorAll('.jn-chess').forEach((btn) =>

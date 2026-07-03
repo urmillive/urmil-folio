@@ -1,45 +1,4 @@
-/* ============ Chess hero layout ============ */
-.hero--game {
-  justify-content: center;
-  gap: clamp(1.2rem, 3vh, 2.5rem);
-}
-
-.hero__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
-  gap: clamp(1.5rem, 4vw, 4.5rem);
-  align-items: center;
-}
-
-.hero--game .hero__name {
-  font-size: clamp(2.4rem, 6.2vw, 5.6rem);
-}
-
-.hero--game .hero__line--indent {
-  margin-left: clamp(0.6rem, 2.5vw, 2.4rem);
-}
-
-.hero__tag {
-  margin-top: 1rem;
-}
-
-.hero__pitch {
-  margin-top: 1.4rem;
-  color: var(--ink-soft);
-  text-transform: none;
-  max-width: 44ch;
-  line-height: 1.7;
-  border-left: 1.5px solid var(--accent);
-  padding-left: 1rem;
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1.6rem;
-}
-
+/* ============ Buttons & board (free play) ============ */
 .btn-accent,
 .btn-ghost {
   font-family: var(--font-mono);

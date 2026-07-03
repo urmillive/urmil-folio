@@ -8,7 +8,12 @@ const OFFLINE_FAQ = [
   {
     match: /hire|why you|why should/i,
     reply:
-      "Short version: I ship. 6 years across freelance, logistics, enterprise Angular and AI SaaS — 249 public repos, 11 Android apps on the Play Store, and products built end to end. The long version is one email away: urmillive@gmail.com.",
+      "Honest pitch: in the Claude era you don't hire syntax — you hire system-builders. Urmil designs architectures (HLD/LLD, microservices) and ships actual systems on whatever stack the problem needs: web apps, full-stack SaaS, mobile. The proof is public — 249 open-source repos on GitHub, 11 apps on the Play Store, AI SaaS built end to end. Writing from scratch and maintaining at scale are different skills; he's shipped both. Long version: urmillive@gmail.com.",
+  },
+  {
+    match: /ai|claude|gpt|copilot|syntax|tools/i,
+    reply:
+      "Frameworks are syntax; systems are thinking. In the era of Claude and AI tools, the valuable engineer isn't the one who memorised a language — it's the one who can design the system, drive the AI, and own the result on any technology. That's how Urmil works: architecture first, AI as leverage, code as the last mile. His AI-built products are live and public.",
   },
   {
     match: /stack|tech|skill/i,

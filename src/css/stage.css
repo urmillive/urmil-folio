@@ -1,11 +1,22 @@
-/* ============ The Urmil Gambit — full-screen stage ============ */
+/* ============ The Urmil Gambit — chess overlay ============ */
+.exp[hidden] {
+  display: none;
+}
+
 .exp {
-  position: relative;
-  min-height: 100svh;
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  overflow-y: auto;
+  background: var(--paper);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--pad) + 2.5rem) var(--pad) var(--pad);
+  padding: calc(var(--pad) + 1rem) var(--pad) var(--pad);
+}
+
+body.lock {
+  overflow: hidden;
 }
 
 .exp__stage {
@@ -28,6 +39,14 @@
   gap: 1.2rem;
   max-width: 44rem;
   margin-inline: auto;
+}
+
+.exp__whois {
+  font-weight: 400;
+  color: var(--accent);
+  border: 1.5px solid var(--line-soft);
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .exp__proline {

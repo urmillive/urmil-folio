@@ -19,7 +19,6 @@ const posOf = (sq) => {
 
 export const createStage = (root, { onFreePlay, onAskTwin }) => {
   const el = (sel) => root.querySelector(sel)
-  const prologueEl = el('.exp__prologue')
   const actEl = el('.exp__act')
   const finaleEl = el('.exp__finale')
   const boardEl = el('.exp__board')
@@ -211,15 +210,8 @@ export const createStage = (root, { onFreePlay, onAskTwin }) => {
     else startAct(actIndex + 1)
   })
 
-  el('.exp__play').addEventListener('click', () => {
-    prologueEl.hidden = true
-    actEl.hidden = false
-    startAct(0)
-  })
-
   root.querySelectorAll('.exp__skipall').forEach((btn) =>
     btn.addEventListener('click', () => {
-      prologueEl.hidden = true
       actEl.hidden = true
       showFinale()
     })
@@ -233,12 +225,15 @@ export const createStage = (root, { onFreePlay, onAskTwin }) => {
     startAct(0)
   })
 
-  /* prologue typing */
-  const proLines = prologueEl.querySelectorAll('.exp__proline')
-  proLines.forEach((line, i) => {
-    line.style.setProperty('--d', `${0.4 + i * 0.9}s`)
-  })
-
   buildSquares()
   setPieces(ACTS[0].board)
+
+  return {
+    startStory: () => {
+      finaleEl.hidden = true
+      actEl.hidden = false
+      startAct(0)
+    },
+    showFinale,
+  }
 }

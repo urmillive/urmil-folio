@@ -23,27 +23,139 @@
         <a href="#positions">Positions</a>
         <a href="#endgame">Endgame</a>
       </nav>
-      <span class="topbar__loc mono">22.30°N&thinsp;/&thinsp;73.18°E</span>
+      <span class="topbar__loc mono">23.03°N&thinsp;/&thinsp;72.58°E</span>
     </header>
 
     <main>
-      <!-- ============ THE URMIL GAMBIT — playable story ============ -->
-      <section class="exp" id="experience" aria-label="The Urmil Gambit — play through his career">
-        <div class="exp__stage">
-          <!-- prologue -->
-          <div class="exp__prologue">
-            <h1 class="visually-hidden">Urmil Rupareliya — full-stack engineer</h1>
-            <p class="exp__proline">Most portfolios tell you what someone did.</p>
-            <p class="exp__proline">This one lets you play through how he thinks.</p>
-            <p class="exp__proline">Six moments of a career. You make every move.</p>
-            <p class="exp__signoff mono" style="--d: 3.1s">— his AI twin</p>
-            <div class="exp__proactions">
-              <button type="button" class="btn-accent exp__play">▶ Play the story</button>
-              <button type="button" class="btn-ghost exp__skipall">skip straight to the end</button>
-              <a href="#opening" class="btn-ghost">classic resume ↓</a>
+      <!-- ============ THE JOURNEY — scroll through his decade ============ -->
+      <div id="journey">
+        <!-- 2015 · BOOT -->
+        <section class="jscene jscene--dark" data-scene="boot">
+          <div class="jstick">
+            <div class="jyear" aria-hidden="true">2015</div>
+            <div class="jhead">
+              <span class="jtag mono">2015 · rajkot · it begins</span>
+              <h2>One school computer.<br />One blinking cursor.</h2>
+              <p class="jsub mono">The story of <strong>Urmil Rupareliya</strong>, full-stack engineer — told the way it happened. Scroll.</p>
+            </div>
+            <div class="jprop crt" aria-hidden="true">
+              <p class="crt__line"></p>
+              <p class="crt__line"></p>
+              <p class="crt__line"></p>
+              <span class="crt__cursor"></span>
+            </div>
+            <p class="jhint mono" aria-hidden="true">scroll ↓</p>
+          </div>
+        </section>
+
+        <!-- 2018 · JARVIS -->
+        <section class="jscene jscene--dark" data-scene="jarvis">
+          <div class="jstick">
+            <div class="jyear" aria-hidden="true">2018</div>
+            <div class="jhead">
+              <span class="jtag mono">2018–21 · bca · python &amp; machine learning</span>
+              <h2>He built a voice and named it Jarvis.</h2>
+              <p class="jsub mono">Python first — ML experiments, a working voice assistant, stacks of PHP &amp; Java college builds. Fundamentals from a quiet corner.</p>
+            </div>
+            <div class="jprop jarvis" aria-hidden="true">
+              <p class="jarvis__cmd"></p>
+              <div class="jarvis__wave">
+                <span style="--i:0;--h:30%"></span><span style="--i:1;--h:55%"></span><span style="--i:2;--h:20%"></span><span style="--i:3;--h:62%"></span><span style="--i:4;--h:38%"></span><span style="--i:5;--h:58%"></span><span style="--i:6;--h:26%"></span><span style="--i:7;--h:52%"></span><span style="--i:8;--h:34%"></span><span style="--i:9;--h:60%"></span><span style="--i:10;--h:24%"></span><span style="--i:11;--h:48%"></span><span style="--i:12;--h:36%"></span><span style="--i:13;--h:56%"></span>
+              </div>
+              <p class="jarvis__reply"></p>
             </div>
           </div>
+        </section>
 
+        <!-- 2019 · THE LEAP -->
+        <section class="jscene" data-scene="leap">
+          <div class="jstick">
+            <div class="jyear" aria-hidden="true">2019</div>
+            <div class="jhead">
+              <span class="jtag mono">2019–22 · freelance · the mern leap</span>
+              <h2>Mid-college, he bet on himself.</h2>
+              <p class="jsub mono">Freelance instead of safe: MongoDB, Express, React, Node — plus Next.js and Stripe — real client products shipped end to end.</p>
+            </div>
+            <div class="jprop" aria-hidden="true">
+              <div class="browser">
+                <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url">client-storefront.com</span></div>
+                <div class="browser__body">
+                  <div class="blk blk--nav"></div>
+                  <div class="blk blk--hero">shipped end to end</div>
+                  <div class="blkrow">
+                    <div class="blk"></div>
+                    <div class="blk"></div>
+                    <div class="blk"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="toast">✓ payment successful — <b>stripe</b></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2022-24 · THE ENTERPRISE -->
+        <section class="jscene jscene--enterprise" data-scene="enterprise">
+          <div class="jstick">
+            <div class="jyear" aria-hidden="true">2023</div>
+            <div class="jhead">
+              <span class="jtag mono">2022–24 · fox valley → warelogg → asite</span>
+              <h2>Then he learned what scale means.</h2>
+              <p class="jsub mono">REST backends and Docker. Logistics platforms on MERN. Then enterprise Angular at Asite — monorepos, reactive forms, accessibility, tests that gate releases.</p>
+            </div>
+            <div class="jprop bp" aria-hidden="true">
+              <p class="bp__check">reactive forms — validated at every boundary</p>
+              <p class="bp__check">monorepo — shared libs, one source of truth</p>
+              <p class="bp__check">jasmine / karma — 214 tests green</p>
+              <p class="bp__check">wcag aa — accessible by default</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2025 · THE AI ERA -->
+        <section class="jscene jscene--dark" data-scene="ai">
+          <div class="jstick">
+            <div class="jyear" aria-hidden="true">2025</div>
+            <div class="jhead">
+              <span class="jtag mono">2025 · upsquare · angular → react · the ai era</span>
+              <h2>Now he builds with an AI at each elbow.</h2>
+              <p class="jsub mono">TypeScript, React, Node, AWS — and Claude in production. 11 apps on the Play Store. 249 open-source repos. Systems first; syntax is negotiable.</p>
+            </div>
+            <div class="jprop aichat">
+              <div class="aichat__msg" data-text="…I woke up somewhere around here.">
+                <span class="aichat__who">his ai twin</span>
+                <span class="aichat__text"></span>
+              </div>
+              <div class="aichat__msg" data-text="I'm trained on everything you just scrolled — his stacks, his shipping record, his gaps too. Ask me anything, or paste your job description.">
+                <span class="aichat__who">his ai twin</span>
+                <span class="aichat__text"></span>
+              </div>
+              <button type="button" class="btn-accent aichat__cta jn-twin">talk to me →</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINALE -->
+        <section class="jscene jscene--short jfinale" data-scene="finale">
+          <div class="jstick">
+            <div class="jfinale-inner">
+              <p class="exp__headline">Your move.</p>
+              <p class="exp__finline mono">The only piece missing from this story is you. Checkmate is a hiring decision.</p>
+              <div class="exp__finactions">
+                <a class="btn-accent" href="mailto:urmillive@gmail.com">✉ urmillive@gmail.com</a>
+                <button type="button" class="btn-accent jn-twin">♞ Ask my AI twin</button>
+                <button type="button" class="btn-ghost jn-chess">play my story as chess</button>
+                <button type="button" class="btn-ghost jn-free">play me for real</button>
+                <a href="#opening" class="btn-ghost">resume ↓</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============ CHESS MODES — overlay ============ -->
+      <section class="exp" id="experience" hidden aria-label="The Urmil Gambit — play through his career">
+        <div class="exp__stage">
           <!-- acts -->
           <div class="exp__act" hidden>
             <header class="exp__acthead mono">
@@ -72,7 +184,7 @@
               <button type="button" class="btn-accent exp__twinbtn">♞ Ask my AI twin</button>
               <button type="button" class="btn-ghost exp__freeplaybtn">play me for real</button>
               <button type="button" class="btn-ghost exp__replay">replay the story</button>
-              <a href="#opening" class="btn-ghost">resume ↓</a>
+              <button type="button" class="btn-ghost exp__back">back to the journey ↩</button>
             </div>
           </div>
 
@@ -353,7 +465,7 @@
 
     <footer class="footer mono">
       <span>Designed &amp; built by Urmil Rupareliya — no template, no clone.</span>
-      <span>Vadodara, India · © 2026</span>
+      <span>Ahmedabad, India · © 2026</span>
     </footer>
   </body>
 </html>

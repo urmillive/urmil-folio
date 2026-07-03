@@ -2,10 +2,12 @@ import '@fontsource-variable/fraunces'
 import '@fontsource/ibm-plex-mono/400.css'
 import './css/base.css'
 import './css/hero.css'
+import './css/journey.css'
 import './css/board.css'
 import './css/stage.css'
 import './css/chat.css'
 import './css/sections.css'
+import { createJourney } from './journey/journey.js'
 import { createStage } from './exp/stage.js'
 import { createTwinDock } from './twin/chat.js'
 
@@ -33,12 +35,26 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   revealables.forEach((el) => io.observe(el))
 }
 
-/* ---- the experience + AI twin ---- */
+/* ---- journey + chess overlay + AI twin ---- */
 const expRoot = document.getElementById('experience')
 const finaleEl = expRoot.querySelector('.exp__finale')
+const actEl = expRoot.querySelector('.exp__act')
 const freeplayEl = expRoot.querySelector('.exp__freeplay')
 let freePlayReady = false
 let openTwin = () => {}
+
+const openOverlay = () => {
+  expRoot.hidden = false
+  document.body.classList.add('lock')
+}
+
+const closeOverlay = () => {
+  expRoot.hidden = true
+  actEl.hidden = true
+  finaleEl.hidden = true
+  freeplayEl.hidden = true
+  document.body.classList.remove('lock')
+}
 
 const openFreePlay = async () => {
   finaleEl.hidden = true
@@ -61,14 +77,36 @@ expRoot.querySelector('.exp__fpclose').addEventListener('click', () => {
   finaleEl.hidden = false
 })
 
-createStage(expRoot, {
+const stage = createStage(expRoot, {
   onFreePlay: openFreePlay,
   onAskTwin: () => openTwin(),
 })
 
+expRoot.querySelector('.exp__back').addEventListener('click', closeOverlay)
+
+createJourney(document.getElementById('journey'))
+
+document.querySelectorAll('.jn-chess').forEach((btn) =>
+  btn.addEventListener('click', () => {
+    openOverlay()
+    stage.startStory()
+  })
+)
+
+document.querySelectorAll('.jn-free').forEach((btn) =>
+  btn.addEventListener('click', () => {
+    openOverlay()
+    openFreePlay()
+  })
+)
+
 openTwin = createTwinDock({
   dockEl: document.getElementById('twin'),
 })
+
+document.querySelectorAll('.jn-twin').forEach((btn) =>
+  btn.addEventListener('click', () => openTwin())
+)
 
 /* ---- console easter egg ---- */
 console.log(

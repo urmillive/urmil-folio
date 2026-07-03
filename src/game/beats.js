@@ -2,8 +2,12 @@
 
 export const CAREER_BEATS = [
   {
-    tag: '2019 → freelance',
-    text: 'Games start the way careers do — nobody to rely on but your own prep. 2019: I went freelance. Next.js, Stripe, SEO — everything end-to-end, everything mine.',
+    tag: '2018 → python years',
+    text: 'It started with Python: a BCA in Python & ML, a voice assistant named Jarvis, and PHP/Java college projects. Fundamentals from a quiet corner.',
+  },
+  {
+    tag: '2019 → freelance · mern',
+    text: 'Then the gambit — freelance mid-college. MongoDB, Express, React, Node, Next.js, Stripe: everything end-to-end, everything mine.',
   },
   {
     tag: '2022 → fox valley',
@@ -23,7 +27,7 @@ export const CAREER_BEATS = [
   },
   {
     tag: '2025 → upsquare · now',
-    text: 'And the queen comes out. Upsquare Technologies, today: TypeScript, React, Node, AWS — products built end to end. Your turn.',
+    text: 'And the queen comes out. Upsquare, today: Angular → React, TypeScript, Node, AWS, Claude API — AI-era products built end to end. Your turn.',
   },
 ]
 

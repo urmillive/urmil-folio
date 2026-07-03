@@ -1,5 +1,6 @@
 /* The Urmil Gambit — six acts, one board.
-   Each act: a career moment expressed as the chess idea that defines it. */
+   Each act: a moment in the journey — Python roots to the React/AI era —
+   expressed as the chess idea that defines it. */
 
 export const ACTS = [
   {
@@ -11,14 +12,32 @@ export const ACTS = [
     board: { E2: 'P' },
     task: { from: 'E2', to: 'E4' },
     payoff: {
-      tag: '2015 · first line of code',
-      text: 'Sixteen years old, one pawn, an open board. Pawns can never move backwards — small squares forward, every single day. Ten years later I still ship daily.',
+      tag: '2015 · first code, school days',
+      text: 'A computer-science classroom in Rajkot, one pawn, an open board. Pawns can never move backwards — small squares forward, every day. Ten years on, I still ship daily.',
+    },
+  },
+  {
+    id: 'fianchetto',
+    crumb: '2018',
+    label: 'ACT II · 2018 · THE PYTHON YEARS',
+    title: 'The long diagonal: Python.',
+    prompt: 'Fianchetto the bishop — slide it onto the long diagonal.',
+    board: {
+      E1: 'K', D1: 'Q', A1: 'R', H1: 'R', C1: 'B', F1: 'B', B1: 'N', G1: 'N',
+      A2: 'P', B2: 'P', C2: 'P', D2: 'P', E4: 'P', F2: 'P', G3: 'P', H2: 'P',
+      E8: 'k', D8: 'q', A8: 'r', H8: 'r', C8: 'b', F8: 'b', B8: 'n', G8: 'n',
+      A7: 'p', B7: 'p', C7: 'p', D7: 'p', E5: 'p', F7: 'p', G7: 'p', H7: 'p',
+    },
+    task: { from: 'F1', to: 'G2' },
+    payoff: {
+      tag: '2018–21 · bca, python & machine learning',
+      text: 'The fianchettoed bishop sees the whole board from a quiet corner. That was my BCA: Python and ML at Saurashtra University — I built Jarvis, a voice assistant, plus a pile of Python, PHP and Java projects. Fundamentals first. Reach later.',
     },
   },
   {
     id: 'gambit',
     crumb: '2019',
-    label: 'ACT II · 2019 · THE GAMBIT',
+    label: 'ACT III · 2019 · THE GAMBIT',
     title: 'I gave up safety for tempo.',
     prompt: 'Play the Queen’s Gambit — offer the pawn to c4.',
     board: {
@@ -31,14 +50,14 @@ export const ACTS = [
     reply: { from: 'D5', to: 'C4' },
     replyLine: 'Black takes the bait. Material lost — initiative gained.',
     payoff: {
-      tag: '2019–22 · freelance',
-      text: 'The gambit: I declined the safe job and went freelance. Next.js products, Stripe billing, SEO — owned end to end, alone. Giving up material teaches you to back yourself.',
+      tag: '2019–22 · freelance · the mern leap',
+      text: 'Still in college, I gambited: freelance instead of safe. React, Node, Express, MongoDB — the full MERN stack — plus Next.js and Stripe, shipped end to end for real clients. Giving up material teaches you to back yourself.',
     },
   },
   {
     id: 'develop',
     crumb: '2022',
-    label: 'ACT III · 2022 · DEVELOPMENT',
+    label: 'ACT IV · 2022 · DEVELOPMENT',
     title: 'Amateurs attack. Professionals develop.',
     prompt: 'Develop the knight to f3.',
     board: {
@@ -50,13 +69,13 @@ export const ACTS = [
     task: { from: 'G1', to: 'F3' },
     payoff: {
       tag: '2022–23 · fox valley → warelogg',
-      text: 'Quiet, strong moves: REST backends, an online code editor, Docker at Fox Valley — then logistics platforms on the MERN stack at Warelogg. Development looks boring. It decides the game.',
+      text: 'Quiet, strong moves: Node/Express backends, JWT auth, Docker and an online code editor at Fox Valley — then logistics platforms on MERN and Next.js at Warelogg. Development looks boring. It decides the game.',
     },
   },
   {
     id: 'castle',
     crumb: '2023',
-    label: 'ACT IV · 2023 · CASTLING',
+    label: 'ACT V · 2023 · CASTLING',
     title: 'Structure is not boring. Structure lets you attack.',
     prompt: 'Castle short — move the king two squares.',
     board: {
@@ -68,14 +87,14 @@ export const ACTS = [
     task: { from: 'E1', to: 'G1' },
     extra: { from: 'H1', to: 'F1' },
     payoff: {
-      tag: '2023–24 · asite solutions',
-      text: 'I castled: enterprise Angular at Asite — reactive forms, monorepos, Jasmine/Karma tests that actually run, WCAG accessibility. Systems beat heroics. Safety first, then the attack.',
+      tag: '2023–24 · asite solutions · the angular years',
+      text: 'I castled into the enterprise: Angular at Asite — reactive forms, monorepos, Storybook, Jasmine/Karma tests, WCAG accessibility. Intern to engineer. Systems beat heroics; safety first, then the attack.',
     },
   },
   {
     id: 'fork',
     crumb: '2025',
-    label: 'ACT V · 2025 · THE FORK',
+    label: 'ACT VI · 2025 · THE FORK',
     title: 'One move. Two threats.',
     prompt: 'Find the knight fork — check the king, threaten the queen.',
     board: {
@@ -87,8 +106,8 @@ export const ACTS = [
     task: { from: 'E5', to: 'F7' },
     forked: ['H8', 'D8'],
     payoff: {
-      tag: '2025 · upsquare · the AI era',
-      text: 'The fork is my whole thesis: one engineer, two threats. I ship the product AND the AI inside it — TypeScript, React, Node, AWS, Claude API. 11 apps on the Play Store. 249 repos.',
+      tag: '2025 · upsquare · angular → react · the AI era',
+      text: 'The fork is my whole thesis: one engineer, two threats. Angular AND React. The product AND the AI inside it — TypeScript, Node, AWS, Claude API. 11 apps on the Play Store, 249 repos, AI SaaS end to end.',
     },
   },
 ]
@@ -97,7 +116,7 @@ export const PROLOGUE = {
   lines: [
     'Most portfolios tell you what someone did.',
     'This one lets you play through how he thinks.',
-    'Six moments of a career. You make every move.',
+    'Python roots to the AI era — you make every move.',
   ],
   signoff: '— his AI twin',
 }

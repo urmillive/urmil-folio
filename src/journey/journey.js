@@ -17,7 +17,6 @@ const typeInto = (el, text, speed = 34) =>
     let i = 0
     const step = () => {
       el.textContent = text.slice(0, i)
-      if (i > 0 && text[i - 1] !== ' ') sfx.tick()
       i += 1
       if (i <= text.length) setTimeout(step, speed + Math.random() * 30)
       else resolve()

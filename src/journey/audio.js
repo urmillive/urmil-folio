@@ -40,30 +40,28 @@ export const createAudio = () => {
       else window.speechSynthesis?.cancel()
       return enabled
     },
-    /* typing tick — soft, randomized */
+    /* soft grab cue — barely there */
     tick() {
-      tone({ freq: 1300 + Math.random() * 600, dur: 0.02, type: 'square', vol: 0.012 })
+      tone({ freq: 520, dur: 0.06, type: 'triangle', vol: 0.015 })
     },
-    /* CRT power-on: low hum then rising double beep */
+    /* CRT power-on: warm low swell, one gentle beep */
     boot() {
-      tone({ freq: 60, dur: 0.6, type: 'sawtooth', vol: 0.04, slide: 120 })
-      tone({ freq: 660, dur: 0.15, when: 0.55, vol: 0.06 })
-      tone({ freq: 1320, dur: 0.3, when: 0.72, vol: 0.05 })
+      tone({ freq: 80, dur: 0.9, type: 'sine', vol: 0.02, slide: 140 })
+      tone({ freq: 660, dur: 0.4, when: 0.8, type: 'sine', vol: 0.025 })
     },
-    /* payment ding */
+    /* payment ding — a soft third */
     ding() {
-      tone({ freq: 880, dur: 0.12, vol: 0.07 })
-      tone({ freq: 1318, dur: 0.35, when: 0.12, vol: 0.07 })
+      tone({ freq: 880, dur: 0.3, type: 'triangle', vol: 0.03 })
+      tone({ freq: 1108, dur: 0.5, when: 0.1, type: 'sine', vol: 0.025 })
     },
-    /* checklist tick */
+    /* checklist tick — one soft note */
     check() {
-      tone({ freq: 620, dur: 0.07, vol: 0.05 })
-      tone({ freq: 930, dur: 0.09, when: 0.07, vol: 0.04 })
+      tone({ freq: 740, dur: 0.12, type: 'triangle', vol: 0.02 })
     },
-    /* twin awakening chime */
+    /* twin awakening — slow, warm major arpeggio */
     chime() {
-      ;[523, 659, 784, 1046].forEach((f, i) =>
-        tone({ freq: f, dur: 0.4, when: i * 0.12, vol: 0.045 })
+      ;[261.6, 329.6, 392, 523.3].forEach((f, i) =>
+        tone({ freq: f, dur: 0.9, when: i * 0.22, type: 'sine', vol: 0.022 })
       )
     },
     /* Jarvis speaks */

@@ -1,0 +1,164 @@
+/* ============ AI twin dock ============ */
+.twin[hidden] {
+  display: none;
+}
+
+.twin {
+  position: fixed;
+  right: clamp(0.6rem, 2vw, 1.6rem);
+  bottom: clamp(0.6rem, 2vw, 1.6rem);
+  z-index: 80;
+  width: min(94vw, 25rem);
+  height: min(72dvh, 34rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--ink) 18%, transparent);
+  opacity: 0;
+  translate: 0 14px;
+  transition: opacity 0.25s ease, translate 0.25s ease;
+}
+
+.twin--open {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.twin__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1.5px solid var(--line-soft);
+}
+
+.twin__title {
+  color: var(--ink);
+}
+
+.twin__title small {
+  display: block;
+  color: var(--muted);
+  margin-top: 0.15rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.twin__close {
+  font: inherit;
+  background: none;
+  border: 1.5px solid var(--line-soft);
+  color: var(--ink-soft);
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.twin__close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.twin__messages {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.twin__msg {
+  max-width: 88%;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.twin__msg--twin {
+  align-self: flex-start;
+  background: var(--paper-2);
+  border: 1px solid var(--line-soft);
+}
+
+.twin__msg--user {
+  align-self: flex-end;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.twin__chips {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem 0.7rem;
+  flex-wrap: wrap;
+}
+
+.twin__chip {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--line-soft);
+  color: var(--ink-soft);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.twin__chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.twin__form {
+  display: flex;
+  border-top: 1.5px solid var(--line-soft);
+}
+
+.twin__input {
+  flex: 1;
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.85rem 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  outline: none;
+}
+
+.twin__send {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0 1.2rem;
+  cursor: pointer;
+}
+
+.twin__send:hover {
+  background: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .twin {
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: min(78dvh, 34rem);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    box-shadow: none;
+  }
+}

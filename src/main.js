@@ -2,31 +2,16 @@ import '@fontsource-variable/fraunces'
 import '@fontsource/ibm-plex-mono/400.css'
 import './css/base.css'
 import './css/hero.css'
+import './css/board.css'
+import './css/stage.css'
+import './css/chat.css'
 import './css/sections.css'
+import { createStage } from './exp/stage.js'
+import { createTwinDock } from './twin/chat.js'
 
 document.documentElement.classList.add('js')
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-/* ---- typed hero status line ---- */
-const LINE = '// chessboard → codebase · compiled in 0.4s ✓'
-const typed = document.getElementById('typed')
-
-const typeLine = () => {
-  if (reducedMotion) {
-    typed.textContent = LINE
-    return
-  }
-  let i = 0
-  const step = () => {
-    typed.textContent = LINE.slice(0, i)
-    i += 1
-    if (i <= LINE.length) setTimeout(step, 26 + Math.random() * 40)
-  }
-  step()
-}
-
-typeLine()
 
 /* ---- scroll reveals ---- */
 const revealables = document.querySelectorAll('.reveal')
@@ -47,6 +32,43 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   )
   revealables.forEach((el) => io.observe(el))
 }
+
+/* ---- the experience + AI twin ---- */
+const expRoot = document.getElementById('experience')
+const finaleEl = expRoot.querySelector('.exp__finale')
+const freeplayEl = expRoot.querySelector('.exp__freeplay')
+let freePlayReady = false
+let openTwin = () => {}
+
+const openFreePlay = async () => {
+  finaleEl.hidden = true
+  freeplayEl.hidden = false
+  if (!freePlayReady) {
+    freePlayReady = true
+    const { createChessHero } = await import('./game/board.js')
+    createChessHero({
+      boardEl: document.getElementById('board'),
+      narrationEl: document.getElementById('narration'),
+      progressEl: document.getElementById('story-progress'),
+      newGameBtn: document.getElementById('new-game'),
+      overlayEl: document.getElementById('gameover'),
+    })
+  }
+}
+
+expRoot.querySelector('.exp__fpclose').addEventListener('click', () => {
+  freeplayEl.hidden = true
+  finaleEl.hidden = false
+})
+
+createStage(expRoot, {
+  onFreePlay: openFreePlay,
+  onAskTwin: () => openTwin(),
+})
+
+openTwin = createTwinDock({
+  dockEl: document.getElementById('twin'),
+})
 
 /* ---- console easter egg ---- */
 console.log(

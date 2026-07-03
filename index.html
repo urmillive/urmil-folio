@@ -27,22 +27,82 @@
     </header>
 
     <main>
-      <!-- ============ HERO ============ -->
-      <section class="hero" aria-label="Introduction">
-        <p class="hero__status mono" aria-hidden="true"><span id="typed"></span><span class="caret"></span></p>
-        <h1 class="hero__name" aria-label="Urmil Rupareliya">
-          <span class="hero__line"><span class="w" style="--i:0">URMIL</span></span>
-          <span class="hero__line hero__line--indent"><span class="w" style="--i:1">RUPARELIYA</span></span>
-        </h1>
-        <div class="hero__foot">
-          <p class="hero__tag">Full-stack engineer.<br />I build AI-era SaaS — <em>fast.</em></p>
-          <div class="hero__meta mono">
-            <span class="dot" aria-hidden="true"></span>
-            <span>currently&nbsp;@&nbsp;Upsquare Technologies</span>
-            <span class="hero__meta-stack">TypeScript · React · Node · AWS</span>
+      <!-- ============ THE URMIL GAMBIT — playable story ============ -->
+      <section class="exp" id="experience" aria-label="The Urmil Gambit — play through his career">
+        <div class="exp__stage">
+          <!-- prologue -->
+          <div class="exp__prologue">
+            <h1 class="visually-hidden">Urmil Rupareliya — full-stack engineer</h1>
+            <p class="exp__proline">Most portfolios tell you what someone did.</p>
+            <p class="exp__proline">This one lets you play through how he thinks.</p>
+            <p class="exp__proline">Six moments of a career. You make every move.</p>
+            <p class="exp__signoff mono" style="--d: 3.1s">— his AI twin</p>
+            <div class="exp__proactions">
+              <button type="button" class="btn-accent exp__play">▶ Play the story</button>
+              <button type="button" class="btn-ghost exp__skipall">skip straight to the end</button>
+              <a href="#opening" class="btn-ghost">classic resume ↓</a>
+            </div>
+          </div>
+
+          <!-- acts -->
+          <div class="exp__act" hidden>
+            <header class="exp__acthead mono">
+              <span class="exp__label"></span>
+              <button type="button" class="exp__skip exp__skipall">skip ↠</button>
+            </header>
+            <div class="exp__left">
+              <h2 class="exp__title"></h2>
+              <p class="exp__narr narr mono" aria-live="polite"></p>
+              <button type="button" class="btn-accent exp__nextbtn" hidden>next move →</button>
+            </div>
+            <div class="exp__boardwrap">
+              <div class="exp__board" role="group" aria-label="Story chessboard">
+                <div class="exp__pieces" aria-hidden="true"></div>
+              </div>
+            </div>
+            <ol class="exp__crumbs mono"></ol>
+          </div>
+
+          <!-- finale -->
+          <div class="exp__finale" hidden>
+            <p class="exp__headline"></p>
+            <p class="exp__finline mono"></p>
+            <div class="exp__finactions">
+              <a class="btn-accent" href="mailto:urmillive@gmail.com">✉ urmillive@gmail.com</a>
+              <button type="button" class="btn-accent exp__twinbtn">♞ Ask my AI twin</button>
+              <button type="button" class="btn-ghost exp__freeplaybtn">play me for real</button>
+              <button type="button" class="btn-ghost exp__replay">replay the story</button>
+              <a href="#opening" class="btn-ghost">resume ↓</a>
+            </div>
+          </div>
+
+          <!-- free play vs the engine -->
+          <div class="exp__freeplay" hidden>
+            <header class="exp__fphead mono">
+              <span>free play · you are white · the engine is urmil</span>
+              <button type="button" class="exp__skip exp__fpclose">back ↩</button>
+            </header>
+            <div class="exp__left">
+              <p class="narr mono" id="narration" aria-live="polite"></p>
+            </div>
+            <div class="hero__board">
+              <div id="board" class="board" role="group" aria-label="Chessboard — you play white"></div>
+              <div class="board__meta mono">
+                <span id="story-progress">story 0/6</span>
+                <button type="button" id="new-game">new game</button>
+              </div>
+            </div>
           </div>
         </div>
-        <span class="hero__knight" aria-hidden="true">♞</span>
+
+        <div class="gameover" id="gameover" hidden>
+          <p class="gameover__headline"></p>
+          <p class="gameover__line mono"></p>
+          <div class="gameover__actions">
+            <a class="btn-accent" href="mailto:urmillive@gmail.com">Your move → email me</a>
+            <button type="button" class="btn-ghost gameover__again">rematch</button>
+          </div>
+        </div>
       </section>
 
       <!-- ============ 01 THE OPENING ============ -->
@@ -263,6 +323,23 @@
         </ul>
       </section>
     </main>
+
+    <aside class="twin" id="twin" hidden aria-label="Chat with Urmil's AI twin">
+      <header class="twin__head">
+        <span class="twin__title mono">♞ Urmil’s AI twin<small>live on his career data · powered by Claude</small></span>
+        <button type="button" class="twin__close" aria-label="Close chat">×</button>
+      </header>
+      <ul class="twin__messages" role="log" aria-live="polite"></ul>
+      <div class="twin__chips">
+        <button type="button" class="twin__chip">Why should we hire you?</button>
+        <button type="button" class="twin__chip">What’s your stack?</button>
+        <button type="button" class="twin__chip" data-fill="Here is our job description: ">Paste a JD → fit report</button>
+      </div>
+      <form class="twin__form">
+        <input class="twin__input" type="text" placeholder="Ask anything…" autocomplete="off" maxlength="2000" />
+        <button type="submit" class="twin__send">Send</button>
+      </form>
+    </aside>
 
     <footer class="footer mono">
       <span>Designed &amp; built by Urmil Rupareliya — no template, no clone.</span>

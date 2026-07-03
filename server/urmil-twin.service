@@ -1,0 +1,13 @@
+[Unit]
+Description=Urmil AI twin proxy (portfolio chat)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /home/ubuntu/urmil-folio/server/twin-server.mjs
+EnvironmentFile=/etc/urmil-twin.env
+Restart=always
+RestartSec=3
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target

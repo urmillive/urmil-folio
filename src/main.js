@@ -9,6 +9,7 @@ import './css/chat.css'
 import './css/archive.css'
 import Lenis from 'lenis'
 import { createChessHero } from './game/board.js'
+import './oneko.js'
 import { createTwinDock } from './twin/chat.js'
 import { createArchive } from './archive/archive.js'
 

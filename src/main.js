@@ -7,6 +7,7 @@ import './css/playhero.css'
 import './css/sections.css'
 import './css/chat.css'
 import './css/archive.css'
+import Lenis from 'lenis'
 import { createChessHero } from './game/board.js'
 import { createTwinDock } from './twin/chat.js'
 import { createArchive } from './archive/archive.js'
@@ -14,6 +15,16 @@ import { createArchive } from './archive/archive.js'
 document.documentElement.classList.add('js')
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+/* ---- buttery inertial scroll ---- */
+if (!reducedMotion) {
+  const lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1.05 })
+  const raf = (t) => {
+    lenis.raf(t)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+}
 
 /* ---- scroll reveals ---- */
 const revealables = document.querySelectorAll('.reveal')

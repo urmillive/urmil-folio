@@ -97,6 +97,31 @@ export const createChessHero = ({ boardEl, narrationEl, progressEl, newGameBtn, 
     })
   }
 
+  /* ---- FLIP glide: the moved piece slides instead of teleporting ---- */
+  const animateMove = (from, to) => {
+    const img = boardEl.querySelector(`[data-sq="${to}"] img`)
+    const fromBtn = boardEl.querySelector(`[data-sq="${from}"]`)
+    if (!img || !fromBtn) return
+    const a = fromBtn.getBoundingClientRect()
+    const b = img.getBoundingClientRect()
+    const dx = a.left - b.left
+    const dy = a.top - b.top
+    img.style.transition = 'none'
+    img.style.transform = `translate(${dx}px, ${dy}px)`
+    img.style.willChange = 'transform'
+    void img.offsetWidth /* force reflow so the start position paints */
+    img.style.transition = 'transform 0.28s cubic-bezier(0.2, 0.8, 0.3, 1)'
+    img.style.transform = ''
+    img.addEventListener(
+      'transitionend',
+      () => {
+        img.style.transition = ''
+        img.style.willChange = ''
+      },
+      { once: true }
+    )
+  }
+
   /* ---- endgame overlay ---- */
   const showOverlay = (headline, line) => {
     overlayEl.querySelector('.gameover__headline').textContent = headline
@@ -126,6 +151,7 @@ export const createChessHero = ({ boardEl, narrationEl, progressEl, newGameBtn, 
     selected = null
     legalTargets = []
     render()
+    animateMove(from, to)
 
     if (captured) {
       capturesByPlayer += 1
@@ -152,6 +178,7 @@ export const createChessHero = ({ boardEl, narrationEl, progressEl, newGameBtn, 
     boardEl.classList.remove('board--thinking')
     aiMoveCount += 1
     render()
+    animateMove(from, to)
     updateProgress()
 
     const state = game.exportJson()

@@ -144,9 +144,27 @@ vault.querySelector('.vault__close').addEventListener('click', () => {
   document.body.classList.remove('lock')
 })
 
+/* ---- theme toggle: light / dark, remembered across visits ---- */
+const themeBtn = document.getElementById('theme-toggle')
+if (themeBtn) {
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+  const currentTheme = () =>
+    document.documentElement.dataset.theme || (systemDark.matches ? 'dark' : 'light')
+  const paintIcon = () => {
+    themeBtn.textContent = currentTheme() === 'dark' ? '☀' : '☾'
+  }
+  themeBtn.addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark'
+    document.documentElement.dataset.theme = next
+    try { localStorage.setItem('theme', next) } catch { /* private mode */ }
+    paintIcon()
+  })
+  paintIcon()
+}
+
 /* ---- console easter egg ---- */
 console.log(
-  '%c♞ Your move.%c\n\nchessboard → codebase · urmil rupareliya\npsst — tap "urmil.live" five times. and yes, the chess challenge is real:\nhttps://www.chess.com/member/urmillive\nsay hi: urmillive@gmail.com',
+  '%c♞ Your move.%c\n\nchessboard → codebase · urmil rupareliya\npsst, tap "urmil.live" five times. and yes, the chess challenge is real:\nhttps://www.chess.com/member/urmillive\nsay hi: urmillive@gmail.com',
   'font-size:2rem; font-weight:700; color:#e4572e;',
   'font-size:0.85rem; color:#837c6e;'
 )

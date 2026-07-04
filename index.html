@@ -53,6 +53,13 @@
       }
     </script>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      /* apply the saved theme before first paint so there is no flash */
+      try {
+        var t = localStorage.getItem('theme')
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <a class="skip" href="#opening">Skip to content</a>
@@ -66,6 +73,7 @@
         <a href="#endgame">Contact</a>
       </nav>
       <span class="topbar__right">
+        <button type="button" class="topbar__theme" id="theme-toggle" aria-label="Switch between light and dark theme" title="switch theme">◐</button>
         <button type="button" class="topbar__hire mono jn-twin">hiring?</button>
       </span>
     </header>

@@ -1,4 +1,4 @@
-/* Playable chess vs Urmil's engine — DOM board, js-chess-engine brain.
+/* Playable chess vs Urmil's engine, DOM board, js-chess-engine brain.
    Piece art: Cburnett chess set (Wikimedia Commons, GPLv2+/BSD). */
 
 import jce from 'js-chess-engine'
@@ -231,7 +231,7 @@ export const createChessHero = ({ boardEl, narrationEl, progressEl, newGameBtn, 
     render()
     updateProgress()
     narrate(
-      'You are white — I am the engine Urmil trained. Make a move: my first six replies tell his story, and every piece you capture unlocks something he shipped.'
+      'You are white, I am the engine Urmil trained. Make a move: my first six replies tell his story, and every piece you capture unlocks something he shipped.'
     )
   }
 

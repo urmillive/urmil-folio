@@ -16,8 +16,10 @@
   --max: 84rem;
 }
 
+/* dark tokens: applied by system preference (unless user forced light)
+   or by the topbar theme toggle (data-theme on <html>) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --paper: #16130d;
     --paper-2: #1d1913;
     --ink: #efe9dc;
@@ -27,6 +29,17 @@
     --line: rgba(239, 233, 220, 0.85);
     --line-soft: rgba(239, 233, 220, 0.16);
   }
+}
+
+:root[data-theme='dark'] {
+  --paper: #16130d;
+  --paper-2: #1d1913;
+  --ink: #efe9dc;
+  --ink-soft: #c4bcab;
+  --muted: #8d8574;
+  --accent: #ff6b3d;
+  --line: rgba(239, 233, 220, 0.85);
+  --line-soft: rgba(239, 233, 220, 0.16);
 }
 
 /* ============ Reset ============ */

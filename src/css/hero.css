@@ -60,6 +60,27 @@
   color: var(--paper);
 }
 
+.topbar__theme {
+  font-size: 1.15rem;
+  line-height: 1;
+  background: none;
+  border: 1.5px solid var(--line-soft);
+  border-radius: 50%;
+  width: 2.1rem;
+  height: 2.1rem;
+  cursor: pointer;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  transition: border-color 0.2s ease, rotate 0.35s ease;
+}
+
+.topbar__theme:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  rotate: 40deg;
+}
+
 @media (max-width: 640px) {
   .topbar__nav {
     display: none;

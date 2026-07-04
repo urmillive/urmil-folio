@@ -18,11 +18,11 @@ export const CAREER_BEATS = [
     text: 'Development before glory. At Fox Valley he builds RESTful backends, an online code editor, auth and Docker setups. The quiet moves that win games later.',
   },
   {
-    tag: '2022–23 → warelogg · iit startup',
+    tag: '2022-23 → warelogg · iit startup',
     text: 'Control the lanes. Warelogg is a logistics startup he builds with IIT students. Order management, shipment tracking, route optimization. That year he also wins big at the Gateway TECHATHON.',
   },
   {
-    tag: '2023–25 → asite · angular era',
+    tag: '2023-25 → asite · angular era',
     text: 'He castles into the enterprise. Asite, Ahmedabad. Intern to Associate Software Engineer in two and a half years. Angular, TypeScript, Storybook. Structure that lets you attack.',
   },
   {

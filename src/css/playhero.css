@@ -681,3 +681,33 @@ body.lock {
   font-size: 0.9rem;
   line-height: 1.55;
 }
+
+/* pencil-sketch treatment: wall + positions */
+.wall--wood {
+  background:
+    linear-gradient(rgba(245, 241, 232, 0.86), rgba(245, 241, 232, 0.8)),
+    url('/wall-sketch.jpg') center / cover;
+}
+
+.wall--wood .trophy__label { color: var(--ink-soft); }
+.wall--wood .wall__shelf { background: repeating-linear-gradient(90deg, #6b503a 0 22px, #7d5f45 22px 44px); }
+.wall--wood .frame,
+#positions .pos__row {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 7px, rgba(23, 20, 14, 0.035) 7px 8px),
+    var(--paper);
+}
+
+.wall--wood .frame { border-color: var(--ink); outline-color: var(--paper); }
+.wall--wood .frame::before { background: var(--ink); }
+
+#positions .pos__row {
+  border: 2px solid var(--ink);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; /* hand-drawn wobble */
+  margin-bottom: 0.9rem;
+  padding-inline: 1.1rem;
+  box-shadow: 2px 3px 0 color-mix(in srgb, var(--ink) 30%, transparent);
+}
+
+#positions .pos li:first-child .pos__row { border-top: 2px solid var(--ink); }
+#positions .pos__row { border-bottom: 2px solid var(--ink); }

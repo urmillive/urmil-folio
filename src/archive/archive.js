@@ -47,7 +47,7 @@ export const createArchive = (root) => {
       li.appendChild(a)
       listEl.appendChild(li)
     })
-    countEl.textContent = `${items.length} positions shown · 249 public repos total`
+    countEl.textContent = `${items.length} projects shown · 249 public repos total`
   }
 
   const setFilter = (cat, chip) => {
@@ -71,13 +71,12 @@ export const createArchive = (root) => {
 
   render()
 
+  /* the archive is a routed page now: #/archive shows it, back returns */
   const open = () => {
-    root.hidden = false
-    document.body.classList.add('lock')
+    location.hash = '#/archive'
   }
   const close = () => {
-    root.hidden = true
-    document.body.classList.remove('lock')
+    location.hash = '#positions'
   }
   root.querySelector('.arch__close').addEventListener('click', close)
   root.addEventListener('keydown', (e) => {

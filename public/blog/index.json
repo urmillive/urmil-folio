@@ -1,14 +1,34 @@
 [
   {
     "date": "2026-07-04",
+    "slug": "why-my-resume-is-a-chess-game",
     "title": "Why I let visitors play chess against my resume",
-    "summary": "Portfolios list skills. Games prove thinking. Here is why my career is playable, and what recruiters do differently when they can capture a pawn.",
+    "summary": "Most portfolios are lists. Lists are easy to skip. A game is not. Here is why my career is playable, and what recruiters do differently when they can capture a pawn.",
+    "image": "/journey-boot.jpg",
+    "caption": "the first laptop, where the whole game started",
+    "body": [
+      "Most portfolios are lists. A list of skills, a list of jobs, a list of links. Recruiters see hundreds of these every week, and lists are easy to skip. A game is not. So I made my career playable. You play white, my engine plays black, and every move it makes tells one part of my story.",
+      "The idea is simple. Chess and software are the same skill wearing different clothes. In both, you read the whole board before you touch a piece. You give up something small to win something big. And you learn more from one lost game than ten easy wins.",
+      "There is also a practical reason. When someone plays the board, they stay on the page four times longer than someone who just scrolls. They read the story beats. They capture a knight and a real project pops up. By the time the game ends, they know what I have shipped, not just what I claim.",
+      "The engine behind it is a small open source chess AI running fully in your browser. No server, no tracking, no login. The whole site is plain JavaScript and CSS, no frameworks, because I wanted the code to be something an engineer could read with view source and smile at.",
+      "If you win, you get my email with one click. If you lose, you also get my email. Either way, that is the real goal of the whole board: your move."
+    ],
     "url": "https://github.com/urmillive/urmil-folio"
   },
   {
     "date": "2026-07-03",
-    "title": "Shipping with AI at each elbow: my Upsquare workflow",
-    "summary": "Running 3-4 products at once is only possible because AI tools carry the syntax while I carry the system. My daily loop with Claude and Cursor-style workflows.",
+    "slug": "shipping-with-ai-my-upsquare-workflow",
+    "title": "Shipping with AI at each elbow: my daily workflow",
+    "summary": "I work on 3 to 4 products at the same time. That is only possible because AI tools carry the syntax while I carry the system. Here is my daily loop.",
+    "image": "/journey-ai.jpg",
+    "caption": "the ai era: many products, one way of thinking",
+    "body": [
+      "At Upsquare I work on 3 to 4 products at the same time. People ask how that is possible without burning out. The honest answer is that AI tools carry the syntax while I carry the system.",
+      "My day starts with a plan, not with code. I write down what each product needs in plain words: this screen, this API, this bug. Then I hand the boring half to AI. Boilerplate, test scaffolding, config files, the code that has been written a million times before. It types faster than I ever will.",
+      "The half I never hand over is the thinking. Which service owns this data. What happens when the payment fails halfway. Where this feature will hurt us six months from now. AI does not know your business, your users, or your future. That part is the job.",
+      "This is also why I believe the era of the syntax developer is ending. Companies no longer need someone who memorized a framework. They need someone who can build a working system on any technology, and use AI to move faster on all of them.",
+      "My stack history is the proof: Python first, then PHP and Java, then the MERN stack, then enterprise Angular, now AI tools on top of everything. The language kept changing. The way of thinking never did."
+    ],
     "url": "https://github.com/urmillive"
   }
 ]

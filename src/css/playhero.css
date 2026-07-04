@@ -682,15 +682,22 @@ body.lock {
   line-height: 1.55;
 }
 
-/* pencil-sketch treatment: wall + positions */
+/* wall v3: classic dark-green gallery wall, brass frames, sketch showing through */
 .wall--wood {
   background:
-    linear-gradient(rgba(245, 241, 232, 0.86), rgba(245, 241, 232, 0.8)),
+    linear-gradient(rgba(23, 56, 38, 0.9), rgba(13, 36, 24, 0.94)),
     url('/wall-sketch.jpg') center / cover;
+  border-color: #0d2016;
 }
 
-.wall--wood .trophy__label { color: var(--ink-soft); }
-.wall--wood .wall__shelf { background: repeating-linear-gradient(90deg, #6b503a 0 22px, #7d5f45 22px 44px); }
+.wall--wood .trophy__label { color: #e9dfc4; }
+
+.wall--wood .wall__shelf {
+  background: linear-gradient(#2e2118, #1c130c);
+  border-top: 3px solid #c9a24a;
+  border-bottom: 3px solid #000;
+}
+
 .wall--wood .frame,
 #positions .pos__row {
   background:
@@ -698,8 +705,19 @@ body.lock {
     var(--paper);
 }
 
-.wall--wood .frame { border-color: var(--ink); outline-color: var(--paper); }
-.wall--wood .frame::before { background: var(--ink); }
+.wall--wood .frame {
+  border: 3px double #a8842f;
+  outline-color: #f6efdd;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+.wall--wood .frame:hover {
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.55), 0 0 16px rgba(216, 178, 90, 0.28);
+}
+
+.wall--wood .frame::before { background: #d8b25a; }
+
+.wall--wood .frame--more { border-style: dashed; border-color: #c9a24a; }
 
 #positions .pos__row {
   border: 2px solid var(--ink);
@@ -711,3 +729,90 @@ body.lock {
 
 #positions .pos li:first-child .pos__row { border-top: 2px solid var(--ink); }
 #positions .pos__row { border-bottom: 2px solid var(--ink); }
+
+/* ============ routed pages: archive + newspaper article ============ */
+.arch--page {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  min-height: 70vh;
+  overflow: visible;
+}
+
+.artpage__back {
+  margin-bottom: 1.2rem;
+}
+
+.paper__name--sm {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+}
+
+.artpage__head {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 5.5vw, 3.4rem);
+  line-height: 1.08;
+  font-weight: 700;
+  margin: 1.1rem 0 0.6rem;
+}
+
+.artpage__by {
+  color: var(--muted);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.artpage__fig {
+  margin: 0 0 1.4rem;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--ink) 14%, transparent);
+}
+
+.artpage__fig img {
+  display: block;
+  width: 100%;
+  max-height: 24rem;
+  object-fit: cover;
+  filter: grayscale(1) sepia(0.14) contrast(1.05);
+}
+
+.artpage__fig figcaption {
+  padding: 0.5rem 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.artpage__text {
+  columns: 2 20rem;
+  column-gap: 2.4rem;
+  column-rule: 1px solid var(--line-soft);
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.artpage__text p {
+  margin-bottom: 1rem;
+}
+
+.artpage__text p:first-child::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.1em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.82;
+  padding-right: 0.14em;
+  color: var(--ink);
+}
+
+.artpage__src {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+  color: var(--muted);
+}
+
+.artpage__src a {
+  color: var(--accent);
+}

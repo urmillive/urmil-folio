@@ -167,19 +167,28 @@ if (paperDate) {
     .toUpperCase()
 }
 
+/* posts cache + slug helper for the article route */
+let paperPosts = []
+const slugOf = (post) =>
+  post.slug ||
+  (post.title || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60)
+
 fetch('/blog/index.json')
   .then((r) => (r.ok ? r.json() : []))
   .then((posts) => {
+    paperPosts = Array.isArray(posts) ? posts : []
+    route()
     const body = document.getElementById('paper-body')
-    if (!body || !Array.isArray(posts) || !posts.length) return
+    if (!body || !paperPosts.length) return
 
+    /* every headline opens its own article page inside the site */
     const linkWrap = (post, inner) => {
-      const href = safeHref(post.url)
-      if (!href) return inner
       const a = document.createElement('a')
-      a.href = href
-      a.target = '_blank'
-      a.rel = 'noopener noreferrer'
+      a.href = `#/paper/${slugOf(post)}`
       a.appendChild(inner)
       return a
     }
@@ -221,3 +230,83 @@ fetch('/blog/index.json')
     }
   })
   .catch(() => {})
+
+/* ---- tiny hash router: #/archive and #/paper/<slug> are real pages ---- */
+const ARTICLE_ART = [
+  '/journey-ai.jpg',
+  '/journey-boot.jpg',
+  '/journey-enterprise.jpg',
+  '/journey-jarvis.jpg',
+  '/journey-leap.jpg',
+]
+
+const artFor = (slug) => {
+  let h = 0
+  for (const c of slug) h = (h * 31 + c.charCodeAt(0)) % 997
+  return ARTICLE_ART[h % ARTICLE_ART.length]
+}
+
+const renderArticle = (slug) => {
+  const post = paperPosts.find((p) => slugOf(p) === slug)
+  if (!post) return false
+
+  document.getElementById('art-date').textContent = (post.date || '').toUpperCase()
+  document.getElementById('art-head').textContent = post.title || ''
+  document.getElementById('art-by').textContent =
+    `By Urmil Rupareliya · The Daily Move · ${post.date || ''}`
+
+  const img = document.getElementById('art-img')
+  img.src = safeHref(post.image) && post.image.startsWith('http') ? post.image : (post.image || artFor(slug))
+  document.getElementById('art-cap').textContent =
+    post.caption || 'illustration from the daily move archive'
+
+  const text = document.getElementById('art-text')
+  text.textContent = ''
+  const paras = Array.isArray(post.body) && post.body.length
+    ? post.body
+    : [post.summary || '', 'The full story is at the source link below. I read it so you get the short version, every single day.']
+  paras.filter(Boolean).forEach((p) => {
+    const el = document.createElement('p')
+    el.textContent = p
+    text.appendChild(el)
+  })
+
+  const src = document.getElementById('art-src')
+  src.textContent = ''
+  const href = safeHref(post.url)
+  if (href) {
+    src.append('source: ')
+    const a = document.createElement('a')
+    a.href = href
+    a.target = '_blank'
+    a.rel = 'noopener noreferrer'
+    a.textContent = href.replace(/^https?:\/\//, '').slice(0, 60)
+    src.appendChild(a)
+  }
+  return true
+}
+
+const mainEl = document.querySelector('main')
+const footerEl = document.querySelector('.footer')
+const archivePage = document.getElementById('archive')
+const articlePage = document.getElementById('article')
+
+const route = () => {
+  const h = location.hash
+  const art = h.match(/^#\/paper\/([a-z0-9-]+)$/)
+  const isArchive = h === '#/archive'
+  const showArticle = !!art && renderArticle(art[1])
+  const isPage = isArchive || showArticle
+
+  mainEl.hidden = isPage
+  footerEl.hidden = isPage
+  archivePage.hidden = !isArchive
+  articlePage.hidden = !showArticle
+  if (isPage) window.scrollTo(0, 0)
+}
+
+window.addEventListener('hashchange', route)
+document.getElementById('art-back').addEventListener('click', () => {
+  location.hash = '#blog'
+})
+route()

@@ -343,3 +343,140 @@ body.lock {
     text-align: center;
   }
 }
+
+/* ============ The Wall: cartoon shelf of trophies & certs ============ */
+.wall {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 46px, color-mix(in srgb, var(--ink) 4%, transparent) 46px 48px),
+    var(--paper-2);
+  border: 2.5px solid var(--ink);
+  border-radius: 8px;
+  padding: clamp(1.4rem, 4vw, 2.6rem) clamp(1rem, 3vw, 2.2rem) 0;
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--ink) 14%, transparent);
+  overflow: hidden;
+}
+
+.wall__frames {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  justify-content: center;
+}
+
+.frame {
+  position: relative;
+  rotate: var(--tilt, 0deg);
+  border: 3px double var(--ink);
+  outline: 6px solid var(--paper);
+  outline-offset: -9px;
+  background: var(--paper);
+  padding: 1.1rem 1rem 0.9rem;
+  min-width: 11rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  box-shadow: 3px 4px 0 color-mix(in srgb, var(--ink) 22%, transparent);
+  transition: rotate 0.3s ease, transform 0.3s ease;
+}
+
+.frame::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  translate: -50% 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.frame:hover {
+  rotate: 0deg;
+  transform: translateY(-4px);
+}
+
+.frame__title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.frame__by {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.frame--more {
+  border-style: dashed;
+}
+
+.wall__shelf {
+  height: 12px;
+  margin: 1.6rem calc(var(--pad) * -1) 0;
+  background: #b58863;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid #3d2f23;
+}
+
+.wall__trophies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  justify-content: center;
+  padding: 1.1rem 0 1.6rem;
+}
+
+.trophy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.trophy__icon {
+  font-size: 2rem;
+  filter: drop-shadow(2px 3px 0 color-mix(in srgb, var(--ink) 25%, transparent));
+}
+
+.trophy__label {
+  color: var(--ink-soft);
+  font-size: 0.62rem;
+}
+
+/* cat visibility + backflip */
+#oneko {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.9)) drop-shadow(1px 2px 2px rgba(61, 47, 35, 0.35));
+}
+
+.cat-flip {
+  animation: catflip 0.8s cubic-bezier(0.3, 0.7, 0.3, 1.2) !important;
+}
+
+@keyframes catflip {
+  0% { margin-top: 0; rotate: 0deg; }
+  45% { margin-top: -46px; rotate: 200deg; }
+  100% { margin-top: 0; rotate: 360deg; }
+}
+
+/* konami chess confetti */
+.chessfetti {
+  position: fixed;
+  top: -6vh;
+  z-index: 95;
+  pointer-events: none;
+  color: var(--accent);
+  animation: fettifall linear forwards;
+}
+
+.chessfetti:nth-child(even) {
+  color: var(--ink);
+}
+
+@keyframes fettifall {
+  to {
+    transform: translateY(112vh) rotate(540deg);
+  }
+}

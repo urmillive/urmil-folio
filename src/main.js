@@ -10,6 +10,7 @@ import './css/archive.css'
 import Lenis from 'lenis'
 import { createChessHero } from './game/board.js'
 import './oneko.js'
+import './delights.js'
 import { createTwinDock } from './twin/chat.js'
 import { createArchive } from './archive/archive.js'
 
@@ -160,8 +161,14 @@ fetch('/blog/index.json')
       const li = document.createElement('li')
       const a = document.createElement('a')
       a.className = 'pos__row'
-      a.href = p.url || '#'
-      if (/^https?:/.test(a.href)) { a.target = '_blank'; a.rel = 'noopener' }
+      let href = '#'
+      try {
+        const u = new URL(p.url, location.href)
+        if (u.protocol === 'https:' || u.protocol === 'http:') href = u.href
+      } catch { /* keep '#' */ }
+      a.href = href
+      a.target = '_blank'
+      a.rel = 'noopener noreferrer'
       const d = document.createElement('span'); d.className = 'pos__sq mono'; d.textContent = (p.date || '').slice(5)
       const t = document.createElement('span'); t.className = 'pos__name'; t.textContent = p.title || ''
       const sm = document.createElement('span'); sm.className = 'pos__desc'; sm.textContent = p.summary || ''

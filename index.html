@@ -30,175 +30,32 @@
     </header>
 
     <main>
-      <!-- ============ THE JOURNEY — scroll through his decade ============ -->
-      <div id="journey">
-        <!-- TITLE CARD -->
-        <section class="jscene jscene--short jscene--title" data-scene="title">
-          <div class="jstick">
-            <div class="title">
-              <span class="doodle doodle--king" aria-hidden="true">
-                drag me!
-                <svg viewBox="0 0 80 60"><path d="M72 50 C 58 44, 44 30, 34 14 M34 14 l 13 3 M34 14 l 1 13" /></svg>
-              </span>
-              <img class="king" src="/pieces/klt.svg" alt="A white chess king — this is Urmil, drag him around" draggable="false" />
-              <h1 class="title__name" aria-label="URMIL"><span class="tl">U</span><span class="tl">R</span><span class="tl">M</span><span class="tl">I</span><span class="tl">L</span></h1>
-              <p class="title__sub mono">remote full-stack developer · ai-driven innovator · Ahmedabad, IN</p>
-              <p class="title__hint mono">↑ that king is urmil — drag him into his name and see what happens.</p>
-              <div class="persona mono" role="group" aria-label="Who is watching?">
-                <span class="persona__q">watching as:</span>
-                <button type="button" class="persona__chip" data-persona="recruiter">recruiter</button>
-                <button type="button" class="persona__chip" data-persona="founder">founder / ceo</button>
-                <button type="button" class="persona__chip" data-persona="engineer">engineer</button>
-              </div>
-              <p class="persona__ack mono" aria-live="polite"></p>
+      <!-- ============ TITLE ============ -->
+      <section class="jscene jscene--short jscene--title jscene--active" id="top-title" aria-label="Urmil — start here">
+        <div class="jstick">
+          <div class="title">
+            <span class="doodle doodle--king" aria-hidden="true">
+              drag me!
+              <svg viewBox="0 0 80 60"><path d="M72 50 C 58 44, 44 30, 34 14 M34 14 l 13 3 M34 14 l 1 13" /></svg>
+            </span>
+            <img class="king" src="/pieces/klt.svg" alt="A white chess king — this is Urmil, drag him around" draggable="false" />
+            <h1 class="title__name" aria-label="URMIL"><span class="tl">U</span><span class="tl">R</span><span class="tl">M</span><span class="tl">I</span><span class="tl">L</span></h1>
+            <p class="title__sub mono">remote full-stack developer · ai-driven innovator · Ahmedabad, IN</p>
+            <p class="title__hint mono">that king is urmil — drag him into his name. then play his story below.</p>
+            <div class="persona mono" role="group" aria-label="Who is watching?">
+              <span class="persona__q">watching as:</span>
+              <button type="button" class="persona__chip" data-persona="recruiter">recruiter</button>
+              <button type="button" class="persona__chip" data-persona="founder">founder / ceo</button>
+              <button type="button" class="persona__chip" data-persona="engineer">engineer</button>
             </div>
-            <p class="jhint mono" aria-hidden="true">the film starts below ↓</p>
+            <p class="persona__ack mono" aria-live="polite"></p>
           </div>
-        </section>
-
-        <!-- 2015 · BOOT -->
-        <section class="jscene jscene--dark" data-scene="boot">
-          <div class="jstick">
-            <div class="jyear" aria-hidden="true">2015</div>
-            <div class="jhead">
-              <span class="jtag mono">2015 · rajkot · it begins</span>
-              <h2>One school computer.<br />One blinking cursor.</h2>
-              <p class="jsub mono">Class 10, a C++ textbook, a small-town computer lab — and a kid who wouldn’t stop asking “how?”.</p>
-            </div>
-            <figure class="jart"><img src="/journey-boot.jpg" alt="Storybook illustration: a boy at an old computer in a dim lab" loading="lazy" /></figure>
-            <div class="jprop crt" aria-hidden="true">
-              <p class="crt__line"></p>
-              <p class="crt__line"></p>
-              <p class="crt__line"></p>
-              <span class="crt__cursor"></span>
-              <span class="doodle doodle--crt">the first line ever ↑</span>
-            </div>
-            <p class="jhint mono" aria-hidden="true">best with sound — tap “sound” up top · scroll ↓</p>
-          </div>
-        </section>
-
-        <!-- 2018 · JARVIS -->
-        <section class="jscene jscene--dark" data-scene="jarvis">
-          <div class="jstick">
-            <div class="jyear" aria-hidden="true">2018</div>
-            <div class="jhead">
-              <span class="jtag mono">2019–23 · bca → mca · python &amp; ml</span>
-              <h2>He built a voice and named it Jarvis.</h2>
-              <p class="jsub mono">College nights with Python: he taught a machine to answer him back. The first time code felt like magic — it never stopped feeling that way.</p>
-            </div>
-            <figure class="jart"><img src="/journey-jarvis.jpg" alt="Storybook illustration: a student at a glowing laptop at night" loading="lazy" /></figure>
-            <div class="jprop jarvis" aria-hidden="true">
-              <p class="jarvis__cmd"></p>
-              <div class="jarvis__wave">
-                <span style="--i:0;--h:30%"></span><span style="--i:1;--h:55%"></span><span style="--i:2;--h:20%"></span><span style="--i:3;--h:62%"></span><span style="--i:4;--h:38%"></span><span style="--i:5;--h:58%"></span><span style="--i:6;--h:26%"></span><span style="--i:7;--h:52%"></span><span style="--i:8;--h:34%"></span><span style="--i:9;--h:60%"></span><span style="--i:10;--h:24%"></span><span style="--i:11;--h:48%"></span><span style="--i:12;--h:36%"></span><span style="--i:13;--h:56%"></span>
-              </div>
-              <p class="jarvis__reply"></p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 2019 · THE LEAP -->
-        <section class="jscene" data-scene="leap">
-          <div class="jstick">
-            <div class="jyear" aria-hidden="true">2019</div>
-            <div class="jhead">
-              <span class="jtag mono">2019–22 · freelance · the mern leap</span>
-              <h2>Mid-college, he bet on himself.</h2>
-              <p class="jsub mono">Three years solo: React, Angular, React Native, Next.js — client products owned end to end. The first stranger who paid for his work — that feeling never gets old.</p>
-            </div>
-            <figure class="jart"><img src="/journey-leap.jpg" alt="Storybook illustration: paper planes flying from a window over rooftops" loading="lazy" /></figure>
-            <div class="jprop" aria-hidden="true">
-              <div class="browser">
-                <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url">client-storefront.com</span></div>
-                <div class="browser__body">
-                  <div class="blk blk--nav"></div>
-                  <div class="blk blk--hero">shipped end to end</div>
-                  <div class="blkrow">
-                    <div class="blk"></div>
-                    <div class="blk"></div>
-                    <div class="blk"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="toast">✓ payment successful — <b>stripe</b></div>
-              <span class="doodle doodle--invoice">real client, real money →</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- 2022-24 · THE ENTERPRISE -->
-        <section class="jscene jscene--enterprise" data-scene="enterprise">
-          <div class="jstick">
-            <div class="jyear" aria-hidden="true">2023</div>
-            <div class="jhead">
-              <span class="jtag mono">2022–25 · fox valley → warelogg → asite</span>
-              <h2>Then he learned what scale means.</h2>
-              <p class="jsub mono">MERN backends at Fox Valley. Warelogg — a logistics startup built with IIT students. Then Asite, intern to engineer in 2½ years, where his Angular &amp; TypeScript era began.</p>
-            </div>
-            <figure class="jart"><img src="/journey-enterprise.jpg" alt="Storybook illustration: engineers collaborating in an office with a city skyline" loading="lazy" /></figure>
-            <div class="jprop bp" aria-hidden="true">
-              <p class="bp__check">reactive forms — validated at every boundary</p>
-              <p class="bp__check">monorepo — shared libs, one source of truth</p>
-              <p class="bp__check">jasmine / karma — 214 tests green</p>
-              <p class="bp__check">wcag aa — accessible by default</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 2025 · THE AI ERA -->
-        <section class="jscene jscene--dark" data-scene="ai">
-          <div class="jstick">
-            <div class="jyear" aria-hidden="true">2025</div>
-            <div class="jhead">
-              <span class="jtag mono">aug 2025 · upsquare · the ai era</span>
-              <h2>Now he builds with an AI at each elbow.</h2>
-              <p class="jsub mono">Software Engineer at Upsquare: 3–4 real products at once, Angular + TypeScript, AI tools in every workflow. 11 apps live. 249 repos open. Still asking “how?”.</p>
-            </div>
-            <figure class="jart"><img src="/journey-ai.jpg" alt="Storybook illustration: a young engineer working beside a small glowing robot, chess pieces on the desk" loading="lazy" /></figure>
-            <div class="jprop aichat">
-              <div class="aichat__msg" data-text="…I woke up somewhere around here.">
-                <span class="aichat__who">his ai twin</span>
-                <span class="aichat__text"></span>
-              </div>
-              <div class="aichat__msg" data-text="I'm trained on everything you just scrolled — his stacks, his shipping record, his gaps too. Ask me anything, or paste your job description.">
-                <span class="aichat__who">his ai twin</span>
-                <span class="aichat__text"></span>
-              </div>
-              <button type="button" class="btn-accent aichat__cta jn-twin">talk to me →</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- FINALE -->
-        <section class="jscene jscene--short jfinale" data-scene="finale">
-          <div class="jstick">
-            <div class="jfinale-inner">
-              <p class="exp__headline">Your move.<span class="doodle doodle--say" aria-hidden="true">go on — it’s just an email ↓</span></p>
-              <p class="exp__finline mono">The only piece missing from this story is you. Checkmate is a hiring decision.</p>
-              <div class="exp__finactions">
-                <a class="btn-accent" href="mailto:urmillive@gmail.com">✉ urmillive@gmail.com</a>
-                <button type="button" class="btn-accent jn-twin">♞ Ask my AI twin</button>
-                <button type="button" class="btn-ghost jn-chess">play my story as chess</button>
-                <button type="button" class="btn-ghost jn-free">play me for real</button>
-                <a href="#opening" class="btn-ghost">resume ↓</a>
-              </div>
-
-              <aside class="recruit" aria-label="Recruiter shortcut">
-                <p class="recruit__head mono">hiring? the 60-second version</p>
-                <ol class="recruit__steps mono">
-                  <li><button type="button" class="recruit__link jn-twin">Paste your JD into my AI twin</button> — it returns an honest fit report: matched strengths, one real gap, a verdict.</li>
-                  <li><a class="recruit__link" href="https://topmate.io/urmillive" target="_blank" rel="noopener">Book 15 minutes on Topmate</a> — talk to the human version.</li>
-                  <li><a class="recruit__link" href="mailto:urmillive@gmail.com">urmillive@gmail.com</a> — he replies fast. Shipping fast is the brand.</li>
-                </ol>
-                <p class="recruit__proof mono">proof, all public: <a href="https://github.com/urmillive" target="_blank" rel="noopener">249 open-source repos</a> · 11 Play Store apps · AI SaaS in production</p>
-              </aside>
-            </div>
-          </div>
-        </section>
-      </div>
+          <p class="jhint mono" aria-hidden="true">▼ his career, playable in seven moves — best with sound (top bar)</p>
+        </div>
+      </section>
 
       <!-- ============ CHESS MODES — overlay ============ -->
-      <section class="exp" id="experience" hidden aria-label="The Urmil Gambit — play through his career">
+      <section class="exp" id="experience" aria-label="The Urmil Gambit — play through his career">
         <div class="exp__stage">
           <!-- acts -->
           <div class="exp__act" hidden>
@@ -224,11 +81,12 @@
             <p class="exp__headline"></p>
             <p class="exp__finline mono"></p>
             <div class="exp__finactions">
-              <a class="btn-accent" href="mailto:urmillive@gmail.com">✉ urmillive@gmail.com</a>
+              <a class="btn-accent" href="mailto:urmillive@gmail.com?subject=Interview%20invite%20%E2%80%94%20let%E2%80%99s%20talk&body=Hi%20Urmil%2C%0A%0AI%20just%20played%20through%20your%20portfolio%20%E2%80%94%20impressive.%20We%E2%80%99d%20love%20to%20set%20up%20a%20conversation%20about%20a%20role%20at%20our%20company.%0A%0ARole%3A%20%0ACompany%3A%20%0AWhen%20works%20for%20you%3F%0A%0AThanks%2C">✉ invite to interview</a>
+              <a class="btn-accent" href="https://wa.me/916355558644?text=Hi%20Urmil%20%E2%80%94%20just%20played%20your%20portfolio.%20Let%E2%80%99s%20talk!" target="_blank" rel="noopener">🟢 WhatsApp me</a>
               <button type="button" class="btn-accent exp__twinbtn">♞ Ask my AI twin</button>
               <button type="button" class="btn-ghost exp__freeplaybtn">play me for real</button>
               <button type="button" class="btn-ghost exp__replay">replay the story</button>
-              <button type="button" class="btn-ghost exp__back">back to the journey ↩</button>
+              <a href="#opening" class="btn-ghost">full resume ↓</a>
             </div>
           </div>
 
@@ -275,13 +133,13 @@
             me to <em>ship</em> them.
           </p>
           <p class="opening__body reveal">
-            The journey: C++ in class 10, before anything else. Then the
-            Python years — Jarvis, an OpenCV invisibility cloak, a master's in
-            cyber security. The freelance leap across React, Angular and
-            Next.js; the enterprise Angular years at Asite; and now the AI era
-            at Upsquare — 3–4 products at once with AI in every workflow. The
-            stack changed five times. The game stayed the same — read the
-            whole board, find the strong move, play it fast.
+            The journey: HTML &amp; CSS in class 10, C++ by class 12. Then the
+            Python years — a first laptop, Jarvis, an OpenCV invisibility
+            cloak, a master's in cyber security. The freelance leap across
+            React, Angular and Next.js; the enterprise Angular years at Asite;
+            and now the AI era at Upsquare — 3–4 products at once with AI in
+            every workflow. The stack changed five times. The game stayed the
+            same — read the whole board, find the strong move, play it fast.
           </p>
           <ul class="opening__facts mono reveal" role="list">
             <li><strong>249</strong> public repositories</li>
@@ -307,19 +165,19 @@
             <span class="score__move mono">1.&nbsp;g3</span>
             <div class="score__body">
               <h3 class="score__role">First Openings <span class="score__co">— school days, Rajkot</span></h3>
-              <p class="score__desc">Class 10: C++ before anything else, Java foundations, a CCC course. Openings, studied properly.</p>
-              <p class="score__tech mono">C++ · Java · CCC</p>
+              <p class="score__desc">Class 10: first HTML &amp; CSS pages. Class 12: C++, completed. Openings, studied properly.</p>
+              <p class="score__tech mono">HTML · CSS · C++</p>
             </div>
-            <span class="score__years mono">2015–19</span>
+            <span class="score__years mono">2015–18</span>
           </li>
           <li class="score__row reveal">
             <span class="score__move mono">2.&nbsp;Bg2</span>
             <div class="score__body">
               <h3 class="score__role">BCA → MCA · Python &amp; Cyber Security <span class="score__co">— Saurashtra → Parul University</span></h3>
-              <p class="score__desc">The fianchetto: Jarvis (a voice assistant), invisibleCloak (OpenCV), ML experiments — then a master's in Cyber Security &amp; Forensics.</p>
+              <p class="score__desc">First laptop, then the fianchetto: Jarvis, invisibleCloak (OpenCV), 12+ hackathon projects — and a master's in Cyber Security &amp; Forensics.</p>
               <p class="score__tech mono">Python · ML · OpenCV · Security</p>
             </div>
-            <span class="score__years mono">2019–23</span>
+            <span class="score__years mono">2018–23</span>
           </li>
           <li class="score__row reveal">
             <span class="score__move mono">3.&nbsp;c4<sup>!?</sup></span>
@@ -441,23 +299,27 @@
         <dl class="arsenal">
           <div class="arsenal__group reveal">
             <dt class="mono">♟ Frontend</dt>
-            <dd>Angular, React, Next.js, TypeScript, Redux, Tailwind, Material UI, Storybook</dd>
+            <dd>Angular, React, Next.js, TypeScript, ES6+, Redux, Bootstrap / SCSS, Material-UI, Ant Design, Storybook, responsive &amp; cross-browser design, PWA</dd>
           </div>
           <div class="arsenal__group reveal">
             <dt class="mono">♜ Backend</dt>
-            <dd>Node.js, Express, NestJS, GraphQL, REST, MongoDB, PostgreSQL, JWT / OAuth</dd>
+            <dd>Node.js, Express, NestJS, GraphQL, REST, WebSockets / Socket.io, MongoDB, PostgreSQL, JWT / OAuth / Passport.js, Firebase</dd>
           </div>
           <div class="arsenal__group reveal">
-            <dt class="mono">♝ Mobile</dt>
-            <dd>React Native, Swift (iOS), Android</dd>
+            <dt class="mono">♝ Mobile &amp; Desktop</dt>
+            <dd>React Native, Swift (iOS), Android, Kotlin, Electron.js, WebRTC</dd>
           </div>
           <div class="arsenal__group reveal">
             <dt class="mono">♞ AI &amp; Systems</dt>
-            <dd>Python, Claude API, OpenAI, ML fundamentals, HLD / LLD, microservices, design patterns</dd>
+            <dd>Python, OpenCV, Claude API, OpenAI, ML fundamentals, HLD / LLD, microservices, design patterns</dd>
           </div>
           <div class="arsenal__group reveal">
-            <dt class="mono">♛ DevOps</dt>
-            <dd>Docker, Kubernetes, AWS, Linux, Jenkins CI/CD, Nginx</dd>
+            <dt class="mono">♛ DevOps &amp; Quality</dt>
+            <dd>Docker, Kubernetes, AWS, Linux, Jenkins / Travis CI, Nginx, Git, Webpack, testing (Jest · Mocha · Chai), SEO &amp; performance optimization</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">♚ Craft</dt>
+            <dd>UX/UI principles, wireframing &amp; prototyping, D3.js, Three.js / WebGL, browser devtools, progressive enhancement</dd>
           </div>
         </dl>
       </section>
@@ -471,20 +333,20 @@
         </header>
         <dl class="arsenal">
           <div class="arsenal__group reveal">
-            <dt class="mono">🏆 TECHATHON runner-up</dt>
-            <dd>Gateway Group of Companies hackathon, September 2022.</dd>
+            <dt class="mono">🏆 Triumph at TECHATHON</dt>
+            <dd>Gateway Group of Companies hackathon, 2022 — plus 12+ hackathon projects across IT domains since 2021.</dd>
           </div>
           <div class="arsenal__group reveal">
             <dt class="mono">☁ GDSC Parul University</dt>
-            <dd>30 Days of Google Cloud (2021), cloud program certifications 2022–23, campus community organiser.</dd>
+            <dd>Joined 2021 · 30 Days of Google Cloud certified · Hacktrack 2.0 cyber-security track (2022).</dd>
           </div>
           <div class="arsenal__group reveal">
             <dt class="mono">🇮🇳 Indian developers community</dt>
-            <dd>Core member, 2023 — plus college tech communities.</dd>
+            <dd>Core member, 2023 — plus campus tech communities.</dd>
           </div>
           <div class="arsenal__group reveal">
-            <dt class="mono">🌿 Hacktoberfest &amp; open source</dt>
-            <dd>Contributions across Java (JCUBE), Python and web-development communities; 249 public repos.</dd>
+            <dt class="mono">🌿 Hacktoberfest since 2020</dt>
+            <dd>Open-source contributions across Java (JCUBE), Python and web-development communities; 249 public repos.</dd>
           </div>
           <div class="arsenal__group reveal">
             <dt class="mono">📜 18 certifications</dt>
@@ -503,7 +365,14 @@
         <p class="end__cta reveal">
           <a href="mailto:urmillive@gmail.com" class="end__link">Your move<span class="end__dot">.</span></a>
         </p>
-        <p class="end__mail mono reveal"><a href="mailto:urmillive@gmail.com">urmillive@gmail.com</a></p>
+        <div class="end__templates reveal" aria-label="One-tap messages">
+          <a class="btn-accent" href="mailto:urmillive@gmail.com?subject=Interview%20invite%20%E2%80%94%20let%E2%80%99s%20talk&body=Hi%20Urmil%2C%0A%0AI%20just%20went%20through%20your%20portfolio.%20We%E2%80%99d%20love%20to%20talk%20about%20a%20role.%0A%0ARole%3A%20%0ACompany%3A%20%0AWhen%20works%3F%0A%0AThanks%2C">✉ invite to interview</a>
+          <a class="btn-accent" href="mailto:urmillive@gmail.com?subject=Project%20inquiry&body=Hi%20Urmil%2C%0A%0AWe%20have%20a%20project%20and%20think%20you%E2%80%99d%20be%20a%20great%20fit.%0A%0AWhat%20we%E2%80%99re%20building%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AThanks%2C">🚀 project inquiry</a>
+          <a class="btn-ghost" href="mailto:urmillive@gmail.com?subject=Hi%20Urmil!&body=Just%20played%20your%20portfolio%20%E2%80%94%20had%20to%20say%20hi.">👋 just say hi</a>
+          <a class="btn-ghost" href="https://wa.me/916355558644?text=Hi%20Urmil%20%E2%80%94%20just%20played%20your%20portfolio.%20Let%E2%80%99s%20talk!" target="_blank" rel="noopener">🟢 WhatsApp</a>
+          <a class="btn-ghost" href="tel:+916355558644">📞 call</a>
+        </div>
+        <p class="end__mail mono reveal"><a href="mailto:urmillive@gmail.com">urmillive@gmail.com</a> · <a href="tel:+916355558644">+91 63555 58644</a></p>
         <ul class="end__social mono reveal" role="list">
           <li><a href="https://github.com/urmillive" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/urmillive" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -514,6 +383,34 @@
         </ul>
       </section>
     </main>
+
+    <section class="arch" id="vault" hidden aria-label="The Vault — hidden gallery">
+      <div class="arch__inner">
+        <header class="arch__head">
+          <div>
+            <h2 class="arch__title">The Vault <span class="mono" style="color: var(--accent)">· you found it</span></h2>
+            <p class="arch__sub mono">the journey, year by year — for the ones who look closer</p>
+          </div>
+          <button type="button" class="arch__close mono vault__close">close ✕</button>
+        </header>
+        <ol class="vault__timeline" role="list">
+          <li><b>2015</b> — First lines of HTML &amp; CSS, class 10.</li>
+          <li><b>2017</b> — C++ conquered, class 12.</li>
+          <li><b>2018</b> — BCA begins · first laptop · Python projects take flight.</li>
+          <li><b>2019</b> — First freelance frontend project.</li>
+          <li><b>2020</b> — First Hacktoberfest — open source begins. 🚀</li>
+          <li><b>2021</b> — GDSC Parul · Google Cloud certified · MCA begins · hackathon hunting starts (12+ projects).</li>
+          <li><b>2022</b> — Hacktrack 2.0 (cyber security with Sanny Vaghela) · triumph at Gateway’s TECHATHON · Fox Valley internship · Warelogg offer.</li>
+          <li><b>2023</b> — Asite Solutions — the Angular &amp; TypeScript era.</li>
+          <li><b>2025</b> — Upsquare — 3–4 products at once, AI in every workflow.</li>
+        </ol>
+        <p class="arch__count mono">
+          watch it happen: <a href="https://www.youtube.com/@urmillive" target="_blank" rel="noopener">youtube @urmillive</a> ·
+          <a href="https://www.instagram.com/urmillive" target="_blank" rel="noopener">instagram</a> ·
+          <a href="https://github.com/urmillive" target="_blank" rel="noopener">github</a>
+        </p>
+      </div>
+    </section>
 
     <section class="arch" id="archive" hidden aria-label="The Archive — all projects by category">
       <div class="arch__inner">

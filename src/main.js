@@ -9,9 +9,8 @@ import './css/stage.css'
 import './css/chat.css'
 import './css/sections.css'
 import './css/archive.css'
-import { createJourney } from './journey/journey.js'
-import { decorate } from './journey/decor.js'
 import { createAudio } from './journey/audio.js'
+import { createTitle } from './exp/title.js'
 import { createArchive } from './archive/archive.js'
 import { createStage } from './exp/stage.js'
 import { createTwinDock } from './twin/chat.js'
@@ -40,26 +39,12 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   revealables.forEach((el) => io.observe(el))
 }
 
-/* ---- journey + chess overlay + AI twin ---- */
+/* ---- chess spine + AI twin ---- */
 const expRoot = document.getElementById('experience')
 const finaleEl = expRoot.querySelector('.exp__finale')
-const actEl = expRoot.querySelector('.exp__act')
 const freeplayEl = expRoot.querySelector('.exp__freeplay')
 let freePlayReady = false
 let openTwin = () => {}
-
-const openOverlay = () => {
-  expRoot.hidden = false
-  document.body.classList.add('lock')
-}
-
-const closeOverlay = () => {
-  expRoot.hidden = true
-  actEl.hidden = true
-  finaleEl.hidden = true
-  freeplayEl.hidden = true
-  document.body.classList.remove('lock')
-}
 
 const openFreePlay = async () => {
   finaleEl.hidden = true
@@ -82,12 +67,10 @@ expRoot.querySelector('.exp__fpclose').addEventListener('click', () => {
   finaleEl.hidden = false
 })
 
-const stage = createStage(expRoot, {
+createStage(expRoot, {
   onFreePlay: openFreePlay,
   onAskTwin: () => openTwin(),
 })
-
-expRoot.querySelector('.exp__back').addEventListener('click', closeOverlay)
 
 const audio = createAudio()
 const sndBtn = document.getElementById('snd-toggle')
@@ -97,22 +80,11 @@ sndBtn.addEventListener('click', () => {
   sndBtn.setAttribute('aria-pressed', String(on))
 })
 
-decorate(document.getElementById('journey'))
-createJourney(document.getElementById('journey'), audio)
-
-document.querySelectorAll('.jn-chess').forEach((btn) =>
-  btn.addEventListener('click', () => {
-    openOverlay()
-    stage.startStory()
-  })
-)
-
-document.querySelectorAll('.jn-free').forEach((btn) =>
-  btn.addEventListener('click', () => {
-    openOverlay()
-    openFreePlay()
-  })
-)
+createTitle({
+  root: document.getElementById('top-title'),
+  sfx: audio,
+  vaultEl: document.getElementById('vault'),
+})
 
 openTwin = createTwinDock({
   dockEl: document.getElementById('twin'),

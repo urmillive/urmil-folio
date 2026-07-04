@@ -2,7 +2,8 @@
    One persistent board; acts play out on it as scenes. Pieces glide via
    absolutely-positioned layers so every move is animated, not swapped. */
 
-import { ACTS, PROLOGUE, FINALE } from './scenes.js'
+import { ACTS, FINALE } from './scenes.js'
+import { PERSONAS } from '../journey/personas.js'
 
 const FILES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
@@ -55,8 +56,8 @@ export const createStage = (root, { onFreePlay, onAskTwin }) => {
 
   const clearHighlights = () => {
     boardEl
-      .querySelectorAll('.xsq--from, .xsq--to, .xsq--forked')
-      .forEach((b) => b.classList.remove('xsq--from', 'xsq--to', 'xsq--forked'))
+      .querySelectorAll('.xsq--from, .xsq--to, .xsq--forked, .xsq--mate')
+      .forEach((b) => b.classList.remove('xsq--from', 'xsq--to', 'xsq--forked', 'xsq--mate'))
   }
 
   const setPieces = (board) => {
@@ -115,10 +116,6 @@ export const createStage = (root, { onFreePlay, onAskTwin }) => {
       if (i === actIndex) li.className = 'now'
       crumbsEl.appendChild(li)
     })
-    const li = document.createElement('li')
-    li.textContent = 'now'
-    if (actIndex >= ACTS.length) li.className = 'now'
-    crumbsEl.appendChild(li)
   }
 
   /* ---- act flow ---- */
@@ -167,6 +164,9 @@ export const createStage = (root, { onFreePlay, onAskTwin }) => {
     if (act.forked) {
       act.forked.forEach((sq) => sqBtn(sq).classList.add('xsq--forked'))
     }
+    if (act.mate) {
+      act.mate.forEach((sq) => sqBtn(sq).classList.add('xsq--mate'))
+    }
     if (act.reply) {
       narrate(act.replyLine || '…')
       await new Promise((r) => setTimeout(r, reducedMotion ? 0 : 700))
@@ -201,7 +201,10 @@ export const createStage = (root, { onFreePlay, onAskTwin }) => {
     actEl.hidden = true
     finaleEl.hidden = false
     finaleEl.querySelector('.exp__headline').textContent = FINALE.headline
-    finaleEl.querySelector('.exp__finline').textContent = FINALE.line
+    const persona = PERSONAS[document.documentElement.dataset.persona]
+    finaleEl.querySelector('.exp__finline').textContent = persona
+      ? persona.finaleLine
+      : FINALE.line
   }
 
   /* ---- wiring ---- */
@@ -228,8 +231,33 @@ export const createStage = (root, { onFreePlay, onAskTwin }) => {
   buildSquares()
   setPieces(ACTS[0].board)
 
+  /* auto-start the story when the board scrolls into view */
+  let started = false
+  const startIfFresh = () => {
+    if (started) return
+    started = true
+    finaleEl.hidden = true
+    actEl.hidden = false
+    startAct(0)
+  }
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          startIfFresh()
+          io.disconnect()
+        }
+      },
+      { threshold: 0.35 }
+    )
+    io.observe(root)
+  } else {
+    startIfFresh()
+  }
+
   return {
     startStory: () => {
+      started = true
       finaleEl.hidden = true
       actEl.hidden = false
       startAct(0)

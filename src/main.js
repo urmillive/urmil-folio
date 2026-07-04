@@ -149,3 +149,26 @@ console.log(
   'font-size:2rem; font-weight:700; color:#e4572e;',
   'font-size:0.85rem; color:#837c6e;'
 )
+
+/* ---- The Daily Move: blog list (auto-published by server cron) ---- */
+fetch('/blog/index.json')
+  .then((r) => (r.ok ? r.json() : []))
+  .then((posts) => {
+    const list = document.getElementById('blog-list')
+    if (!list || !Array.isArray(posts) || !posts.length) return
+    posts.slice(0, 7).forEach((p) => {
+      const li = document.createElement('li')
+      const a = document.createElement('a')
+      a.className = 'pos__row'
+      a.href = p.url || '#'
+      if (/^https?:/.test(a.href)) { a.target = '_blank'; a.rel = 'noopener' }
+      const d = document.createElement('span'); d.className = 'pos__sq mono'; d.textContent = (p.date || '').slice(5)
+      const t = document.createElement('span'); t.className = 'pos__name'; t.textContent = p.title || ''
+      const sm = document.createElement('span'); sm.className = 'pos__desc'; sm.textContent = p.summary || ''
+      const arrow = document.createElement('span'); arrow.className = 'pos__arrow'; arrow.textContent = '↗'
+      a.append(d, t, sm, arrow)
+      li.appendChild(a)
+      list.appendChild(li)
+    })
+  })
+  .catch(() => {})

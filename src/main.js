@@ -151,31 +151,73 @@ console.log(
   'font-size:0.85rem; color:#837c6e;'
 )
 
-/* ---- The Daily Move: blog list (auto-published by server cron) ---- */
+/* ---- The Daily Move: newspaper renderer (auto-published by server cron) ---- */
+const safeHref = (url) => {
+  try {
+    const u = new URL(url, location.href)
+    if (u.protocol === 'https:' || u.protocol === 'http:') return u.href
+  } catch { /* fall through */ }
+  return null
+}
+
+const paperDate = document.getElementById('paper-date')
+if (paperDate) {
+  paperDate.textContent = new Date()
+    .toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+    .toUpperCase()
+}
+
 fetch('/blog/index.json')
   .then((r) => (r.ok ? r.json() : []))
   .then((posts) => {
-    const list = document.getElementById('blog-list')
-    if (!list || !Array.isArray(posts) || !posts.length) return
-    posts.slice(0, 7).forEach((p) => {
-      const li = document.createElement('li')
+    const body = document.getElementById('paper-body')
+    if (!body || !Array.isArray(posts) || !posts.length) return
+
+    const linkWrap = (post, inner) => {
+      const href = safeHref(post.url)
+      if (!href) return inner
       const a = document.createElement('a')
-      a.className = 'pos__row'
-      let href = '#'
-      try {
-        const u = new URL(p.url, location.href)
-        if (u.protocol === 'https:' || u.protocol === 'http:') href = u.href
-      } catch { /* keep '#' */ }
       a.href = href
       a.target = '_blank'
       a.rel = 'noopener noreferrer'
-      const d = document.createElement('span'); d.className = 'pos__sq mono'; d.textContent = (p.date || '').slice(5)
-      const t = document.createElement('span'); t.className = 'pos__name'; t.textContent = p.title || ''
-      const sm = document.createElement('span'); sm.className = 'pos__desc'; sm.textContent = p.summary || ''
-      const arrow = document.createElement('span'); arrow.className = 'pos__arrow'; arrow.textContent = '↗'
-      a.append(d, t, sm, arrow)
-      li.appendChild(a)
-      list.appendChild(li)
-    })
+      a.appendChild(inner)
+      return a
+    }
+
+    /* lead story */
+    const [lead, ...rest] = posts
+    const leadEl = document.createElement('article')
+    leadEl.className = 'lead'
+    const inner = document.createElement('div')
+    const kick = document.createElement('p')
+    kick.className = 'lead__kicker mono'
+    kick.textContent = `today's move · ${lead.date || ''}`
+    const h = document.createElement('h3')
+    h.className = 'lead__head'
+    h.textContent = lead.title || ''
+    const sum = document.createElement('p')
+    sum.className = 'lead__sum'
+    sum.textContent = lead.summary || ''
+    inner.append(kick, h, sum)
+    leadEl.appendChild(linkWrap(lead, inner))
+    body.appendChild(leadEl)
+
+    /* briefs in columns */
+    if (rest.length) {
+      const briefs = document.createElement('div')
+      briefs.className = 'paper__briefs'
+      rest.slice(0, 11).forEach((p) => {
+        const art = document.createElement('article')
+        art.className = 'brief'
+        const wrap = document.createElement('div')
+        const d = document.createElement('p'); d.className = 'brief__date mono'; d.textContent = p.date || ''
+        const bh = document.createElement('h4'); bh.className = 'brief__head'; bh.textContent = p.title || ''
+        const bs = document.createElement('p'); bs.className = 'brief__sum'; bs.textContent = p.summary || ''
+        wrap.append(d, bh, bs)
+        art.appendChild(linkWrap(p, wrap))
+        briefs.appendChild(art)
+      })
+      body.appendChild(briefs)
+    }
   })
   .catch(() => {})

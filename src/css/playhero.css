@@ -480,3 +480,204 @@ body.lock {
     transform: translateY(112vh) rotate(540deg);
   }
 }
+
+/* wall v2: wooden planks, clickable frames, hanging medals */
+.wall--wood {
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 52px, rgba(0, 0, 0, 0.28) 52px 55px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 160px, rgba(0, 0, 0, 0.12) 160px 163px),
+    #4a3627;
+}
+
+.wall--wood .frame {
+  text-decoration: none;
+  color: var(--ink);
+  border-color: #2c211a;
+  outline-color: #f6efdd;
+  background: #f6efdd;
+  cursor: pointer;
+}
+
+.wall--wood .frame::before {
+  background: #d8b25a;
+}
+
+.frame--gold {
+  border-color: #b8860b;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.45), 0 0 18px rgba(216, 178, 90, 0.35);
+}
+
+.frame--round {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  justify-content: center;
+  padding: 1.4rem;
+  min-width: 10.5rem;
+}
+
+.frame--clock {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  justify-content: center;
+  min-width: 8.5rem;
+  padding: 0.8rem;
+}
+
+.wall--wood .trophy__label {
+  color: #f0d9b5;
+}
+
+.wall--wood .wall__shelf {
+  background: #8a5a36;
+}
+
+.medals {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.medal {
+  position: absolute;
+  left: var(--mx, 50%);
+  top: -6px;
+  font-size: 1.7rem;
+  transform-origin: top center;
+  animation: medalswing 3.4s ease-in-out var(--d, 0s) infinite alternate;
+  filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.4));
+}
+
+.medal::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  width: 3px;
+  height: 34px;
+  translate: -50% 0;
+  background: linear-gradient(#c62b12 50%, #1a3a6b 50%);
+}
+
+@keyframes medalswing {
+  from { rotate: -7deg; }
+  to { rotate: 7deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .medal { animation: none; }
+}
+
+/* ============ The Daily Move: newspaper front page ============ */
+.paper {
+  border: 2.5px solid var(--ink);
+  background: var(--paper);
+  padding: clamp(1.2rem, 3vw, 2.4rem);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--ink) 14%, transparent);
+}
+
+.paper__mast {
+  text-align: center;
+  border-bottom: 4px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.paper__ears {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.62rem;
+}
+
+.paper__name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  font-variation-settings: 'opsz' 144;
+}
+
+.paper__sub {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.lead__kicker {
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.lead__head {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  line-height: 1.12;
+  font-weight: 640;
+}
+
+.lead__sum {
+  margin-top: 0.7rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.lead__sum::first-letter {
+  font-family: var(--font-serif);
+  font-size: 2.6em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.12em;
+}
+
+.lead a,
+.brief a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lead a:hover .lead__head,
+.brief a:hover .brief__head {
+  color: var(--accent);
+}
+
+.paper__briefs {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 2px solid var(--ink);
+  columns: 3 16rem;
+  column-gap: 2rem;
+  column-rule: 1px solid var(--line-soft);
+}
+
+.brief {
+  break-inside: avoid;
+  margin-bottom: 1.2rem;
+}
+
+.brief__date {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.brief__head {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  margin: 0.2rem 0 0.3rem;
+}
+
+.brief__sum {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}

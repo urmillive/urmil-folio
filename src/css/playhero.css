@@ -682,25 +682,35 @@ body.lock {
   line-height: 1.55;
 }
 
-/* wall v4: theme-matching paper wall, pencil sketch showing through, gold frames */
+/* wall v5: the proper wooden home wall, uniform square frames in a neat grid */
 .wall--wood {
   background:
-    linear-gradient(
-      color-mix(in srgb, var(--paper) 88%, transparent),
-      color-mix(in srgb, var(--paper) 82%, transparent)
-    ),
-    url('/wall-sketch.jpg') center / cover;
+    repeating-linear-gradient(0deg, transparent 0 52px, rgba(0, 0, 0, 0.26) 52px 55px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 160px, rgba(0, 0, 0, 0.12) 160px 163px),
+    #4a3627;
 }
 
-.wall--wood .trophy__label { color: var(--ink-soft); }
+.wall--wood .wall__frames {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 1.2rem;
+  justify-items: stretch;
+}
+
+.wall--wood .trophy__label { color: #f0d9b5; }
 
 .wall--wood .wall__shelf {
   background: repeating-linear-gradient(90deg, #6b503a 0 22px, #7d5f45 22px 44px);
-  border-top: 3px solid var(--ink);
-  border-bottom: 3px solid #3d2f23;
+  border-top: 3px solid #c9a24a;
+  border-bottom: 3px solid #241a11;
 }
 
-.wall--wood .frame,
+.wall--wood .frame {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 7px, rgba(23, 20, 14, 0.04) 7px 8px),
+    #f6efdd;
+}
+
 #positions .pos__row {
   background:
     repeating-linear-gradient(45deg, transparent 0 7px, color-mix(in srgb, var(--ink) 4.5%, transparent) 7px 8px),
@@ -708,16 +718,28 @@ body.lock {
 }
 
 .wall--wood .frame {
+  aspect-ratio: 1;
+  min-width: 0;
+  justify-content: center;
+  color: #17140e;
   border: 3px double #a8842f;
-  outline-color: var(--paper);
-  box-shadow: 3px 4px 0 color-mix(in srgb, var(--ink) 22%, transparent);
+  outline-color: #f6efdd;
+  box-shadow: 3px 5px 0 rgba(0, 0, 0, 0.42);
 }
 
 .wall--wood .frame:hover {
-  box-shadow: 4px 6px 0 color-mix(in srgb, var(--ink) 26%, transparent), 0 0 14px rgba(216, 178, 90, 0.3);
+  box-shadow: 4px 7px 0 rgba(0, 0, 0, 0.5), 0 0 16px rgba(216, 178, 90, 0.35);
 }
 
 .wall--wood .frame::before { background: #d8b25a; }
+
+/* everything hangs square on this wall */
+.wall--wood .frame--round,
+.wall--wood .frame--clock {
+  border-radius: 0;
+  padding: 1.1rem 1rem 0.9rem;
+  min-width: 0;
+}
 
 .wall--wood .frame--more { border-style: dashed; border-color: #c9a24a; }
 

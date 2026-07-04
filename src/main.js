@@ -1,19 +1,14 @@
+import '@fontsource-variable/inter-tight'
 import '@fontsource-variable/fraunces'
 import '@fontsource/ibm-plex-mono/400.css'
-import '@fontsource/caveat/600.css'
 import './css/base.css'
 import './css/hero.css'
-import './css/journey.css'
 import './css/board.css'
-import './css/stage.css'
+import './css/film.css'
 import './css/chat.css'
-import './css/sections.css'
 import './css/archive.css'
-import { createAudio } from './journey/audio.js'
-import { createTitle } from './exp/title.js'
-import { createArchive } from './archive/archive.js'
-import { createStage } from './exp/stage.js'
 import { createTwinDock } from './twin/chat.js'
+import { createArchive } from './archive/archive.js'
 
 document.documentElement.classList.add('js')
 
@@ -39,18 +34,64 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   revealables.forEach((el) => io.observe(el))
 }
 
-/* ---- chess spine + AI twin ---- */
-const expRoot = document.getElementById('experience')
-const finaleEl = expRoot.querySelector('.exp__finale')
-const freeplayEl = expRoot.querySelector('.exp__freeplay')
-let freePlayReady = false
-let openTwin = () => {}
+/* ---- animated counters ---- */
+const stats = document.querySelectorAll('.stat__num')
 
-const openFreePlay = async () => {
-  finaleEl.hidden = true
-  freeplayEl.hidden = false
-  if (!freePlayReady) {
-    freePlayReady = true
+const runCounter = (el) => {
+  const target = Number(el.dataset.count)
+  if (reducedMotion) {
+    el.textContent = target
+    return
+  }
+  const t0 = performance.now()
+  const dur = 1400
+  const tick = (t) => {
+    const p = Math.min(1, (t - t0) / dur)
+    const eased = 1 - Math.pow(1 - p, 3)
+    el.textContent = Math.round(target * eased)
+    if (p < 1) requestAnimationFrame(tick)
+  }
+  requestAnimationFrame(tick)
+}
+
+if ('IntersectionObserver' in window) {
+  const statIo = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          runCounter(entry.target)
+          statIo.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.6 }
+  )
+  stats.forEach((el) => statIo.observe(el))
+} else {
+  stats.forEach(runCounter)
+}
+
+/* ---- AI twin ---- */
+const openTwin = createTwinDock({ dockEl: document.getElementById('twin') })
+document.querySelectorAll('.jn-twin').forEach((btn) =>
+  btn.addEventListener('click', () => openTwin())
+)
+
+/* ---- archive ---- */
+const openArchive = createArchive(document.getElementById('archive'))
+document.querySelectorAll('.jn-archive').forEach((btn) =>
+  btn.addEventListener('click', () => openArchive())
+)
+
+/* ---- free-play chess (easter egg) ---- */
+const expRoot = document.getElementById('experience')
+let chessReady = false
+
+document.querySelector('.fp-open').addEventListener('click', async () => {
+  expRoot.hidden = false
+  document.body.classList.add('lock')
+  if (!chessReady) {
+    chessReady = true
     const { createChessHero } = await import('./game/board.js')
     createChessHero({
       boardEl: document.getElementById('board'),
@@ -60,48 +101,40 @@ const openFreePlay = async () => {
       overlayEl: document.getElementById('gameover'),
     })
   }
-}
+})
 
 expRoot.querySelector('.exp__fpclose').addEventListener('click', () => {
-  freeplayEl.hidden = true
-  finaleEl.hidden = false
+  expRoot.hidden = true
+  document.body.classList.remove('lock')
 })
 
-createStage(expRoot, {
-  onFreePlay: openFreePlay,
-  onAskTwin: () => openTwin(),
+/* ---- the vault: tap the portrait five times ---- */
+const vault = document.getElementById('vault')
+const portrait = document.getElementById('portrait')
+let taps = 0
+let tapTimer = null
+
+portrait.addEventListener('click', () => {
+  taps += 1
+  clearTimeout(tapTimer)
+  tapTimer = setTimeout(() => {
+    taps = 0
+  }, 2500)
+  if (taps >= 5) {
+    taps = 0
+    vault.hidden = false
+    document.body.classList.add('lock')
+  }
 })
 
-const audio = createAudio()
-const sndBtn = document.getElementById('snd-toggle')
-sndBtn.addEventListener('click', () => {
-  const on = audio.toggle()
-  sndBtn.textContent = on ? 'sound ●' : 'sound ○'
-  sndBtn.setAttribute('aria-pressed', String(on))
+vault.querySelector('.vault__close').addEventListener('click', () => {
+  vault.hidden = true
+  document.body.classList.remove('lock')
 })
 
-createTitle({
-  root: document.getElementById('top-title'),
-  sfx: audio,
-  vaultEl: document.getElementById('vault'),
-})
-
-openTwin = createTwinDock({
-  dockEl: document.getElementById('twin'),
-})
-
-document.querySelectorAll('.jn-twin').forEach((btn) =>
-  btn.addEventListener('click', () => openTwin())
-)
-
-const openArchive = createArchive(document.getElementById('archive'))
-document.querySelectorAll('.jn-archive').forEach((btn) =>
-  btn.addEventListener('click', () => openArchive())
-)
-
-/* ---- console easter egg ---- */
+/* ---- console easter eggs ---- */
 console.log(
-  '%c♞ Your move.%c\n\nchessboard → codebase · urmil rupareliya\nno template, no clone — view source, it is all real HTML.\nsay hi: urmillive@gmail.com',
-  'font-size:2rem; font-weight:700;',
-  'font-size:0.85rem; color:#e4572e;'
+  '%c♞ Your move.%c\n\nfrom a small town in gujarat, to the AI era.\npsst — tap his photo five times.\nsay hi: urmillive@gmail.com',
+  'font-size:2rem; font-weight:700; color:#ff6b3d;',
+  'font-size:0.85rem; color:#86868b;'
 )

@@ -1,0 +1,549 @@
+/* ============ THE FILM — apple-keynote dark cinema ============ */
+
+/* ---- ambient life: drifting gradient orbs ---- */
+.orbs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.16;
+  animation: orbdrift 26s ease-in-out infinite alternate;
+}
+
+.orb--a {
+  background: radial-gradient(circle, #ff6b3d, transparent 65%);
+  top: -18vmax;
+  left: -10vmax;
+}
+
+.orb--b {
+  background: radial-gradient(circle, #ffb35c, transparent 65%);
+  bottom: -20vmax;
+  right: -12vmax;
+  animation-delay: -13s;
+}
+
+@keyframes orbdrift {
+  to {
+    transform: translate(9vmax, 7vmax) scale(1.15);
+  }
+}
+
+/* ---- hero ---- */
+.f-hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--pad) + 3.5rem) var(--pad) var(--pad);
+  gap: 1.4rem;
+  position: relative;
+}
+
+.f-hero__kicker {
+  color: var(--muted);
+  opacity: 0;
+  animation: fadeup 0.9s ease 0.2s forwards;
+}
+
+.f-hero__line {
+  font-size: clamp(1.9rem, 5.2vw, 4rem);
+  font-weight: 640;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  opacity: 0;
+  animation: fadeup 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+}
+
+.f-hero__line:nth-of-type(2) {
+  animation-delay: 0.7s;
+  color: var(--muted);
+}
+
+.f-hero__name {
+  font-size: clamp(3.4rem, 13vw, 10.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  background: linear-gradient(100deg, #ff6b3d 10%, #ffb35c 45%, #ff6b3d 90%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fadeup 1s cubic-bezier(0.2, 0.6, 0.2, 1) 1.2s forwards, shimmer 7s linear 2s infinite;
+  opacity: 0;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    translate: 0 26px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.f-hero__portrait {
+  width: clamp(7.5rem, 19vw, 11rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 0 70px color-mix(in srgb, var(--accent) 35%, transparent);
+  opacity: 0;
+  animation: fadeup 1s ease 1.7s forwards, portraitfloat 5.5s ease-in-out 3s infinite alternate;
+  cursor: pointer;
+  -webkit-user-drag: none;
+}
+
+@keyframes portraitfloat {
+  to {
+    transform: translateY(-9px);
+  }
+}
+
+.f-hero__tag {
+  color: var(--ink-soft);
+  max-width: 40ch;
+  opacity: 0;
+  animation: fadeup 0.9s ease 2.1s forwards;
+}
+
+.f-hero__cue {
+  position: absolute;
+  bottom: 1.6rem;
+  color: var(--muted);
+  animation: cuebob 2.2s ease-in-out infinite;
+}
+
+@keyframes cuebob {
+  50% {
+    transform: translateY(7px);
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f-hero__kicker,
+  .f-hero__line,
+  .f-hero__name,
+  .f-hero__portrait,
+  .f-hero__tag {
+    animation: none;
+    opacity: 1;
+  }
+
+  .orb,
+  .f-hero__cue {
+    animation: none;
+  }
+}
+
+/* ---- chapters ---- */
+.chap {
+  min-height: 88svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 14vh var(--pad);
+  max-width: 62rem;
+  margin-inline: auto;
+  gap: 1.3rem;
+}
+
+.chap__year {
+  color: var(--accent);
+  font-weight: 640;
+}
+
+.chap__head {
+  font-size: clamp(2.3rem, 7vw, 5.4rem);
+  font-weight: 760;
+  letter-spacing: -0.03em;
+  line-height: 1.03;
+}
+
+.chap__sub {
+  color: var(--ink-soft);
+  font-size: clamp(1.02rem, 2.3vw, 1.25rem);
+  line-height: 1.65;
+  max-width: 56ch;
+}
+
+.chap__chip {
+  border: 1.5px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+}
+
+/* ---- stats ---- */
+.f-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 1rem;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 10vh var(--pad);
+  text-align: center;
+}
+
+.stat__num {
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(120deg, #ff6b3d, #ffb35c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__label {
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+/* ---- proof ---- */
+.f-proof {
+  max-width: 66rem;
+  margin-inline: auto;
+  padding: 10vh var(--pad);
+}
+
+.f-proof__head,
+.f-specs__head,
+.f-contact__head {
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  font-weight: 760;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.f-sub {
+  color: var(--muted);
+  margin-bottom: 2.2rem;
+}
+
+.proofgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.proofcard {
+  display: block;
+  text-decoration: none;
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-radius: 18px;
+  padding: 1.5rem 1.4rem;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s ease, background 0.3s ease;
+}
+
+.proofcard:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.proofcard__name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.proofcard__live {
+  color: #46d369;
+  font-size: 0.66rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.proofcard__desc {
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.proofcard__tech {
+  color: var(--muted);
+  margin-top: 0.9rem;
+  display: block;
+}
+
+.f-proof__more {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+/* ---- presence ---- */
+.f-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  padding: 12vh var(--pad);
+}
+
+.f-face__img {
+  width: clamp(6rem, 14vw, 8.5rem);
+  border-radius: 24px;
+  rotate: -3deg;
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+.f-face__quote {
+  font-size: clamp(1.4rem, 3.6vw, 2.3rem);
+  font-weight: 640;
+  letter-spacing: -0.02em;
+  max-width: 26ch;
+}
+
+.f-face__links {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ---- specs (apple tech-specs style) ---- */
+.f-specs {
+  max-width: 56rem;
+  margin-inline: auto;
+  padding: 10vh var(--pad);
+}
+
+.specrow {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 1rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+}
+
+.specrow dt {
+  color: var(--muted);
+}
+
+.specrow dd {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.specrow dd b {
+  color: var(--ink);
+  font-weight: 640;
+}
+
+@media (max-width: 640px) {
+  .specrow {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+}
+
+/* ---- contact ---- */
+.f-contact {
+  max-width: 66rem;
+  margin-inline: auto;
+  padding: 12vh var(--pad) 8vh;
+  text-align: center;
+}
+
+.f-contact__move {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 480;
+  font-variation-settings: 'opsz' 144, 'SOFT' 40, 'WONK' 1;
+  font-size: clamp(3.6rem, 14vw, 10.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.f-contact__move span {
+  color: var(--accent);
+}
+
+.f-contact__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-accent,
+.btn-ghost {
+  border-radius: 100px;
+}
+
+.f-contact__meta {
+  margin-top: 2rem;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.f-contact__meta a {
+  color: var(--ink-soft);
+}
+
+.f-contact__meta a:hover {
+  color: var(--accent);
+}
+
+/* ---- footer ---- */
+.f-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 2rem var(--pad) 2.6rem;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+  color: var(--muted);
+  max-width: 76rem;
+  margin-inline: auto;
+}
+
+.f-footer button {
+  font: inherit;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.f-footer button:hover {
+  color: var(--accent);
+}
+
+/* ---- free-play chess overlay (easter egg) ---- */
+.exp[hidden] {
+  display: none;
+}
+
+.exp {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  overflow-y: auto;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--pad) + 2rem) var(--pad) var(--pad);
+}
+
+.exp__stage {
+  width: 100%;
+  max-width: 74rem;
+}
+
+.exp__freeplay[hidden] {
+  display: none;
+}
+
+.exp__freeplay {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.exp__fphead {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: var(--muted);
+}
+
+.exp__skip {
+  background: none;
+  border: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.exp__skip:hover {
+  color: var(--accent);
+}
+
+.hero__board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+  max-width: min(92vw, 33rem);
+  justify-self: end;
+}
+
+@media (max-width: 900px) {
+  .exp__freeplay {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__board {
+    justify-self: center;
+  }
+}
+
+/* vault timeline (dark inherits via tokens) */
+.vault__timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.vault__timeline li {
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+  padding-bottom: 0.9rem;
+}
+
+.vault__timeline b {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  margin-right: 0.6rem;
+}
+
+body.lock {
+  overflow: hidden;
+}

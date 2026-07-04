@@ -306,3 +306,40 @@ body.lock {
   cursor: pointer;
   padding: 0;
 }
+
+/* the cursor cat, classic white, scaled up */
+#oneko {
+  transform: scale(1.55);
+  transform-origin: center;
+  image-rendering: pixelated;
+}
+
+/* endgame one-tap templates (was in stage.css, restored + mobile-safe) */
+.end__templates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.end__templates a {
+  white-space: nowrap;
+}
+
+.end__cta {
+  margin-top: clamp(1rem, 4vh, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .end__link {
+    font-size: clamp(3.2rem, 16vw, 5rem);
+  }
+
+  .end__templates a,
+  .end__templates .btn-accent,
+  .end__templates .btn-ghost {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}

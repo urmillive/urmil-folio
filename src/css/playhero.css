@@ -682,37 +682,39 @@ body.lock {
   line-height: 1.55;
 }
 
-/* wall v3: classic dark-green gallery wall, brass frames, sketch showing through */
+/* wall v4: theme-matching paper wall, pencil sketch showing through, gold frames */
 .wall--wood {
   background:
-    linear-gradient(rgba(23, 56, 38, 0.9), rgba(13, 36, 24, 0.94)),
+    linear-gradient(
+      color-mix(in srgb, var(--paper) 88%, transparent),
+      color-mix(in srgb, var(--paper) 82%, transparent)
+    ),
     url('/wall-sketch.jpg') center / cover;
-  border-color: #0d2016;
 }
 
-.wall--wood .trophy__label { color: #e9dfc4; }
+.wall--wood .trophy__label { color: var(--ink-soft); }
 
 .wall--wood .wall__shelf {
-  background: linear-gradient(#2e2118, #1c130c);
-  border-top: 3px solid #c9a24a;
-  border-bottom: 3px solid #000;
+  background: repeating-linear-gradient(90deg, #6b503a 0 22px, #7d5f45 22px 44px);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid #3d2f23;
 }
 
 .wall--wood .frame,
 #positions .pos__row {
   background:
-    repeating-linear-gradient(45deg, transparent 0 7px, rgba(23, 20, 14, 0.035) 7px 8px),
+    repeating-linear-gradient(45deg, transparent 0 7px, color-mix(in srgb, var(--ink) 4.5%, transparent) 7px 8px),
     var(--paper);
 }
 
 .wall--wood .frame {
   border: 3px double #a8842f;
-  outline-color: #f6efdd;
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+  outline-color: var(--paper);
+  box-shadow: 3px 4px 0 color-mix(in srgb, var(--ink) 22%, transparent);
 }
 
 .wall--wood .frame:hover {
-  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.55), 0 0 16px rgba(216, 178, 90, 0.28);
+  box-shadow: 4px 6px 0 color-mix(in srgb, var(--ink) 26%, transparent), 0 0 14px rgba(216, 178, 90, 0.3);
 }
 
 .wall--wood .frame::before { background: #d8b25a; }
@@ -731,7 +733,9 @@ body.lock {
 #positions .pos__row { border-bottom: 2px solid var(--ink); }
 
 /* ============ routed pages: archive + newspaper article ============ */
-.arch--page {
+/* double class beats archive.css's fixed-overlay .arch rule regardless of
+   import order, so the page scrolls with the document (Lenis included) */
+.arch.arch--page {
   position: static;
   inset: auto;
   z-index: auto;

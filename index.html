@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Urmil Rupareliya — What a journey.</title>
-    <meta name="description" content="From a small town in Gujarat to the AI era. Urmil Rupareliya — remote full-stack developer & AI-driven innovator. A true story, 2015 → 2025." />
-    <meta name="theme-color" content="#0A0A0C" />
-    <meta property="og:title" content="Urmil Rupareliya — What a journey." />
-    <meta property="og:description" content="From a small town in Gujarat to the AI era. A true story, played in one scroll." />
+    <title>Urmil Rupareliya — Chessboard to Codebase</title>
+    <meta name="description" content="Play chess against Urmil's engine — every reply tells his story. Remote full-stack developer & AI-driven innovator, Ahmedabad. Your move." />
+    <meta name="theme-color" content="#F5F1E8" />
+    <meta property="og:title" content="Urmil Rupareliya — Chessboard to Codebase" />
+    <meta property="og:description" content="Play chess against his engine — every reply tells his story. Your move." />
     <meta property="og:url" content="https://urmil.live" />
     <meta property="og:type" content="website" />
     <link rel="icon" href="/knight.svg" type="image/svg+xml" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
-    <a class="skip" href="#story">Skip to content</a>
-    <div class="orbs" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span></div>
+    <a class="skip" href="#opening">Skip to content</a>
 
     <header class="topbar" aria-label="Site header">
-      <span class="topbar__brand mono">urmil.live</span>
+      <button type="button" class="topbar__brand mono" id="brand" title="urmil.live">urmil.live</button>
       <nav class="topbar__nav mono" aria-label="Primary">
-        <a href="#story">The Story</a>
-        <a href="#proof">Proof</a>
+        <a href="#play">Play</a>
+        <a href="#game">The Story</a>
+        <a href="#positions">Positions</a>
         <a href="#endgame">Contact</a>
       </nav>
       <span class="topbar__right">
@@ -30,242 +30,324 @@
     </header>
 
     <main>
-      <!-- ============ HERO ============ -->
-      <section class="f-hero" aria-label="Urmil Rupareliya — introduction">
-        <div class="meteors" id="meteors" aria-hidden="true"></div>
-        <p class="f-hero__kicker mono">a true story · 2015 → 2025</p>
-        <span class="portrait-ring"><img class="f-hero__portrait" id="portrait" src="/urmil.jpg" alt="Urmil Rupareliya" draggable="false" /></span>
-        <h1 class="f-hero__name">URMIL</h1>
-        <p class="f-hero__line">From a small town in Gujarat,</p>
-        <p class="f-hero__line f-hero__line--muted">to the AI era.</p>
-        <p class="f-hero__tag mono">remote full-stack developer · AI-driven innovator · Ahmedabad, IN</p>
-        <p class="f-hero__cue mono" aria-hidden="true">scroll — who am i, what i’ve done ↓</p>
-      </section>
-
-      <!-- ============ WHO AM I ============ -->
-      <section class="f-proof f-who" id="who" aria-label="Who am I">
-        <h2 class="f-proof__head aurora-head reveal">Who am I?</h2>
-        <p class="f-sub mono reveal">the human behind the commits</p>
-        <p class="chap__sub reveal" style="text-align: left; margin-bottom: 2rem">
-          Urmil Rupareliya — a small-town kid who turned curiosity into a
-          career. Ten years of code, <b class="grad">11 apps live</b> on the Play Store,
-          <b class="grad">249 open-source repos</b>, AI products in production, and a
-          hackathon trophy on the shelf. But the commits are only half the story:
-        </p>
-        <div class="proofgrid whogrid">
-          <div class="proofcard proofcard--feature beamcard tiltcard reveal">
-            <span class="proofcard__icon" aria-hidden="true">♟</span>
-            <span class="proofcard__name">Chess, for real</span>
-            <p class="proofcard__desc">Chess taught me to think three moves ahead — and I still play daily. Think you can beat me? This is an <b class="grad">open challenge</b> to every visitor of this site.</p>
-            <a class="btn-accent whogrid__cta" href="https://www.chess.com/play/online/new?opponent=urmillive" target="_blank" rel="noopener">⚔ challenge me on chess.com</a>
-          </div>
-          <div class="proofcard tiltcard reveal">
-            <span class="proofcard__icon" aria-hidden="true">🌍</span>
-            <span class="proofcard__name">Traveller</span>
-            <p class="proofcard__desc">Big fan of travelling — new cities reset my thinking. Half my best architectural ideas arrived on the road, not at the desk.</p>
-            <span class="proofcard__tech mono">ask me where i’m going next</span>
-          </div>
-          <div class="proofcard tiltcard reveal">
-            <span class="proofcard__icon" aria-hidden="true">📚</span>
-            <span class="proofcard__name">Reader</span>
-            <p class="proofcard__desc">Books aren’t a hobby — they’re what fills the space when the workload dips. Pages over doomscrolling, every time.</p>
-            <span class="proofcard__tech mono">currently between chapters</span>
-          </div>
-          <div class="proofcard tiltcard reveal">
-            <span class="proofcard__icon" aria-hidden="true">🎥</span>
-            <span class="proofcard__name">Storyteller</span>
-            <p class="proofcard__desc">Devlogs, reels, building in public — I love telling the story while shipping it. Chessboard to codebase, on camera.</p>
-            <span class="proofcard__tech mono"><a href="https://www.youtube.com/@urmillive" target="_blank" rel="noopener" style="color: var(--accent)">▶ youtube @urmillive →</a></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ CHAPTERS ============ -->
-      <section class="chap" id="story" aria-label="Chapter one">
-        <p class="chap__year mono reveal">2015 · rajkot · class 10</p>
-        <h2 class="chap__head reveal">It started with view-source.</h2>
-        <p class="chap__sub reveal">A school computer lab, a borrowed browser, and the discovery that web pages are just… text. His first HTML &amp; CSS pages — and a question that never stopped: <em>how?</em></p>
-        <span class="chap__chip mono reveal">first code</span>
-      </section>
-
-      <section class="chap" aria-label="Chapter two">
-        <p class="chap__year mono reveal">2017 – 2018 · rajkot → bca</p>
-        <h2 class="chap__head reveal">A first laptop changed everything.</h2>
-        <p class="chap__sub reveal">C++ conquered by class 12. Then BCA — and his own machine at last. Python all night: a voice assistant named <b>Jarvis</b> that answered back, and an <b>invisibility cloak</b> built with OpenCV. Code became magic.</p>
-        <span class="chap__chip mono reveal">python · jarvis · opencv</span>
-      </section>
-
-      <section class="chap" aria-label="Chapter three">
-        <p class="chap__year mono reveal">2019 · the leap</p>
-        <h2 class="chap__head reveal">A stranger paid him for code.</h2>
-        <p class="chap__sub reveal">First freelance project at nineteen — and he never looked back. Three years of end-to-end client delivery: React, Angular, React Native, Next.js. Requirements to deployment, owned alone.</p>
-        <span class="chap__chip mono reveal">3 years freelance</span>
-      </section>
-
-      <section class="chap" aria-label="Chapter four">
-        <p class="chap__year mono reveal">2020 – 2022 · the arena</p>
-        <h2 class="chap__head reveal">Open source. Hackathons. A trophy.</h2>
-        <p class="chap__sub reveal">Hacktoberfest from 2020. GDSC at Parul University, Google Cloud certified, an MCA in Cyber Security begun — and 12+ hackathon builds across IT domains, capped by <b>triumph at Gateway Group’s TECHATHON</b>.</p>
-        <span class="chap__chip mono reveal">techathon ’22 🏆</span>
-      </section>
-
-      <section class="chap" aria-label="Chapter five">
-        <p class="chap__year mono reveal">2022 – 2025 · startups, then scale</p>
-        <h2 class="chap__head reveal">From startup chaos to enterprise calm.</h2>
-        <p class="chap__sub reveal">REST APIs and an online code editor at Fox Valley. <b>Warelogg</b> — a logistics startup built with IIT students. Then <b>Asite</b>: intern to Associate Software Engineer-I in 2½ years — the Angular &amp; TypeScript era.</p>
-        <span class="chap__chip mono reveal">intern → engineer</span>
-      </section>
-
-      <section class="chap" aria-label="Chapter six">
-        <p class="chap__year mono reveal">aug 2025 · upsquare · now</p>
-        <h2 class="chap__head reveal">Today he ships with AI at each elbow.</h2>
-        <p class="chap__sub reveal">Software Engineer at Upsquare: 3–4 real products at once, scalable Angular + TypeScript systems, AI tools in every workflow. After hours: his own fleet of apps, live on the Play Store.</p>
-        <span class="chap__chip mono reveal">the AI era</span>
-      </section>
-
-      <!-- ============ NUMBERS ============ -->
-      <section class="f-stats" aria-label="The numbers">
-        <div class="stat reveal"><div class="stat__num" data-count="10">0</div><div class="stat__label mono">years coding</div></div>
-        <div class="stat reveal"><div class="stat__num" data-count="11">0</div><div class="stat__label mono">apps live on play store</div></div>
-        <div class="stat reveal"><div class="stat__num" data-count="249">0</div><div class="stat__label mono">public repos</div></div>
-        <div class="stat reveal"><div class="stat__num" data-count="18">0</div><div class="stat__label mono">certifications</div></div>
-      </section>
-
-      <!-- ============ SKILLS MARQUEE ============ -->
-      <div class="skillwrap" aria-hidden="true">
-        <div class="skillrow">
-          <div class="skilltrack">
-            <span>Angular</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>NestJS</span><span>GraphQL</span><span>MongoDB</span><span>PostgreSQL</span><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Python</span><span>OpenCV</span><span>Claude API</span>
-            <span>Angular</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>NestJS</span><span>GraphQL</span><span>MongoDB</span><span>PostgreSQL</span><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Python</span><span>OpenCV</span><span>Claude API</span>
-          </div>
-        </div>
-        <div class="skillrow skillrow--reverse">
-          <div class="skilltrack">
-            <span>Redux</span><span>SCSS</span><span>Storybook</span><span>Material-UI</span><span>WebSockets</span><span>WebRTC</span><span>Electron</span><span>Firebase</span><span>Jenkins</span><span>Three.js</span><span>D3.js</span><span>PWA</span><span>Jest</span><span>SEO</span><span>Git</span><span>OAuth</span><span>Tailwind</span><span>Webpack</span>
-            <span>Redux</span><span>SCSS</span><span>Storybook</span><span>Material-UI</span><span>WebSockets</span><span>WebRTC</span><span>Electron</span><span>Firebase</span><span>Jenkins</span><span>Three.js</span><span>D3.js</span><span>PWA</span><span>Jest</span><span>SEO</span><span>Git</span><span>OAuth</span><span>Tailwind</span><span>Webpack</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============ PROOF ============ -->
-      <section class="f-proof" id="proof" aria-label="Proof of work">
-        <h2 class="f-proof__head reveal">Don’t take his word for it.</h2>
-        <p class="f-sub mono reveal">everything is public — apps, code, commits</p>
-        <div class="proofgrid">
-          <a class="proofcard reveal" href="https://github.com/urmillive/VetanPatro" target="_blank" rel="noopener">
-            <span class="proofcard__name">VetanPatro<span class="proofcard__live mono">● live</span></span>
-            <p class="proofcard__desc">Salary &amp; payslip manager — one of 11 apps live on the Play Store.</p>
-            <span class="proofcard__tech mono">react native · android</span>
-          </a>
-          <a class="proofcard reveal" href="https://github.com/urmillive/ideabag" target="_blank" rel="noopener">
-            <span class="proofcard__name">IdeaBag</span>
-            <p class="proofcard__desc">Daily AI business-idea catalog — Android app + NestJS + Claude API.</p>
-            <span class="proofcard__tech mono">nestjs · claude · android</span>
-          </a>
-          <a class="proofcard reveal" href="https://github.com/urmillive/invisibleCloak" target="_blank" rel="noopener">
-            <span class="proofcard__name">invisibleCloak</span>
-            <p class="proofcard__desc">A real invisibility cloak with OpenCV — where the AI curiosity began.</p>
-            <span class="proofcard__tech mono">python · opencv</span>
-          </a>
-          <a class="proofcard reveal" href="https://github.com/urmillive/shree-frontend" target="_blank" rel="noopener">
-            <span class="proofcard__name">Shree Fashion</span>
-            <p class="proofcard__desc">Fashion e-commerce — customer &amp; admin storefronts, real client work.</p>
-            <span class="proofcard__tech mono">react · vite · mui</span>
-          </a>
-        </div>
-        <div class="f-proof__more reveal">
-          <button type="button" class="btn-accent jn-archive">explore the full archive →</button>
-          <a class="btn-ghost" href="https://github.com/urmillive" target="_blank" rel="noopener">github · 249 repos</a>
-        </div>
-      </section>
-
-      <!-- ============ PRESENCE ============ -->
-      <section class="f-face" aria-label="The person">
-        <img class="f-face__img reveal" src="/urmil.jpg" alt="Urmil Rupareliya" />
-        <p class="f-face__quote reveal">“I love creating content &amp; storytelling — code is just my favourite language for it.”</p>
-        <div class="f-face__links reveal">
-          <a class="btn-ghost" href="https://www.youtube.com/@urmillive" target="_blank" rel="noopener">▶ watch the journey</a>
-          <a class="btn-ghost" href="https://www.instagram.com/urmillive" target="_blank" rel="noopener">instagram</a>
-          <a class="btn-ghost" href="https://topmate.io/urmillive" target="_blank" rel="noopener">book 15 min</a>
-        </div>
-      </section>
-
-      <!-- ============ SPECS ============ -->
-      <section class="f-specs" id="specs" aria-label="Career specifications">
-        <h2 class="f-specs__head reveal">Specs.</h2>
-        <p class="f-sub mono reveal">the career, apple-style</p>
-        <dl>
-          <div class="specrow reveal"><dt class="mono">now</dt><dd><b>Software Engineer — Upsquare</b> · Aug 2025 → present · 3–4 products at once, Angular + TypeScript, AI-powered workflows</dd></div>
-          <div class="specrow reveal"><dt class="mono">2023 – 2025</dt><dd><b>Asite</b> · intern → Trainee → Associate Software Engineer-I · enterprise Angular, Material, Reactive Forms, Storybook</dd></div>
-          <div class="specrow reveal"><dt class="mono">2022 – 2023</dt><dd><b>Warelogg</b> (logistics startup with IIT students) · order management, shipment tracking, route optimization</dd></div>
-          <div class="specrow reveal"><dt class="mono">2022</dt><dd><b>Fox Valley</b> · REST APIs (Node/Express), MongoDB, an online code editor, MERN</dd></div>
-          <div class="specrow reveal"><dt class="mono">2019 – 2022</dt><dd><b>Freelance</b> · React, Angular, React Native, Next.js — end-to-end client delivery</dd></div>
-          <div class="specrow reveal"><dt class="mono">education</dt><dd><b>MCA Cyber Security &amp; Forensics</b>, Parul University (2021–23) · <b>BCA</b>, Saurashtra University (2018–21)</dd></div>
-          <div class="specrow reveal"><dt class="mono">frontend</dt><dd>Angular · React · Next.js · TypeScript · Redux · SCSS · Material-UI · Ant Design · Storybook · PWA</dd></div>
-          <div class="specrow reveal"><dt class="mono">backend</dt><dd>Node · Express · NestJS · GraphQL · REST · WebSockets · MongoDB · PostgreSQL · Firebase · JWT/OAuth</dd></div>
-          <div class="specrow reveal"><dt class="mono">mobile &amp; more</dt><dd>React Native · Swift · Android · Kotlin · Electron · WebRTC · D3.js · Three.js</dd></div>
-          <div class="specrow reveal"><dt class="mono">ai &amp; devops</dt><dd>Python · OpenCV · Claude API · OpenAI · Docker · Kubernetes · AWS · Jenkins · testing (Jest/Mocha/Chai)</dd></div>
-          <div class="specrow reveal"><dt class="mono">honors</dt><dd>TECHATHON triumph (Gateway, 2022) · Hacktoberfest since 2020 · GDSC Parul · Indian developers community core member ’23 · 18 certifications</dd></div>
-        </dl>
-      </section>
-
-      <!-- ============ CONTACT ============ -->
-      <section class="f-contact" id="endgame" aria-label="Contact Urmil">
-        <p class="f-contact__move reveal">Your move<span>.</span></p>
-        <p class="f-sub mono reveal">one tap — the message is already written</p>
-        <div class="f-contact__ctas reveal">
-          <a class="btn-accent" href="mailto:urmillive@gmail.com?subject=Interview%20invite%20%E2%80%94%20let%E2%80%99s%20talk&body=Hi%20Urmil%2C%0A%0AI%20just%20went%20through%20your%20story%20%E2%80%94%20impressive.%20We%E2%80%99d%20love%20to%20talk%20about%20a%20role.%0A%0ARole%3A%20%0ACompany%3A%20%0AWhen%20works%3F%0A%0AThanks%2C">✉ invite to interview</a>
-          <a class="btn-accent" href="https://wa.me/916355558644?text=Hi%20Urmil%20%E2%80%94%20just%20went%20through%20your%20story.%20Let%E2%80%99s%20talk!" target="_blank" rel="noopener">🟢 WhatsApp</a>
-          <button type="button" class="btn-accent jn-twin">♞ ask my AI twin</button>
-          <a class="btn-ghost" href="mailto:urmillive@gmail.com?subject=Project%20inquiry&body=Hi%20Urmil%2C%0A%0AWe%20have%20a%20project%20and%20think%20you%E2%80%99d%20be%20a%20great%20fit.%0A%0AWhat%20we%E2%80%99re%20building%3A%20%0ATimeline%3A%20%0A%0AThanks%2C">🚀 project inquiry</a>
-          <a class="btn-ghost" href="tel:+916355558644">📞 call</a>
-          <a class="btn-ghost" href="https://www.chess.com/play/online/new?opponent=urmillive" target="_blank" rel="noopener">♟ challenge me on chess.com</a>
-        </div>
-        <p class="f-contact__meta mono reveal">
-          <a href="mailto:urmillive@gmail.com">urmillive@gmail.com</a> · <a href="tel:+916355558644">+91 63555 58644</a><br />
-          <a href="https://github.com/urmillive" target="_blank" rel="noopener">github</a> ·
-          <a href="https://www.linkedin.com/in/urmillive" target="_blank" rel="noopener">linkedin</a> ·
-          <a href="https://x.com/urmillive" target="_blank" rel="noopener">x</a> ·
-          <a href="https://www.youtube.com/@urmillive" target="_blank" rel="noopener">youtube</a> ·
-          <a href="https://stackoverflow.com/users/12697583/urmil-rupareliya" target="_blank" rel="noopener">stack overflow</a>
-        </p>
-      </section>
-    </main>
-
-    <footer class="f-footer mono">
-      <span>Designed &amp; built by Urmil Rupareliya — no template, no clone. © 2026</span>
-      <button type="button" class="fp-open" title="Play chess against me">♞ play me</button>
-    </footer>
-
-    <!-- ============ FREE-PLAY CHESS (easter egg overlay) ============ -->
-    <section class="exp" id="experience" hidden aria-label="Play chess against Urmil's engine">
-      <div class="exp__stage">
-        <div class="exp__freeplay">
-          <header class="exp__fphead mono">
-            <span>free play · you are white · the engine is urmil</span>
-            <button type="button" class="exp__skip exp__fpclose">close ✕</button>
-          </header>
-          <div class="exp__left">
+      <!-- ============ PLAY THE ENGINEER ============ -->
+      <section class="ph" id="play" aria-label="Play chess against Urmil's engine">
+        <div class="ph__spot" aria-hidden="true"></div>
+        <div class="ph__grid">
+          <div class="ph__left">
+            <h1 class="ph__name">Urmil<span>Rupareliya</span></h1>
+            <p class="ph__tag mono">remote full-stack developer · ai-driven innovator · Ahmedabad, IN</p>
+            <p class="ph__pitch">
+              You’re <b>white</b> — play me. Every reply my engine makes tells
+              the next chapter of my story, and every piece you capture
+              unlocks something I’ve shipped.
+            </p>
             <p class="narr mono" id="narration" aria-live="polite"></p>
+            <div class="ph__actions">
+              <button type="button" class="btn-accent jn-twin">♞ ask my AI twin</button>
+              <a class="btn-ghost" href="https://www.chess.com/play/online/new?opponent=urmillive" target="_blank" rel="noopener">⚔ real chess: challenge me</a>
+              <a class="btn-ghost" href="#opening">skip to the story ↓</a>
+            </div>
           </div>
-          <div class="hero__board">
+          <div class="hero__board beamboard">
             <div id="board" class="board" role="group" aria-label="Chessboard — you play white"></div>
             <div class="board__meta mono">
-              <span id="story-progress">story 0/7</span>
+              <span id="story-progress">story 0/8</span>
               <button type="button" id="new-game">new game</button>
             </div>
           </div>
         </div>
-      </div>
-      <div class="gameover" id="gameover" hidden>
-        <p class="gameover__headline"></p>
-        <p class="gameover__line mono"></p>
-        <div class="gameover__actions">
-          <a class="btn-accent" href="mailto:urmillive@gmail.com">Your move → email me</a>
-          <button type="button" class="btn-ghost gameover__again">rematch</button>
+        <div class="gameover" id="gameover" hidden>
+          <p class="gameover__headline"></p>
+          <p class="gameover__line mono"></p>
+          <div class="gameover__actions">
+            <a class="btn-accent" href="mailto:urmillive@gmail.com">Your move → email me</a>
+            <button type="button" class="btn-ghost gameover__again">rematch</button>
+          </div>
         </div>
+      </section>
+
+      <!-- ============ SKILLS MARQUEE (21st.dev) ============ -->
+      <div class="skillwrap" aria-hidden="true">
+        <div class="skillrow"><div class="skilltrack">
+          <span>Angular</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>NestJS</span><span>GraphQL</span><span>MongoDB</span><span>PostgreSQL</span><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Python</span><span>OpenCV</span><span>Claude API</span>
+          <span>Angular</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>NestJS</span><span>GraphQL</span><span>MongoDB</span><span>PostgreSQL</span><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Python</span><span>OpenCV</span><span>Claude API</span>
+        </div></div>
+        <div class="skillrow skillrow--reverse"><div class="skilltrack">
+          <span>Redux</span><span>SCSS</span><span>Storybook</span><span>Material-UI</span><span>WebSockets</span><span>WebRTC</span><span>Electron</span><span>Firebase</span><span>Jenkins</span><span>Three.js</span><span>D3.js</span><span>PWA</span><span>Jest</span><span>SEO</span><span>Git</span><span>OAuth</span><span>Tailwind</span><span>Webpack</span>
+          <span>Redux</span><span>SCSS</span><span>Storybook</span><span>Material-UI</span><span>WebSockets</span><span>WebRTC</span><span>Electron</span><span>Firebase</span><span>Jenkins</span><span>Three.js</span><span>D3.js</span><span>PWA</span><span>Jest</span><span>SEO</span><span>Git</span><span>OAuth</span><span>Tailwind</span><span>Webpack</span>
+        </div></div>
       </div>
-    </section>
+
+      <!-- ============ 01 THE OPENING ============ -->
+      <section class="sec" id="opening" aria-labelledby="opening-h">
+        <header class="sec__head">
+          <span class="sec__num mono">01</span>
+          <h2 class="sec__title" id="opening-h">The Opening</h2>
+          <span class="sec__note mono">chessboard → codebase</span>
+        </header>
+        <div class="opening__grid">
+          <p class="opening__lede reveal">
+            I learned to think on 64 squares before I learned to think in code.
+            Chess taught me openings, sacrifices and endgames — software taught
+            me to <em>ship</em> them.
+          </p>
+          <p class="opening__body reveal">
+            The journey: HTML &amp; CSS in class 10, C++ by class 12. Then the
+            Python years — a first laptop, Jarvis, an OpenCV invisibility
+            cloak, a master's in cyber security. The freelance leap across
+            React, Angular and Next.js; the enterprise Angular years at Asite;
+            and now the AI era at Upsquare — 3–4 products at once with AI in
+            every workflow. The stack changed five times. The game stayed the
+            same — read the whole board, find the strong move, play it fast.
+          </p>
+          <ul class="opening__facts mono reveal" role="list">
+            <li><strong class="tick" data-count="249">249</strong> public repositories</li>
+            <li><strong class="tick" data-count="11">11</strong> Android apps shipped to Play Store</li>
+            <li><strong>MCA</strong> — Cyber Security &amp; Forensics, Parul</li>
+            <li><strong>Triumph</strong> — TECHATHON ’22, Gateway Group</li>
+            <li>Published: <em>“Evolution of Ransomware”</em></li>
+            <li>Builds in public — devlogs on YouTube</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 02 THE GAME ============ -->
+      <section class="sec" id="game" aria-labelledby="game-h">
+        <header class="sec__head">
+          <span class="sec__num mono">02</span>
+          <h2 class="sec__title" id="game-h">The Game</h2>
+          <span class="sec__note mono">seven moves, 2015 → present</span>
+        </header>
+
+        <ol class="score" role="list">
+          <li class="score__row reveal">
+            <span class="score__move mono">1.&nbsp;g3</span>
+            <div class="score__body">
+              <h3 class="score__role">First Openings <span class="score__co">— school days, Rajkot</span></h3>
+              <p class="score__desc">Class 10: first HTML &amp; CSS pages. Class 12: C++, completed. Openings, studied properly.</p>
+              <p class="score__tech mono">HTML · CSS · C++</p>
+            </div>
+            <span class="score__years mono">2015–18</span>
+          </li>
+          <li class="score__row reveal">
+            <span class="score__move mono">2.&nbsp;Bg2</span>
+            <div class="score__body">
+              <h3 class="score__role">BCA → MCA · Python &amp; Cyber Security <span class="score__co">— Saurashtra → Parul University</span></h3>
+              <p class="score__desc">First laptop, then the fianchetto: Jarvis, invisibleCloak (OpenCV), 12+ hackathon projects — and a master's in Cyber Security &amp; Forensics.</p>
+              <p class="score__tech mono">Python · ML · OpenCV · Security</p>
+            </div>
+            <span class="score__years mono">2018–23</span>
+          </li>
+          <li class="score__row reveal">
+            <span class="score__move mono">3.&nbsp;c4<sup>!?</sup></span>
+            <div class="score__body">
+              <h3 class="score__role">Freelance Web Developer <span class="score__co">— Self-employed</span></h3>
+              <p class="score__desc">The gambit: went freelance mid-college. MERN stack and Next.js SaaS shipped end to end.</p>
+              <p class="score__tech mono">MongoDB · Express · React · Node · Next.js · Stripe</p>
+            </div>
+            <span class="score__years mono">2019–22</span>
+          </li>
+          <li class="score__row reveal">
+            <span class="score__move mono">4.&nbsp;Nf3</span>
+            <div class="score__body">
+              <h3 class="score__role">Web Developer <span class="score__co">— Fox Valley · remote</span></h3>
+              <p class="score__desc">RESTful backends, an online code editor, auth and containerisation.</p>
+              <p class="score__tech mono">Node · Express · MongoDB · JWT · Docker</p>
+            </div>
+            <span class="score__years mono">2022</span>
+          </li>
+          <li class="score__row reveal">
+            <span class="score__move mono">5.&nbsp;Bc4</span>
+            <div class="score__body">
+              <h3 class="score__role">Frontend Developer <span class="score__co">— Warelogg · startup with IIT students</span></h3>
+              <p class="score__desc">Logistics platforms — order management, shipment tracking, route optimization.</p>
+              <p class="score__tech mono">React · Next.js · Node · MongoDB</p>
+            </div>
+            <span class="score__years mono">2022–23</span>
+          </li>
+          <li class="score__row reveal">
+            <span class="score__move mono">6.&nbsp;O-O<sup>!</sup></span>
+            <div class="score__body">
+              <h3 class="score__role">Intern → Associate Software Engineer-I <span class="score__co">— Asite · Ahmedabad</span></h3>
+              <p class="score__desc">Castled into the enterprise: Angular, Angular Material, Reactive Forms, Storybook — the Angular &amp; TypeScript era begins.</p>
+              <p class="score__tech mono">Angular · TypeScript · Material · Storybook</p>
+            </div>
+            <span class="score__years mono">2023–25</span>
+          </li>
+          <li class="score__row score__row--now reveal">
+            <span class="score__move mono">7.&nbsp;Qe2<sup>!!</sup></span>
+            <div class="score__body">
+              <h3 class="score__role">Software Engineer <span class="score__co">— Upsquare</span></h3>
+              <p class="score__desc">3–4 real products at once — scalable Angular/TypeScript frontends, AI-powered development workflows, end-to-end delivery.</p>
+              <p class="score__tech mono">Angular · TypeScript · AI tools · REST</p>
+            </div>
+            <span class="score__years mono">aug 2025–now</span>
+          </li>
+        </ol>
+        <p class="score__legend mono reveal" aria-label="Chess annotation legend">!? interesting&nbsp;&nbsp;&nbsp;! good move&nbsp;&nbsp;&nbsp;!! brilliant</p>
+      </section>
+
+      <!-- ============ 03 POSITIONS ============ -->
+      <section class="sec" id="positions" aria-labelledby="positions-h">
+        <header class="sec__head">
+          <span class="sec__num mono">03</span>
+          <h2 class="sec__title" id="positions-h">Positions</h2>
+          <span class="sec__note mono">a knight’s tour through six builds</span>
+        </header>
+
+        <ul class="pos" role="list">
+          <li class="reveal">
+            <a class="pos__row" href="https://github.com/urmillive/invisibleCloak" target="_blank" rel="noopener">
+              <span class="pos__sq mono">b1</span>
+              <span class="pos__name">invisibleCloak</span>
+              <span class="pos__desc">A real invisibility cloak with OpenCV — where the AI curiosity began</span>
+              <span class="pos__tech mono">Python · OpenCV</span>
+              <span class="pos__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="pos__row" href="https://github.com/urmillive/VetanPatro" target="_blank" rel="noopener">
+              <span class="pos__sq mono">c3</span>
+              <span class="pos__name">VetanPatro <span class="pos__live mono">● live</span></span>
+              <span class="pos__desc">Salary &amp; payslip manager — one of 11 apps live on the Play Store</span>
+              <span class="pos__tech mono">React Native · Android</span>
+              <span class="pos__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="pos__row" href="https://github.com/urmillive/ideabag" target="_blank" rel="noopener">
+              <span class="pos__sq mono">e4</span>
+              <span class="pos__name">IdeaBag</span>
+              <span class="pos__desc">Daily AI business-idea catalog — Android app + NestJS + Claude API</span>
+              <span class="pos__tech mono">NestJS · Claude · Android</span>
+              <span class="pos__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="pos__row" href="https://github.com/urmillive/shree-frontend" target="_blank" rel="noopener">
+              <span class="pos__sq mono">f6</span>
+              <span class="pos__name">Shree Fashion</span>
+              <span class="pos__desc">Fashion e-commerce — customer &amp; admin storefronts, real client work</span>
+              <span class="pos__tech mono">React · Vite · MUI</span>
+              <span class="pos__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="pos__row" href="https://github.com/urmillive/Govind" target="_blank" rel="noopener">
+              <span class="pos__sq mono">g8</span>
+              <span class="pos__name">Govind</span>
+              <span class="pos__desc">Desktop AI assistant that lives on your machine</span>
+              <span class="pos__tech mono">Desktop · AI · JS</span>
+              <span class="pos__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+        <div class="pos__cta reveal">
+          <button type="button" class="btn-accent jn-archive">explore the full archive →</button>
+          <span class="pos__more mono">live apps · ai &amp; saas · web · open source — by category</span>
+        </div>
+      </section>
+
+      <!-- ============ 04 ARSENAL ============ -->
+      <section class="sec" id="arsenal" aria-labelledby="arsenal-h">
+        <header class="sec__head">
+          <span class="sec__num mono">04</span>
+          <h2 class="sec__title" id="arsenal-h">Arsenal</h2>
+          <span class="sec__note mono">the pieces I play with</span>
+        </header>
+        <dl class="arsenal">
+          <div class="arsenal__group reveal">
+            <dt class="mono">♟ Frontend</dt>
+            <dd>Angular, React, Next.js, TypeScript, ES6+, Redux, Bootstrap / SCSS, Material-UI, Ant Design, Storybook, responsive &amp; cross-browser design, PWA</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">♜ Backend</dt>
+            <dd>Node.js, Express, NestJS, GraphQL, REST, WebSockets / Socket.io, MongoDB, PostgreSQL, JWT / OAuth / Passport.js, Firebase</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">♝ Mobile &amp; Desktop</dt>
+            <dd>React Native, Swift (iOS), Android, Kotlin, Electron.js, WebRTC</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">♞ AI &amp; Systems</dt>
+            <dd>Python, OpenCV, Claude API, OpenAI, ML fundamentals, HLD / LLD, microservices, design patterns</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">♛ DevOps &amp; Quality</dt>
+            <dd>Docker, Kubernetes, AWS, Linux, Jenkins / Travis CI, Nginx, Git, Webpack, testing (Jest · Mocha · Chai), SEO &amp; performance optimization</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">♚ Craft</dt>
+            <dd>UX/UI principles, wireframing &amp; prototyping, D3.js, Three.js / WebGL, browser devtools, progressive enhancement</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ============ 05 OFF THE BOARD ============ -->
+      <section class="sec" id="offboard" aria-labelledby="offboard-h">
+        <header class="sec__head">
+          <span class="sec__num mono">05</span>
+          <h2 class="sec__title" id="offboard-h">Off the Board</h2>
+          <span class="sec__note mono">community · honors · open source</span>
+        </header>
+        <dl class="arsenal">
+          <div class="arsenal__group reveal">
+            <dt class="mono">🏆 Triumph at TECHATHON</dt>
+            <dd>Gateway Group of Companies hackathon, 2022 — plus 12+ hackathon projects across IT domains since 2021.</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">☁ GDSC Parul University</dt>
+            <dd>Joined 2021 · 30 Days of Google Cloud certified · Hacktrack 2.0 cyber-security track (2022).</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">🇮🇳 Indian developers community</dt>
+            <dd>Core member, 2023 — plus campus tech communities.</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">🌿 Hacktoberfest since 2020</dt>
+            <dd>Open-source contributions across Java (JCUBE), Python and web-development communities; 249 public repos.</dd>
+          </div>
+          <div class="arsenal__group reveal">
+            <dt class="mono">📜 18 certifications</dt>
+            <dd>HackerRank (Angular, CSS, Python) · Sololearn · Progate (Java, Python) · LinkedIn · LearnCodeOnline · codedamn.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ============ 06 ENDGAME ============ -->
+      <section class="sec sec--end" id="endgame" aria-labelledby="endgame-h">
+        <header class="sec__head">
+          <span class="sec__num mono">06</span>
+          <h2 class="sec__title" id="endgame-h">Endgame</h2>
+          <span class="sec__note mono">the board is set</span>
+        </header>
+        <p class="end__cta reveal">
+          <a href="mailto:urmillive@gmail.com" class="end__link">Your move<span class="end__dot">.</span></a>
+        </p>
+        <div class="end__templates reveal" aria-label="One-tap messages">
+          <a class="btn-accent" href="mailto:urmillive@gmail.com?subject=Interview%20invite%20%E2%80%94%20let%E2%80%99s%20talk&body=Hi%20Urmil%2C%0A%0AI%20just%20went%20through%20your%20portfolio.%20We%E2%80%99d%20love%20to%20talk%20about%20a%20role.%0A%0ARole%3A%20%0ACompany%3A%20%0AWhen%20works%3F%0A%0AThanks%2C">✉ invite to interview</a>
+          <a class="btn-accent" href="mailto:urmillive@gmail.com?subject=Project%20inquiry&body=Hi%20Urmil%2C%0A%0AWe%20have%20a%20project%20and%20think%20you%E2%80%99d%20be%20a%20great%20fit.%0A%0AWhat%20we%E2%80%99re%20building%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AThanks%2C">🚀 project inquiry</a>
+          <a class="btn-ghost" href="mailto:urmillive@gmail.com?subject=Hi%20Urmil!&body=Just%20played%20your%20portfolio%20%E2%80%94%20had%20to%20say%20hi.">👋 just say hi</a>
+          <a class="btn-ghost" href="https://wa.me/916355558644?text=Hi%20Urmil%20%E2%80%94%20just%20played%20your%20portfolio.%20Let%E2%80%99s%20talk!" target="_blank" rel="noopener">🟢 WhatsApp</a>
+          <a class="btn-ghost" href="tel:+916355558644">📞 call</a>
+        </div>
+        <p class="end__mail mono reveal"><a href="mailto:urmillive@gmail.com">urmillive@gmail.com</a> · <a href="tel:+916355558644">+91 63555 58644</a></p>
+        <ul class="end__social mono reveal" role="list">
+          <li><a href="https://github.com/urmillive" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/urmillive" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/urmillive" target="_blank" rel="noopener">X</a></li>
+          <li><a href="https://www.youtube.com/@urmillive" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://stackoverflow.com/users/12697583/urmil-rupareliya" target="_blank" rel="noopener">Stack Overflow</a></li>
+          <li><a href="https://topmate.io/urmillive" target="_blank" rel="noopener">Topmate</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer mono">
+      <span>Designed &amp; built by Urmil Rupareliya — no template, no clone. © 2026</span>
+      <span>Ahmedabad, India · psst: tap “urmil.live” five times</span>
+    </footer>
 
     <!-- ============ THE VAULT (tap the portrait 5×) ============ -->
     <section class="arch" id="vault" hidden aria-label="The Vault — hidden gallery">

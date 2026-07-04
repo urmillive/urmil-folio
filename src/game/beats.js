@@ -2,32 +2,32 @@
 
 export const CAREER_BEATS = [
   {
-    tag: '2018 → python years',
-    text: 'It started with Python: a BCA in Python & ML, a voice assistant named Jarvis, and PHP/Java college projects. Fundamentals from a quiet corner.',
+    tag: '2015 → class 10 · first code',
+    text: 'It starts in a Rajkot school lab: first HTML & CSS pages in class 10, C++ conquered by class 12. Pawns only move forward — so did he.',
   },
   {
-    tag: '2019 → freelance · mern',
-    text: 'Then the gambit — freelance mid-college. MongoDB, Express, React, Node, Next.js, Stripe: everything end-to-end, everything mine.',
+    tag: '2018 → first laptop · python',
+    text: 'BCA begins and he finally gets his own laptop. Python all night: Jarvis, a voice assistant that answered back, and an OpenCV invisibility cloak.',
+  },
+  {
+    tag: '2019 → freelance · the leap',
+    text: 'The gambit — freelance at nineteen, mid-college. React, Angular, React Native, Next.js: client products owned end to end for three years.',
   },
   {
     tag: '2022 → fox valley',
     text: 'Development before glory. Fox Valley: RESTful backends, an online code editor, auth, Docker. The unglamorous moves that win middles.',
   },
   {
-    tag: '2022–23 → warelogg',
-    text: 'Control the lanes. At Warelogg I built logistics platforms — order and shipment tracking on the MERN stack. Route optimization, literally.',
+    tag: '2022–23 → warelogg · iit startup',
+    text: 'Control the lanes. Warelogg — a logistics startup built with IIT students: order management, shipment tracking, route optimization. Plus a triumph at Gateway’s TECHATHON.',
   },
   {
-    tag: '2023 → asite (intern)',
-    text: 'I castle. Structure and fundamentals first — Asite Solutions internship: Angular, reusable components, WCAG accessibility.',
+    tag: '2023–25 → asite · angular era',
+    text: 'I castle. Asite, Ahmedabad — intern to Associate Software Engineer-I in 2½ years. Enterprise Angular, Reactive Forms, Storybook. The TypeScript era begins.',
   },
   {
-    tag: '2023–24 → asite (engineer)',
-    text: 'Now the center. Software Engineer at Asite — enterprise Angular at scale, reactive forms, monorepo, tested with Jasmine/Karma.',
-  },
-  {
-    tag: '2025 → upsquare · now',
-    text: 'And the queen comes out. Upsquare, today: Angular → React, TypeScript, Node, AWS, Claude API — AI-era products built end to end. Your turn.',
+    tag: 'aug 2025 → upsquare · now',
+    text: 'And the queen comes out. Upsquare, today: 3–4 real products at once, Angular + TypeScript, AI tools in every workflow. Your turn.',
   },
 ]
 

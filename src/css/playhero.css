@@ -1,0 +1,299 @@
+/* ============ Play-the-engine hero + 21st.dev components (cream tune) ============ */
+.ph {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--pad) + 3rem) var(--pad) var(--pad);
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+/* 21st: hero spotlight that follows the pointer */
+.ph__spot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    560px circle at var(--hx, 70%) var(--hy, 30%),
+    color-mix(in srgb, var(--accent) 9%, transparent),
+    transparent 60%
+  );
+  transition: background 0.15s linear;
+}
+
+.ph__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(1.6rem, 4vw, 4.5rem);
+  align-items: center;
+}
+
+.ph__name {
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-variation-settings: 'opsz' 144;
+  text-transform: uppercase;
+}
+
+.ph__name span {
+  display: block;
+  margin-left: 0.06em;
+  font-size: 0.52em;
+  color: var(--ink-soft);
+}
+
+.ph__tag {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.ph__pitch {
+  margin-top: 1.3rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 44ch;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.ph__pitch b {
+  color: var(--accent);
+}
+
+/* THE INSIGHTS — big serif narration */
+.ph .narr {
+  margin-top: 1.5rem;
+  min-height: 7.5em;
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  max-width: 44ch;
+  color: var(--ink);
+}
+
+.ph .narr .narr__tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.ph__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* 21st: border-beam orbiting the live board */
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.beamboard {
+  position: relative;
+}
+
+.beamboard::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 6px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0 74%,
+    var(--accent) 86%,
+    #ffb35c 94%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: beamspin 7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes beamspin {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+
+/* 21st: skills marquee — cream chips */
+.skillwrap {
+  overflow: hidden;
+  padding: 1.6rem 0 2.4rem;
+  display: grid;
+  gap: 0.9rem;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.skillrow {
+  display: flex;
+  overflow: hidden;
+}
+
+.skilltrack {
+  display: flex;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  animation: marquee 38s linear infinite;
+  padding-right: 0.8rem;
+}
+
+.skillrow--reverse .skilltrack {
+  animation-direction: reverse;
+}
+
+.skillrow:hover .skilltrack {
+  animation-play-state: paused;
+}
+
+.skilltrack span {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--line-soft);
+  padding: 0.5rem 1rem;
+  background: var(--paper-2);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 21st: button shine */
+.btn-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-accent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.btn-accent:hover::after {
+  left: 130%;
+}
+
+/* 21st: number ticker targets */
+.tick {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* responsive */
+@media (max-width: 920px) {
+  .ph__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ph__left {
+    display: contents;
+  }
+
+  .ph__name {
+    order: 1;
+  }
+
+  .ph__tag {
+    order: 2;
+  }
+
+  .ph__pitch {
+    order: 3;
+  }
+
+  .beamboard {
+    order: 4;
+    justify-self: center;
+    margin-top: 1rem;
+  }
+
+  .ph .narr {
+    order: 5;
+    min-height: 8.5em;
+  }
+
+  .ph__actions {
+    order: 6;
+  }
+}
+
+@media (max-width: 920px) {
+  .ph__grid > .hero__board {
+    order: 4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beamboard::after,
+  .skilltrack {
+    animation: none;
+  }
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+/* vault timeline (inherits paper tokens) */
+.vault__timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.vault__timeline li {
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: 0.9rem;
+}
+
+.vault__timeline b {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  margin-right: 0.6rem;
+}
+
+/* brand is a button now */
+.topbar__brand {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0;
+}

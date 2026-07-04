@@ -1,12 +1,13 @@
-import '@fontsource-variable/inter-tight'
 import '@fontsource-variable/fraunces'
 import '@fontsource/ibm-plex-mono/400.css'
 import './css/base.css'
 import './css/hero.css'
 import './css/board.css'
-import './css/film.css'
+import './css/playhero.css'
+import './css/sections.css'
 import './css/chat.css'
 import './css/archive.css'
+import { createChessHero } from './game/board.js'
 import { createTwinDock } from './twin/chat.js'
 import { createArchive } from './archive/archive.js'
 
@@ -34,80 +35,64 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   revealables.forEach((el) => io.observe(el))
 }
 
-/* ---- animated counters ---- */
-const stats = document.querySelectorAll('.stat__num')
+/* ---- the game: play the engineer ---- */
+createChessHero({
+  boardEl: document.getElementById('board'),
+  narrationEl: document.getElementById('narration'),
+  progressEl: document.getElementById('story-progress'),
+  newGameBtn: document.getElementById('new-game'),
+  overlayEl: document.getElementById('gameover'),
+})
 
-const runCounter = (el) => {
+/* ---- 21st.dev: hero spotlight follows the pointer ---- */
+const ph = document.querySelector('.ph')
+const spot = document.querySelector('.ph__spot')
+if (ph && spot && !reducedMotion) {
+  ph.addEventListener(
+    'pointermove',
+    (e) => {
+      const r = ph.getBoundingClientRect()
+      spot.style.setProperty('--hx', `${e.clientX - r.left}px`)
+      spot.style.setProperty('--hy', `${e.clientY - r.top}px`)
+    },
+    { passive: true }
+  )
+}
+
+/* ---- 21st.dev: number tickers on the fact list ---- */
+const ticks = document.querySelectorAll('.tick')
+
+const runTick = (el) => {
   const target = Number(el.dataset.count)
-  if (reducedMotion) {
-    el.textContent = target
+  if (reducedMotion || !target) {
+    el.textContent = el.dataset.count
     return
   }
   const t0 = performance.now()
-  const dur = 1400
-  const tick = (t) => {
+  const dur = 1300
+  const step = (t) => {
     const p = Math.min(1, (t - t0) / dur)
-    const eased = 1 - Math.pow(1 - p, 3)
-    el.textContent = Math.round(target * eased)
-    if (p < 1) requestAnimationFrame(tick)
+    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)))
+    if (p < 1) requestAnimationFrame(step)
   }
-  requestAnimationFrame(tick)
+  requestAnimationFrame(step)
 }
 
 if ('IntersectionObserver' in window) {
-  const statIo = new IntersectionObserver(
+  const tio = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          runCounter(entry.target)
-          statIo.unobserve(entry.target)
+          runTick(entry.target)
+          tio.unobserve(entry.target)
         }
       })
     },
-    { threshold: 0.6 }
+    { threshold: 0.7 }
   )
-  stats.forEach((el) => statIo.observe(el))
+  ticks.forEach((el) => tio.observe(el))
 } else {
-  stats.forEach(runCounter)
-}
-
-/* ---- meteors (ported from 21st.dev / aceternity) ---- */
-const meteorField = document.getElementById('meteors')
-if (meteorField && !reducedMotion) {
-  for (let i = 0; i < 14; i += 1) {
-    const m = document.createElement('span')
-    m.className = 'meteor'
-    m.style.left = `${Math.random() * 100}%`
-    m.style.animationDelay = `${(Math.random() * 4).toFixed(2)}s`
-    m.style.animationDuration = `${Math.floor(Math.random() * 8 + 3)}s`
-    meteorField.appendChild(m)
-  }
-}
-
-/* ---- magic-card spotlight (ported from 21st.dev) ---- */
-if (!reducedMotion) {
-  document.querySelectorAll('.proofcard').forEach((card) => {
-    card.addEventListener('pointermove', (e) => {
-      const r = card.getBoundingClientRect()
-      card.style.setProperty('--mx', `${e.clientX - r.left}px`)
-      card.style.setProperty('--my', `${e.clientY - r.top}px`)
-    })
-  })
-}
-
-/* ---- 3d tilt (21st.dev pattern) ---- */
-if (!reducedMotion) {
-  document.querySelectorAll('.tiltcard').forEach((card) => {
-    card.addEventListener('pointermove', (e) => {
-      const r = card.getBoundingClientRect()
-      const px = (e.clientX - r.left) / r.width - 0.5
-      const py = (e.clientY - r.top) / r.height - 0.5
-      card.style.transform = `perspective(900px) rotateY(${px * 7}deg) rotateX(${py * -7}deg) translateY(-4px)`
-    })
-    card.addEventListener('pointerleave', () => {
-      card.style.transform = ''
-    })
-  })
+  ticks.forEach(runTick)
 }
 
 /* ---- AI twin ---- */
@@ -122,38 +107,13 @@ document.querySelectorAll('.jn-archive').forEach((btn) =>
   btn.addEventListener('click', () => openArchive())
 )
 
-/* ---- free-play chess (easter egg) ---- */
-const expRoot = document.getElementById('experience')
-let chessReady = false
-
-document.querySelector('.fp-open').addEventListener('click', async () => {
-  expRoot.hidden = false
-  document.body.classList.add('lock')
-  if (!chessReady) {
-    chessReady = true
-    const { createChessHero } = await import('./game/board.js')
-    createChessHero({
-      boardEl: document.getElementById('board'),
-      narrationEl: document.getElementById('narration'),
-      progressEl: document.getElementById('story-progress'),
-      newGameBtn: document.getElementById('new-game'),
-      overlayEl: document.getElementById('gameover'),
-    })
-  }
-})
-
-expRoot.querySelector('.exp__fpclose').addEventListener('click', () => {
-  expRoot.hidden = true
-  document.body.classList.remove('lock')
-})
-
-/* ---- the vault: tap the portrait five times ---- */
+/* ---- the vault: tap the brand five times ---- */
 const vault = document.getElementById('vault')
-const portrait = document.getElementById('portrait')
+const brand = document.getElementById('brand')
 let taps = 0
 let tapTimer = null
 
-portrait.addEventListener('click', () => {
+brand.addEventListener('click', () => {
   taps += 1
   clearTimeout(tapTimer)
   tapTimer = setTimeout(() => {
@@ -171,9 +131,9 @@ vault.querySelector('.vault__close').addEventListener('click', () => {
   document.body.classList.remove('lock')
 })
 
-/* ---- console easter eggs ---- */
+/* ---- console easter egg ---- */
 console.log(
-  '%c♞ Your move.%c\n\nfrom a small town in gujarat, to the AI era.\npsst — tap his photo five times.\nsay hi: urmillive@gmail.com',
-  'font-size:2rem; font-weight:700; color:#ff6b3d;',
-  'font-size:0.85rem; color:#86868b;'
+  '%c♞ Your move.%c\n\nchessboard → codebase · urmil rupareliya\npsst — tap "urmil.live" five times. and yes, the chess challenge is real:\nhttps://www.chess.com/member/urmillive\nsay hi: urmillive@gmail.com',
+  'font-size:2rem; font-weight:700; color:#e4572e;',
+  'font-size:0.85rem; color:#837c6e;'
 )

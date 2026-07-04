@@ -80,8 +80,8 @@
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 0.95;
-  background: linear-gradient(100deg, #ff6b3d 10%, #ffb35c 45%, #ff6b3d 90%);
-  background-size: 200% 100%;
+  background: linear-gradient(100deg, #ff6b3d 5%, #ffb35c 30%, #ff8fab 55%, #ffb35c 75%, #ff6b3d 95%);
+  background-size: 240% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -112,7 +112,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  border: 3px solid #0a0a0c;
   box-shadow: 0 0 70px color-mix(in srgb, var(--accent) 35%, transparent);
   opacity: 0;
   animation: fadeup 1s ease 0.5s forwards, portraitfloat 5.5s ease-in-out 3s infinite alternate;
@@ -160,6 +160,200 @@
   .orb,
   .f-hero__cue {
     animation: none;
+  }
+}
+
+/* ---- 21st.dev ports: meteors ---- */
+.meteors {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.meteor {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: #c7c7cc;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  rotate: 215deg;
+  animation: meteor linear infinite;
+}
+
+.meteor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, #ff8f5c, transparent);
+}
+
+@keyframes meteor {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-560px);
+    opacity: 0;
+  }
+}
+
+/* ---- 21st.dev ports: border-beam ring on portrait ---- */
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.portrait-ring {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.portrait-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0 70%,
+    #ff6b3d 82%,
+    #ffb35c 92%,
+    transparent 100%
+  );
+  animation: beamspin 5s linear infinite;
+}
+
+@keyframes beamspin {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+
+.portrait-ring img {
+  position: relative;
+  display: block;
+}
+
+/* ---- 21st.dev ports: skills marquee ---- */
+.skillwrap {
+  overflow: hidden;
+  padding: 2.5rem 0;
+  display: grid;
+  gap: 1rem;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.skillrow {
+  display: flex;
+  overflow: hidden;
+}
+
+.skilltrack {
+  display: flex;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  animation: marquee 36s linear infinite;
+  padding-right: 0.8rem;
+}
+
+.skillrow--reverse .skilltrack {
+  animation-direction: reverse;
+}
+
+.skillrow:hover .skilltrack {
+  animation-play-state: paused;
+}
+
+.skilltrack span {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  border-radius: 100px;
+  padding: 0.55rem 1.1rem;
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- 21st.dev ports: magic-card mouse spotlight ---- */
+.proofcard {
+  position: relative;
+  overflow: hidden;
+}
+
+.proofcard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--accent) 14%, transparent),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.proofcard:hover::before {
+  opacity: 1;
+}
+
+/* ---- 21st.dev ports: button shine ---- */
+.btn-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-accent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.btn-accent:hover::after {
+  left: 130%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meteor,
+  .portrait-ring::before,
+  .skilltrack {
+    animation: none;
+  }
+
+  .meteor {
+    display: none;
   }
 }
 

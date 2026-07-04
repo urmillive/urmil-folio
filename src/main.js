@@ -71,6 +71,30 @@ if ('IntersectionObserver' in window) {
   stats.forEach(runCounter)
 }
 
+/* ---- meteors (ported from 21st.dev / aceternity) ---- */
+const meteorField = document.getElementById('meteors')
+if (meteorField && !reducedMotion) {
+  for (let i = 0; i < 14; i += 1) {
+    const m = document.createElement('span')
+    m.className = 'meteor'
+    m.style.left = `${Math.random() * 100}%`
+    m.style.animationDelay = `${(Math.random() * 4).toFixed(2)}s`
+    m.style.animationDuration = `${Math.floor(Math.random() * 8 + 3)}s`
+    meteorField.appendChild(m)
+  }
+}
+
+/* ---- magic-card spotlight (ported from 21st.dev) ---- */
+if (!reducedMotion) {
+  document.querySelectorAll('.proofcard').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect()
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`)
+      card.style.setProperty('--my', `${e.clientY - r.top}px`)
+    })
+  })
+}
+
 /* ---- AI twin ---- */
 const openTwin = createTwinDock({ dockEl: document.getElementById('twin') })
 document.querySelectorAll('.jn-twin').forEach((btn) =>

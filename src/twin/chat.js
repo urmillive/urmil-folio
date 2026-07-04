@@ -1,5 +1,5 @@
-/* "Ask my AI twin" — Claude-powered chat dock (server proxy at /api/twin).
-   All message rendering uses textContent — user/API strings never touch innerHTML. */
+/* "Ask my AI twin", Claude-powered chat dock (server proxy at /api/twin).
+   All message rendering uses textContent, user/API strings never touch innerHTML. */
 
 import { PERSONAS, getPersona } from '../journey/personas.js'
 
@@ -10,12 +10,12 @@ const OFFLINE_FAQ = [
   {
     match: /hire|why you|why should/i,
     reply:
-      "Honest pitch: in the Claude era you don't hire syntax — you hire system-builders. Urmil designs architectures (HLD/LLD, microservices) and ships actual systems on whatever stack the problem needs: web apps, full-stack SaaS, mobile. The proof is public — 249 open-source repos on GitHub, 11 apps on the Play Store, AI SaaS built end to end. Writing from scratch and maintaining at scale are different skills; he's shipped both. Long version: urmillive@gmail.com.",
+      "Honest pitch: in the Claude era you don't hire syntax writers, you hire system builders. Urmil designs architectures (HLD/LLD, microservices) and ships actual systems on whatever stack the problem needs: web apps, full-stack SaaS, mobile. The proof is public, 249 open-source repos on GitHub, 11 apps on the Play Store, AI SaaS built end to end. Writing from scratch and maintaining at scale are different skills; he's shipped both. Long version: urmillive@gmail.com.",
   },
   {
     match: /ai|claude|gpt|copilot|syntax|tools/i,
     reply:
-      "Frameworks are syntax; systems are thinking. In the era of Claude and AI tools, the valuable engineer isn't the one who memorised a language — it's the one who can design the system, drive the AI, and own the result on any technology. That's how Urmil works: architecture first, AI as leverage, code as the last mile. His AI-built products are live and public.",
+      "Frameworks are syntax; systems are thinking. In the era of Claude and AI tools, the valuable engineer isn't the one who memorised a language, it's the one who can design the system, drive the AI, and own the result on any technology. That's how Urmil works: architecture first, AI as leverage, code as the last mile. His AI-built products are live and public.",
   },
   {
     match: /stack|tech|skill/i,
@@ -29,12 +29,12 @@ const OFFLINE_FAQ = [
   },
   {
     match: /contact|email|reach/i,
-    reply: 'urmillive@gmail.com — or any social in the Endgame section. He replies fast; shipping fast is the brand.',
+    reply: 'urmillive@gmail.com, or any social in the Endgame section. He replies fast; shipping fast is the brand.',
   },
 ]
 
 const OFFLINE_DEFAULT =
-  "I'm the offline echo of Urmil's AI twin right now (the live model endpoint isn't reachable). Ask about his stack, experience, or why to hire him — or just email urmillive@gmail.com."
+  "I'm the offline echo of Urmil's AI twin right now (the live model endpoint isn't reachable). Ask about his stack, experience, or why to hire him, or just email urmillive@gmail.com."
 
 export const createTwinDock = ({ dockEl }) => {
   const messagesEl = dockEl.querySelector('.twin__messages')
@@ -98,7 +98,7 @@ export const createTwinDock = ({ dockEl }) => {
       addBubble(
         'twin',
         persona?.twinGreeting ||
-          "Hi — I'm Urmil's AI twin, built on his real career data. Ask me anything… or paste a job description and I'll tell you honestly how he fits it."
+          "Hi, I'm Urmil's AI twin, built on his real career data. Ask me anything… or paste a job description and I'll tell you honestly how he fits it."
       )
     }
     input.focus()

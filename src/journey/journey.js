@@ -31,8 +31,8 @@ const SCENE_SCRIPTS = {
   boot: async (scene) => {
     sfx.boot()
     const lines = scene.querySelectorAll('.crt__line')
-    await typeInto(lines[0], '> 2015 · rajkot · school computer lab', 24)
-    await typeInto(lines[1], '> print("hello, world")', 30)
+    await typeInto(lines[0], '> 2015 · rajkot · class 10 · computer lab', 24)
+    await typeInto(lines[1], '> cout << "hello, world";', 30)
     await new Promise((r) => setTimeout(r, reducedMotion ? 0 : 350))
     lines[2].textContent = 'hello, world'
     lines[2].classList.add('crt__line--out')

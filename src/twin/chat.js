@@ -25,7 +25,7 @@ const OFFLINE_FAQ = [
   {
     match: /experience|career|work/i,
     reply:
-      'Freelance (2019–22) → Fox Valley (2022) → Warelogg (2022–23) → Asite Solutions (2023–24, intern → engineer) → Upsquare Technologies (2025–now). Scroll to The Game section for the full scoresheet.',
+      'Freelance (2019–22) → Fox Valley (2022) → Warelogg, a startup built with IIT students (2022–23) → Asite (2023–25, intern → Associate Software Engineer-I, the Angular/TS years) → Upsquare (Aug 2025–now, 3–4 products at once with AI-powered workflows). Scroll to The Game for the full scoresheet.',
   },
   {
     match: /contact|email|reach/i,

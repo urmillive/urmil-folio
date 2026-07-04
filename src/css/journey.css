@@ -262,6 +262,42 @@
   max-width: 46ch;
 }
 
+/* ---- film stills — the illustrated heart of each scene ---- */
+.jart {
+  margin: 0;
+  position: relative;
+  opacity: 0;
+  translate: 0 24px;
+  transition: opacity 0.8s ease 0.15s, translate 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) 0.15s;
+}
+
+.jscene--active .jart {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.jart img {
+  display: block;
+  width: min(84vw, 21rem);
+  max-height: 34svh;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--ink) 20%, transparent);
+  rotate: -1.2deg;
+}
+
+.jscene--dark .jart img {
+  border-color: #efe9dc;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
+}
+
+@media (min-width: 980px) {
+  .jart img {
+    width: min(38vw, 26rem);
+    max-height: 42svh;
+  }
+}
+
 /* ---- decor: mandalas, clouds, night sky, story icons ---- */
 .mandala {
   position: absolute;

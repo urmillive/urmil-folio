@@ -63,12 +63,16 @@
   letter-spacing: -0.02em;
   line-height: 1.12;
   opacity: 0;
-  animation: fadeup 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  animation: fadeup 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) 1.6s forwards;
 }
 
-.f-hero__line:nth-of-type(2) {
-  animation-delay: 0.7s;
+.f-hero__line--muted {
+  animation-delay: 2s;
   color: var(--muted);
+}
+
+.f-who {
+  max-width: 62rem;
 }
 
 .f-hero__name {
@@ -81,7 +85,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: fadeup 1s cubic-bezier(0.2, 0.6, 0.2, 1) 1.2s forwards, shimmer 7s linear 2s infinite;
+  animation: fadeup 1s cubic-bezier(0.2, 0.6, 0.2, 1) 1s forwards, shimmer 7s linear 2s infinite;
   opacity: 0;
 }
 
@@ -111,7 +115,7 @@
   border: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
   box-shadow: 0 0 70px color-mix(in srgb, var(--accent) 35%, transparent);
   opacity: 0;
-  animation: fadeup 1s ease 1.7s forwards, portraitfloat 5.5s ease-in-out 3s infinite alternate;
+  animation: fadeup 1s ease 0.5s forwards, portraitfloat 5.5s ease-in-out 3s infinite alternate;
   cursor: pointer;
   -webkit-user-drag: none;
 }

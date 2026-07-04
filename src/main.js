@@ -95,6 +95,21 @@ if (!reducedMotion) {
   })
 }
 
+/* ---- 3d tilt (21st.dev pattern) ---- */
+if (!reducedMotion) {
+  document.querySelectorAll('.tiltcard').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect()
+      const px = (e.clientX - r.left) / r.width - 0.5
+      const py = (e.clientY - r.top) / r.height - 0.5
+      card.style.transform = `perspective(900px) rotateY(${px * 7}deg) rotateX(${py * -7}deg) translateY(-4px)`
+    })
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = ''
+    })
+  })
+}
+
 /* ---- AI twin ---- */
 const openTwin = createTwinDock({ dockEl: document.getElementById('twin') })
 document.querySelectorAll('.jn-twin').forEach((btn) =>

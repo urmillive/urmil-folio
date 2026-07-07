@@ -682,12 +682,12 @@ body.lock {
   line-height: 1.55;
 }
 
-/* wall v5: the proper wooden home wall, uniform square frames in a neat grid */
+/* wall v6: black gallery wall in the site palette, uniform square frames */
 .wall--wood {
   background:
-    repeating-linear-gradient(0deg, transparent 0 52px, rgba(0, 0, 0, 0.26) 52px 55px),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 160px, rgba(0, 0, 0, 0.12) 160px 163px),
-    #4a3627;
+    repeating-linear-gradient(0deg, transparent 0 52px, rgba(0, 0, 0, 0.5) 52px 55px),
+    repeating-linear-gradient(90deg, rgba(239, 233, 220, 0.035) 0 160px, rgba(0, 0, 0, 0.3) 160px 163px),
+    #17130e;
 }
 
 .wall--wood .wall__frames {
@@ -697,12 +697,15 @@ body.lock {
   justify-items: stretch;
 }
 
-.wall--wood .trophy__label { color: #f0d9b5; }
+.wall--wood .trophy__label { color: #efe9dc; }
+
+/* text glyphs like the pawn stay visible on the black wall */
+.wall--wood .trophy__icon { color: #efe9dc; }
 
 .wall--wood .wall__shelf {
-  background: repeating-linear-gradient(90deg, #6b503a 0 22px, #7d5f45 22px 44px);
-  border-top: 3px solid #c9a24a;
-  border-bottom: 3px solid #241a11;
+  background: repeating-linear-gradient(90deg, #201b14 0 22px, #2a241b 22px 44px);
+  border-top: 3px solid var(--accent);
+  border-bottom: 3px solid #000;
 }
 
 .wall--wood .frame {
@@ -722,16 +725,16 @@ body.lock {
   min-width: 0;
   justify-content: center;
   color: #17140e;
-  border: 3px double #a8842f;
+  border: 3px double var(--accent);
   outline-color: #f6efdd;
-  box-shadow: 3px 5px 0 rgba(0, 0, 0, 0.42);
+  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.65);
 }
 
 .wall--wood .frame:hover {
-  box-shadow: 4px 7px 0 rgba(0, 0, 0, 0.5), 0 0 16px rgba(216, 178, 90, 0.35);
+  box-shadow: 5px 8px 0 rgba(0, 0, 0, 0.75), 0 0 18px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
-.wall--wood .frame::before { background: #d8b25a; }
+.wall--wood .frame::before { background: var(--accent); }
 
 /* everything hangs square on this wall */
 .wall--wood .frame--round,
@@ -741,7 +744,7 @@ body.lock {
   min-width: 0;
 }
 
-.wall--wood .frame--more { border-style: dashed; border-color: #c9a24a; }
+.wall--wood .frame--more { border-style: dashed; border-color: color-mix(in srgb, var(--accent) 70%, #f6efdd); }
 
 #positions .pos__row {
   border: 2px solid var(--ink);

@@ -19,13 +19,31 @@ document.documentElement.classList.add('js')
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 /* ---- buttery inertial scroll ---- */
+let lenis = null
 if (!reducedMotion) {
-  const lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1.05 })
+  lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1.05 })
   const raf = (t) => {
     lenis.raf(t)
     requestAnimationFrame(raf)
   }
   requestAnimationFrame(raf)
+}
+
+/* ---- back to top ---- */
+const toTopBtn = document.getElementById('to-top')
+if (toTopBtn) {
+  const toggleToTop = () => {
+    toTopBtn.classList.toggle('show', window.scrollY > 600)
+  }
+  window.addEventListener('scroll', toggleToTop, { passive: true })
+  toggleToTop()
+  toTopBtn.addEventListener('click', () => {
+    if (lenis) {
+      lenis.scrollTo(0)
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  })
 }
 
 /* ---- scroll reveals ---- */

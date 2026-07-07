@@ -257,6 +257,16 @@
     return x > rect.left && x < rect.right && y > rect.top && y < rect.bottom;
   }
 
+  // while a game is on (cursor over the board) the cat goes and sits right
+  // after the urmil.live brand text in the topbar, like a good spectator
+  function perchPoint() {
+    const brand = document.getElementById("brand");
+    if (!brand || brand.offsetParent === null) return null;
+    const r = brand.getBoundingClientRect();
+    // feet on the same line as the text: sprite is 32px tall, pos is its centre
+    return [r.right + 26, r.bottom - 16];
+  }
+
   function nearestEdgePoint(rect, x, y) {
     const dLeft = x - rect.left;
     const dRight = rect.right - x;
@@ -279,14 +289,28 @@
     }
     let targetX = mousePosX;
     let targetY = mousePosY;
+    let perching = false;
     if (rect && inRect(rect, targetX, targetY)) {
-      [targetX, targetY] = nearestEdgePoint(rect, targetX, targetY);
+      const perch = perchPoint();
+      if (perch && !inRect(rect, perch[0], perch[1])) {
+        [targetX, targetY] = perch;
+        perching = true;
+      } else {
+        [targetX, targetY] = nearestEdgePoint(rect, targetX, targetY);
+      }
     }
     const diffX = nekoPosX - targetX;
     const diffY = nekoPosY - targetY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
     if (distance < nekoSpeed || distance < 48) {
+      // settle exactly on the perch so the cat lines up with the brand text
+      if (perching && distance > 1) {
+        nekoPosX = targetX;
+        nekoPosY = targetY;
+        nekoEl.style.left = `${nekoPosX - 16}px`;
+        nekoEl.style.top = `${nekoPosY - 16}px`;
+      }
       idle();
       return;
     }

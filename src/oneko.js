@@ -237,10 +237,53 @@
     idleAnimationFrame += 1;
   }
 
+  // the chessboard is a no-go zone: the cat waits at the edge instead of
+  // walking over the pieces mid-game
+  const NEKO_MARGIN = 20;
+
+  function boardRect() {
+    const board = document.getElementById("board");
+    if (!board || board.offsetParent === null) return null;
+    const r = board.getBoundingClientRect();
+    return {
+      left: r.left - NEKO_MARGIN,
+      right: r.right + NEKO_MARGIN,
+      top: r.top - NEKO_MARGIN,
+      bottom: r.bottom + NEKO_MARGIN,
+    };
+  }
+
+  function inRect(rect, x, y) {
+    return x > rect.left && x < rect.right && y > rect.top && y < rect.bottom;
+  }
+
+  function nearestEdgePoint(rect, x, y) {
+    const dLeft = x - rect.left;
+    const dRight = rect.right - x;
+    const dTop = y - rect.top;
+    const dBottom = rect.bottom - y;
+    const min = Math.min(dLeft, dRight, dTop, dBottom);
+    if (min === dLeft) return [rect.left, y];
+    if (min === dRight) return [rect.right, y];
+    if (min === dTop) return [x, rect.top];
+    return [x, rect.bottom];
+  }
+
   function frame() {
     frameCount += 1;
-    const diffX = nekoPosX - mousePosX;
-    const diffY = nekoPosY - mousePosY;
+    const rect = boardRect();
+    if (rect && inRect(rect, nekoPosX, nekoPosY)) {
+      [nekoPosX, nekoPosY] = nearestEdgePoint(rect, nekoPosX, nekoPosY);
+      nekoEl.style.left = `${nekoPosX - 16}px`;
+      nekoEl.style.top = `${nekoPosY - 16}px`;
+    }
+    let targetX = mousePosX;
+    let targetY = mousePosY;
+    if (rect && inRect(rect, targetX, targetY)) {
+      [targetX, targetY] = nearestEdgePoint(rect, targetX, targetY);
+    }
+    const diffX = nekoPosX - targetX;
+    const diffY = nekoPosY - targetY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
     if (distance < nekoSpeed || distance < 48) {
@@ -271,6 +314,10 @@
 
     nekoPosX = Math.min(Math.max(16, nekoPosX), window.innerWidth - 16);
     nekoPosY = Math.min(Math.max(16, nekoPosY), window.innerHeight - 16);
+
+    if (rect && inRect(rect, nekoPosX, nekoPosY)) {
+      [nekoPosX, nekoPosY] = nearestEdgePoint(rect, nekoPosX, nekoPosY);
+    }
 
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
